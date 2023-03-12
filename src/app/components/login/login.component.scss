@@ -1,0 +1,126 @@
+.mo-wb-login-mobio {
+  height: 100vh;
+  background-color: #f4f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  .mo-wb-login-mobio-content {
+    position: fixed;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px #e6e8ed solid;
+    max-width: 704px;
+    background-color: #ffffff;
+    display: flex;
+  }
+
+  .mo-wb-login-mobio-content-left {
+    background-color: #009cdb;
+    width: 284px;
+    height: 100%;
+    text-align: center;
+
+    .mo-wb-login-mobio-content-left-img {
+      padding-top: 28px;
+      padding-bottom: 24px;
+    }
+  }
+
+  .mo-wb-login-mobio-content-right {
+    background-color: #ffffff;
+    width: 420px;
+    display: flex;
+    align-items: center;
+    padding: 20px 42px;
+  }
+
+  .mo-wb-login-mobio-input-group {
+    border-radius: 4px !important;
+    border: solid 1px #e6e8ed;
+    position: relative;
+
+    .mo-wb-login-mobio-input-group-image {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 12px;
+      padding-right: 5px;
+      position: absolute;
+    }
+
+    .mo-wb-login-mobio-input {
+      background: none;
+      border: none;
+      overflow: hidden;
+      font-size: 12px;
+      width: 100%;
+      height: 28px;
+      padding-left: 31px;
+    }
+
+    .mo-wb-login-mobio-input-group-password-eye {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      right: 0px;
+      padding-right: 12px;
+    }
+
+    .mo-wb-login-mobio-input::placeholder {
+      color: rgba(78, 78, 78, 0.5);
+      font-size: 12px;
+    }
+
+    .mo-wb-login-mobio-input:focus {
+      border-color: inherit;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      outline: none;
+    }
+
+    input:-webkit-autofill {
+      border: none;
+      // padding-left: 10px;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+}
+
+@media only screen and (max-width: 704px) {
+  .mo-wb-login-mobio {
+    width: 100vw;
+
+    .mo-wb-login-mobio-content {
+      display: block;
+      width: 100%;
+      position: absolute;
+      -webkit-transform: none;
+      transform: none;
+      top: 0;
+      left: 0;
+    }
+
+    .mo-wb-login-mobio-content-left {
+      width: 100%;
+      height: auto;
+      text-align: center;
+    }
+
+    .mo-wb-login-mobio-content-right {
+      background-color: #ffffff;
+      width: 100%;
+      padding: 20px 20px;
+    }
+  }
+}

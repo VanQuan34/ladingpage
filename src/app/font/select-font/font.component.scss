@@ -1,0 +1,20 @@
+.mo-icn-JB_position_right{
+  margin-left: 10px !important;
+}
+.buttonAdd{
+  border: 2px solid gray;
+  height: 132px;
+  width: 249px;
+  border: solid 1px #e6e8ed;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  &:hover{
+    border: solid 1px #009cdb;
+
+  }
+}
+.selected {
+  border: solid 1px #009cdb;
+}
+

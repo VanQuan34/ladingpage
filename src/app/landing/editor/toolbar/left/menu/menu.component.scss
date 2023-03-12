@@ -1,0 +1,8 @@
+.mo-wb-landing-menu {
+  transition: left 0.25s;
+  left: -1000px;
+  position: fixed;
+  height: calc(100vh - 88px);
+  top: 88px;
+  z-index: 3000;
+}

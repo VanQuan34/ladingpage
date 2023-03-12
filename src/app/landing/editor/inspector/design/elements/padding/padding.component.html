@@ -1,0 +1,61 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Khoảng đệm'"
+  [isOpen]="isOpen">
+
+  <!-- Vertical -->
+  <div class="">
+    <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Dọc' | translate}}</div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="mo-wb-calc-w-80px">
+        <mo-wb-components-slider #slider
+          [value]="paVer"
+          [min]="0"
+          [max]="50"
+          [step]="1"
+          [classInclude]=""
+          (onValueChanged)="handleOnVerticalChange($event)"
+          (onInputValueChanged)="handleOnInputVerticalSliderValueChanged($event)">
+        </mo-wb-components-slider>
+      </div>
+      <mo-wb-components-input-number
+        [step]="1"
+        [value]="paVer"
+        [max]="50"
+        [min]="0"
+        [unit]="'px'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnVerticalChange($event)">
+      </mo-wb-components-input-number>
+    </div>
+  </div>
+
+  <!-- Horizontal -->
+  <div class="mo-wb-pt-20px">
+    <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Ngang' | translate}}</div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="mo-wb-calc-w-80px">
+        <mo-wb-components-slider #slider
+          [value]="paHor"
+          [min]="0"
+          [max]="50"
+          [step]="1"
+          [classInclude]=""
+          (onValueChanged)="handleOnHorizontalChange($event)"
+          (onInputValueChanged)="handleOnInputHorizontalSliderValueChanged($event)">
+        </mo-wb-components-slider>
+      </div>
+      <mo-wb-components-input-number
+        [step]="1"
+        [value]="paHor"
+        [max]="50"
+        [min]="0"
+        [unit]="'px'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnHorizontalChange($event)">
+      </mo-wb-components-input-number>
+    </div>
+  </div>
+
+</mo-wb-components-toggle_panel-section>

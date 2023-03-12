@@ -1,0 +1,66 @@
+<mo-wb-components-modal
+  #modal
+  [title]="label | translate"
+  [width]="width + 'px'"
+  [height]="'auto'"
+  [zIndex]="zIndex"
+  [ignoreButtonClose]="false">
+
+  <div class="large-container d-flex flex-column mo-icon-setting-container h-100">
+    <div class="mo-wb-pl-40px mo-wb-pt-12px mo-wb-pr-40px mo-wb-pb-4px position-relative">
+      <div>
+        <mo-wb-components-input
+          #input
+          [title]="titleInput | translate"
+          (onValueChanged)="handlerInputText($event)"
+          (onInputError)="checkInputError($event)"
+          [isRequired]="true"
+          [error]="error">
+        </mo-wb-components-input>
+      </div>
+      <div class="mo-wb-font-head-4s mo-wb-mt-16px">{{'i18n_font_style' | translate}}</div>
+      <div class="mo-wb-font-head-4 mo-wb-mt-8px mo-wb-color-999999">{{'i18n_format_valid_file' | translate}}</div>
+      <div class="mo-wb-font-head-4 mo-wb-mt-8px">
+        <mo-wb-upload-font-file
+          [title]="'Light'"
+          [classStyleTitle]="''"
+          [buttonTriggerClick]="'i18n_upload_file' | translate"
+          (onReadFileSuccess)="onReadFileSuccess($event)"
+        >
+        </mo-wb-upload-font-file>
+        <mo-wb-upload-font-file
+          [title]="'Regular'"
+          [classStyleTitle]="'mo-wb-font-head-4'"
+          [buttonTriggerClick]="'i18n_upload_file' | translate"
+          (onReadFileSuccess)="onReadFileSuccess($event)"
+        >
+        </mo-wb-upload-font-file>
+        <mo-wb-upload-font-file
+          [title]="'Bold'"
+          [classStyleTitle]="'mo-wb-font-head-4s'"
+          [buttonTriggerClick]="'i18n_upload_file' | translate"
+          (onReadFileSuccess)="onReadFileSuccess($event)"
+        >
+        </mo-wb-upload-font-file>
+      </div>
+      <div
+        *ngIf="emptyFiles"
+        class="mo-wb-font-head-5 mo-wb-color-ff5454 mo-wb-bottom-3px mo-wb-left-40px mo-wb-mb-5px">
+        {{'i18n_valid_empty_message'| translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-container">
+    <mo-wb-components-button
+        label="{{'i18n_save' | translate}}"
+        (onClick)="handlerCreateFont($event)">
+      </mo-wb-components-button>
+    <mo-wb-components-button
+      [disable]="loading"
+      [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

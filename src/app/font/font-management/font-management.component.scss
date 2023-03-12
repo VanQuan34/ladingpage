@@ -1,0 +1,30 @@
+.listFont{
+    border: 1px solid #e6e8ed !important;
+    
+
+}
+.titleFont{
+    white-space: pre !important;
+}
+
+.button-delete{
+    display: none !important;
+    position: absolute !important;
+    top: -5px !important;
+}
+.item{
+    position: relative !important;
+    padding-left: 30px !important;
+    &:hover .button-delete{
+        display: block !important;
+    }
+    
+} 
+.checkbox-item{
+    position: absolute;
+    top:11px;
+    left: 11px; 
+}
+.headerFont{
+    background-color: #e6eef5;
+}

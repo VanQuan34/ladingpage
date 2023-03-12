@@ -1,0 +1,119 @@
+<div class="{{classInclude}} mo-wb-px-20px ">
+  <div class="mo-wb-pt-20px mo-wb-pb-12px d-flex align-items-center"> 
+    <mo-wb-components-dropdown
+      [label]="''"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="grdTypes"
+      [selectedId]="gradient && gradient.type"
+      [key]="'id'"
+      [keyName]="'title'"
+      [classInclude]="'mo-wb-w-100px'"
+      (onSelectedItem)="handleOnSelectGradientType($event);">
+    </mo-wb-components-dropdown>
+
+    <mo-wb-components-button
+      [classInclude]="'mo-wb-ml-12px'"
+      [label]="'Lưu màu'"
+      [disable]="false"
+      (click)="handleOnSaveMyColorClick($event)">
+    </mo-wb-components-button>
+
+  </div>
+
+  <div #bgEl
+    class="mo-wb-h-180px w-100 position-relative"
+    [style.background]="background">
+    <mo-wb-components-color-set-gradient-center_point
+      *ngIf="gradient && gradient.type==='center'"
+      [parentEl]="bgEl"
+      [centerLeft]="gradient.centerPos.left"
+      [centerTop]="gradient.centerPos.top"
+      (onCenterPointChanged)="handleOnCenterPointChanged($event);">
+    </mo-wb-components-color-set-gradient-center_point>
+  </div>
+
+  <div #sliderEl 
+    class="mo-wb-mt-20px mo-wb-mb-20px position-relative">
+
+    <div #slider
+      class="slider"
+      [style.background]="background"
+      (mouseout)="handleOnSliderMouseOut($event, sliderEl);"
+      (mouseover)="handleOnSliderMouseOver($event, sliderEl);"
+      (click)="handleOnSelectSliderColorClick($event, sliderEl)">
+      <div *ngIf="isShowPicker" 
+        class="slider-item-picker"
+        [style.left]="pickerLeft+'px'">
+        <i class="mo-icn-pvdemo_plus"></i>
+      </div>
+    </div>
+
+    <ng-container *ngIf="gradient">
+      <div *ngFor="let grdColorItem of gradient.colors; let i = index;"
+        class="slider-color-item none-selection"
+        [ngClass]="{'selected' : selectedColorId === grdColorItem.id}"
+        [style.background-color]="grdColorItem.color.color"
+        [style.left]="(grdColorItem.left - 9)+'px'"
+        (click)="handleOnGradientItemClick($event, sliderEl, grdColorItem);"
+        (mousedown)="handleOnColorMousedown($event, grdColorItem);">
+        <div class="slider-color-item-remove"
+          (click)="handleOnRemoveGradientColorClick($event, grdColorItem.id);">
+          <i class="mo-icn-close-popup"></i>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div *ngIf="gradient && gradient.type === 'line'"
+    class="mo-wb-mb-20px">
+    <div class="mo-wb-font-head-4s">{{'i18n_corner' | translate}}</div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="mo-wb-calc-w-80px">
+        <mo-wb-components-slider #slider
+          [value]="gradient && gradient.angle"
+          [min]="0"
+          [max]="360"
+          [step]="1"
+          [classInclude]=""
+          (onValueChanged)="handleOnAngleValueChanged($event)"
+          (onInputValueChanged)="handleOnAngleSliderInputValueChanged($event)">
+        </mo-wb-components-slider>
+      </div>
+      <mo-wb-components-input-number
+        [step]="1"
+        [value]="gradient && gradient.angle"
+        [max]="360"
+        [min]="0"
+        [unit]="''"
+        [enable]="true"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnAngleValueChanged($event)">
+      </mo-wb-components-input-number>
+    </div>
+  </div>
+
+  <div *ngIf="myGrdColors && myGrdColors.length" 
+    class="mo-wb-mb-20px">
+    <div class="mo-wb-font-head-4s">{{'Màu của tôi' | translate}}</div>
+    
+    <div class="mo-wb-mt-12px">
+      <div class=" d-flex flex-wrap flex-gap-12px"
+        [style.gap]="'8px'">
+        <div *ngFor="let item of myGrdColors; let i = index;"
+          class="my-color-item"
+          [ngClass]="{'selected' : mySelectedId === item.id}"
+          [style.background]="getMyGradientBackground(item)"
+          (click)="handleOnMyGradientColorClick($event, item);">
+          <div class="slider-color-item-remove"
+            (click)="handleOnRemoveGradientItem($event, item, i);">
+            <i class="mo-icn-close-popup"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

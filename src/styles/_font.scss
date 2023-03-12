@@ -1,0 +1,143 @@
+@font-face {
+  font-family: SFUIText-Regular;
+  src: url(../assets/fonts/SFUIText-Regular.ttf) format("truetype");
+}
+
+
+@font-face {
+  font-family: SFUIText-Medium;
+  src: url(../assets/fonts/SFUIText-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: SFUIText-Semibold;
+  src: url(../assets/fonts/SFUIText-Semibold.ttf) format("truetype");
+}
+$SFUIText-Regular: SFUIText-Regular, Arial, Helvetica, sans-serif;
+$SFUIText-Medium: SFUIText-Medium, Arial, Helvetica, sans-serif;
+$SFUIText-Semibold: SFUIText-Semibold, Arial, Helvetica, sans-serif;
+
+$fontSize: 2px 4px 6px 8px 9px 10px 11px 12px 13px 14px 15px 16px 17px 18px 19px 20px 21px 22px 24px 25px 26px 30px 32px
+  35px 36px 40px 46px 50px 60px 64px 75px 80px 85px 88px 100px 118px 120px 140px 143px 150px 160px 190px 218px;
+$line-heights: normal 12px 15px 18px 20px 24px 27px 30px 36px;
+
+
+.#{$prefixCss}font-head-1s {
+  font-size: 18px !important;
+  font-family: $SFUIText-Semibold !important;
+  line-height: 27px;
+}
+
+// .#{$prefixCss}font-head-1m {
+//   font-size: 18px !important;
+//   font-family: $SFUIText-Medium !important;
+//   line-height: 27px;
+// }
+
+.#{$prefixCss}font-head-1 {
+  font-size: 18px !important;
+  font-family: $SFUIText-Regular !important;
+  line-height: 27px;
+}
+
+.#{$prefixCss}font-head-2s {  
+  font-size: 16px !important;
+  font-family: $SFUIText-Semibold !important;
+  line-height: 24px;
+}
+
+// .#{$prefixCss}font-head-2m {
+//   font-size: 16px !important;
+//   font-family: $SFUIText-Medium !important;
+//   line-height: 24px;
+// }
+
+.#{$prefixCss}font-head-2 {
+  font-size: 16px !important;
+  font-family: $SFUIText-Regular !important;
+  line-height: 24px;
+}
+
+.#{$prefixCss}font-head-3s {
+  font-size: 13px !important;
+  font-family: $SFUIText-Semibold !important;
+  line-height: 20px;
+}
+
+// .#{$prefixCss}font-head-3m {
+//   font-size: 13px !important;
+//   font-family: $SFUIText-Medium !important;
+//   line-height: 20px;
+// }
+
+.#{$prefixCss}font-head-3 {
+  font-size: 13px !important;
+  font-family: $SFUIText-Regular !important;
+  line-height: 20px;
+}
+
+.#{$prefixCss}font-head-4s {
+  font-size: 12px !important;
+  font-family: $SFUIText-Semibold !important;
+  line-height: 18px;
+}
+
+// .#{$prefixCss}font-head-4m {
+//   font-size: 12px !important;
+//   font-family: $SFUIText-Medium !important;
+//   line-height: 18px;
+// }
+
+.#{$prefixCss}font-head-4 {
+  font-size: 12px !important;
+  font-family: $SFUIText-Regular !important;
+  line-height: 18px;
+}
+
+.#{$prefixCss}font-head-5s {
+  font-size: 10px !important;
+  font-family: $SFUIText-Semibold !important;
+  line-height: normal;
+}
+
+// .#{$prefixCss}font-head-5m {
+//   font-size: 10px !important;
+//   font-family: $SFUIText-Medium !important;
+//   line-height: normal;
+// }
+
+.#{$prefixCss}font-head-5 {
+  font-size: 10px !important;
+  font-family: $SFUIText-Regular !important;
+  line-height: normal;
+}
+
+.#{$prefixCss}font-family-semibold {
+  font-family: $SFUIText-Semibold !important;
+}
+
+.#{$prefixCss}font-family-regular {
+  font-family: $SFUIText-Regular !important;
+}
+
+.#{$prefixCss}font-family-medium {
+  font-family: $SFUIText-Medium !important;
+}
+
+@each $val in $fontSize {
+  .#{$prefixCss}font-size-#{$val} {
+    font-size: $val !important;
+  }
+
+  .#{$prefixCss}font-size-before-#{$val} {
+    &:before {
+      font-size: $val !important;
+    }
+  }
+}
+
+@each $val in $line-heights {
+  .#{$prefixCss}line-height-#{$val} {
+    line-height: $val !important;
+  }
+}

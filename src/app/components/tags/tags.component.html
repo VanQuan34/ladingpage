@@ -1,0 +1,59 @@
+<div class="mo-wb-tags-container {classInclude}">
+  <div class="mo-wb-tags-label mo-wb-color-999999 mo-wb-mt-4px">
+    <mo-wb-components-label
+      [label]="label"
+    >
+    </mo-wb-components-label>
+  </div>
+  <div
+  MoWbClickOutside
+  class="mo-wb-tags-items {{isFocus ? 'mo-wb-focus-border' : 'mo-wb-no-focus-border'}} {{emptyError ? 'mo-wb-tag-border-error' : ''}}"
+  (clickOutside)="handleOnClickOutside($event)"
+  (click)="handleOnClickTagsInput($event)"
+  >
+    <ng-container *ngFor="let item of selectedItems">
+      <mo-wb-components-tags-item
+        #tagsItem
+        [item]="item"
+        (removeItem)="handlerRemove($event)"
+        >
+      </mo-wb-components-tags-item>
+    </ng-container>
+    <input 
+      #input
+      type="text" 
+      class="mo-wb-tags-input" 
+      [placeholder]="'i18n_import_content' | translate"
+      (keyup)="handleOnKeyUp($event, input.value)"
+      (input)="handleInputSearch($event, input)"/>
+    <div class="mo-wb-drop-down {{height}} {{isFocus ? 'd-block' : 'd-none'}} {{isFocus? 'mo-wb-tags-border' : ''}}">
+      <virtual-scroller
+        #myScroll
+        *ngIf="viewData && viewData.length >5"
+        [items]="viewData"
+        (vsEnd)="fetchMoreData($event)"
+        class="w-100 mo-lib-overflow-auto h-100 virtual-scroller ">
+        <div *ngFor="let item of myScroll.viewPortItems">
+          <div class="mo-wb-drop-down-item" (click)="handlerSelectDropdown($event, item)">{{item && item.tag_name}}</div>
+        </div>
+      </virtual-scroller>
+      <div *ngIf="viewData  && viewData.length && viewData.length <= 5"
+        class="h-100 w-100">
+        <ng-container *ngFor="let item of viewData; index as i">
+          <div class="mo-wb-drop-down-item" (click)="handlerSelectDropdown($event, item)">{{item && item.tag_name}}</div>
+        </ng-container>
+      </div>
+      <div *ngIf="isLoaded && !viewData.length && searchValue"
+          class="w-100 h-100 d-flex justify-content-center align-items-center">
+          <span class="mo-wb-font-4s mo-wb-color-999999">{{ 'i18n_no_result_found' | translate}}</span>
+        </div>
+      <mo-wb-components-spinner *ngIf="loading" [width]="'30px'" [height]="'30px'"></mo-wb-components-spinner>
+    </div>
+  
+    <div *ngIf="emptyError"
+      class="msg-error mo-wb-font-head-4 mo-wb-font-size-10px mo-wb-color-ff5454">
+      {{emptyErrorMsg | translate}}
+    </div>
+
+  </div>
+</div>

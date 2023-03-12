@@ -1,0 +1,28 @@
+
+<div class="d-flex align-items-center justify-content-between {{ classInclude }}">
+  <mo-wb-components-dropdown
+    #posSelect
+    [label]="''"
+    [items]="rowItems"
+    [selectedId]="selectedRowId"
+    [maxLines]="10"
+    [key]="'id'"
+    [keyName]="'id'"
+    [dropdownTooltip]="'Hàng'"
+    [classInclude]="'mo-wb-w-90px'"
+    (onSelectedItem)="handleOnRowChanged($event);">
+  </mo-wb-components-dropdown>
+
+  <mo-wb-components-dropdown
+    #posSelect
+    [label]="''"
+    [items]="colItems"
+    [selectedId]="selectedColId"
+    [maxLines]="10"
+    [key]="'id'"
+    [keyName]="'id'"
+    [dropdownTooltip]="'Cột'"
+    [classInclude]="'mo-wb-w-90px'"
+    (onSelectedItem)="handleOnColChanged($event);">
+  </mo-wb-components-dropdown>
+</div>

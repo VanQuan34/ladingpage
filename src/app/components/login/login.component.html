@@ -1,0 +1,144 @@
+<!-- <mo-wb-login-mobio *ngIf="typeLogin === 'mobio'"></mo-wb-login-mobio> -->
+<!-- <mo-wb-login-sunworld *ngIf="typeLogin === 'sunworld'"></mo-wb-login-sunworld>
+<mo-wb-login-pvcombank *ngIf="typeLogin === 'pvcombank'"></mo-wb-login-pvcombank> -->
+<div class="mo-wb-login-mobio w-100 d-flex">
+  <div *ngIf="!isChangePass && !account_id" class="mo-wb-login-mobio-content">
+    <div class="mo-wb-login-mobio-content-left">
+      <div class="mo-wb-px-32px d-flex flex-column align-items-center">
+        <div class="mo-wb-login-mobio-content-left-img">
+          <img [src]="domain_static+'mobio-logo-v3.svg'" class="w-98 mo-wb-max-width-130px">
+        </div>
+        <span class="mo-wb-color-ffffff mo-wb-font-head-3s">{{'i18n_not_account_login'| translate}}</span>
+        <div class="mo-wb-color-ffffff mo-wb-font-head-4 text-center mo-wb-my-16px"
+          [innerHtml]="'i18n_mobio_page_login_introduce' | translate"></div>
+        <mo-wb-components-button (onClick)="handleRegister()" [type]="'transparent'" [label]="'i18n_register_trial '">
+        </mo-wb-components-button>
+        <div [class.mo-wb-mt-22px]="!hasRecaptcha" [class.mo-wb-mt-62px]="hasRecaptcha || isShowDomainInput"
+          class="mo-wb-h-56px mo-wb-overflow-hidden">
+          <img [src]="domain_static+'icon-bg-login.svg'" class="w-98 mo-wb-max-width-193px">
+        </div>
+      </div>
+    </div>
+    <div class="mo-wb-login-mobio-content-right">
+      <div>
+        <span class="mo-wb-font-head-1s">{{'i18n_login' | translate | uppercase}}</span>
+        <div class="mo-wb-mt-8px mo-wb-mb-20px">{{'i18n_you_enter_your_username_and_password'| translate }}
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="controls">
+              <div [ngClass]="{'mo-wb-border-error-general':messErrorUsers}"
+                class="mo-wb-login-mobio-input-group mo-wb-bg-ffffff">
+                <span class="mo-wb-login-mobio-input-group-image" id="basic-user-name">
+                  <i class="mo-icn-login_id mo-wb-color-c1c1c1"></i>
+                </span>
+                <input [disabled]="isLoading" type="text" class="mo-wb-login-mobio-input" name="userNameValidate"
+                  (keyup.enter)="login()" (keyup)="keyupUserNameInput($event,userNameInput)"
+                  (blur)="keyupUserNameInput($event,userNameInput)" placeholder="{{'i18n_username' | translate}}"
+                  title="" required #userNameInput />
+              </div>
+              <!-- email -->
+              <div *ngIf="messErrorUsers" class="mo-wb-message-error mo-wb-mt-4px">
+                <div [hidden]="!messErrorUsers">
+                  {{messErrorUsers | translate}}
+                </div>
+              </div>
+              <!-- email validate -->
+            </div>
+          </div>
+          <div class="col-12 mo-wb-mt-16px">
+            <div class="controls">
+              <div [ngClass]="{'mo-wb-border-error-general':messErrorPass}" class="mo-wb-login-mobio-input-group">
+                <span class="mo-wb-login-mobio-input-group-image" id="basic-user-name">
+                  <i class="mo-icn-signup_password mo-wb-color-c1c1c1"></i>
+                </span>
+                <input [disabled]="isLoading" [type]="type" class="mo-wb-login-mobio-input mo-wb-pr-32px" name="passwordValidate"
+                  (keyup)="keyupPasswordInput($event,passwordInput)" (blur)="keyupPasswordInput($event,passwordInput)"
+                  (keyup.enter)="login()" placeholder="{{'i18n_password' | translate}}"
+                  aria-describedby="basic-password" title="" required #passwordInput>
+
+                <mo-wb-components-tooltip #tooltip class="mo-wb-login-mobio-input-group-password-eye"
+                  [iconClass]="!isShowPassword? 'mo-icn-show-pass mo-wb-font-size-16px' : 'mo-icn-hide-pass mo-wb-font-size-16px'"
+                  (click)="toggleShowPassword()" [content]="!isShowPassword? 'i18n_show' : 'i18n_hidden'"
+                  [width]="!isShowPassword? 50 : 40">
+                </mo-wb-components-tooltip>
+                
+              </div>
+              <div *ngIf="messErrorPass" class="mo-wb-message-error mo-wb-mt-4px ">
+                <div [hidden]="!messErrorPass">
+                  {{messErrorPass | translate}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="isShowDomainInput" class="col-12 mo-wb-mt-16px">
+            <div class="controls">
+              <div [ngClass]="{'mo-wb-border-error-general':messErrorDomain}"
+                class="mo-wb-login-mobio-input-group d-flex">
+                <div class="mo-wb-login-mobio-input-group-image" id="basic-user-name">
+                  <i class="mo-icn-signup_password mo-wb-color-c1c1c1"></i>
+                </div>
+                <input [disabled]="isLoading" type="text" class="mo-wb-login-mobio-input mo-wb-login-color-4e4e4e"
+                  name="domainValidate" (keyup)="keyupDomainInput($event,domainInput)"
+                  (blur)="keyupDomainInput($event,domainInput)" (keyup.enter)="login()"
+                  placeholder="{{'Domain' | translate}}" title="" required #domainInput>
+              </div>
+              <div *ngIf="messErrorDomain" class="mo-wb-message-error mo-wb-mt-4px">
+                <div [hidden]="!messErrorDomain">
+                  {{messErrorDomain | translate}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="hasRecaptcha" class="col-12 mo-wb-mt-20px">
+            <re-captcha #reCaptcha (resolved)="resolved($event)" siteKey="6Ld4aokaAAAAAKBMG31QUAvhPNza8YyL85UhYV6c">
+            </re-captcha>
+          </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mo-wb-mt-16px ">
+          <mo-wb-components-button [label]="'i18n_login'" [disable]="isLoading" [isPending]="isLoading"
+            [classIconRight]="'mo-icn-forward mo-wb-pl-12px'" (onClick)="login()">
+          </mo-wb-components-button>
+          <mo-wb-components-button (onClick)="forgotPassword()" [type]="'text-blue'"
+            [label]="'i18n_forgot_password_login'">
+          </mo-wb-components-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isChangePass && account_id" class="w-100 mo-wb-px-40px mo-wb-py-20px mo-wb-login-mobio-content">
+    <div class="w-100">
+      <!-- <mo-wb-components-input-valid #ConfirmPassword [validRequired]="validRequiredPass" [label]="'i18n_old_password'"
+        [item]="account" fieldNameBind="old_password" [placeholder]="'i18n_fill_password_confirm'">
+      </mo-wb-components-input-valid> -->
+      <div class="mo-wb-pt-16px">
+        <!-- <mo-wb-components-pattern [config]="config.password" label="i18n_password"
+          [validMinLength]="{ length: config.password.length_min, message: 'i18n_user_min_length', interpolateParams: { length: config.password.length_min }}"
+          [validMaxLength]="{length: config.password.length_max, message: 'i18n_user_max_length', interpolateParams: { length: config.password.length_max }}"
+          [validPattern]="validPatternPass" [item]="account" fieldNameBind="new_password"
+          [placeholder]="'i18n_fill_password'" [modeGenerate]="true" [modeValid]="true"
+          [validRequired]="validRequiredPass" (onGeneratePassword)="autoCreatePassword($event)"
+          [modeViewPassword]="true">
+        </mo-wb-components-pattern> -->
+      </div>
+      <div class="mo-wb-pt-16px">
+        <!-- <mo-wb-components-pattern #ConfirmPassword [validRequired]="validRequiredPass"
+          [validMinLength]="{ length: config.password.length_min, message: 'i18n_user_min_length', interpolateParams: { length: config.password.length_min }}"
+          [validMaxLength]="{length: config.password.length_max, message: 'i18n_user_max_length', interpolateParams: { length: config.password.length_max }}"
+          [config]="config.password" [label]="'i18n_password_confirm'" [item]="account" fieldNameBind="confirm_password"
+          [placeholder]="'i18n_fill_password_confirm'" [modeViewPassword]="true">
+        </mo-wb-components-pattern> -->
+      </div>
+      <div class="mo-wb-pt-16px d-flex">
+        <!-- <mo-wb-components-button (onClick)="savePass()" [type]="'blue-solid'" [label]="'i18n_save'">
+        </mo-wb-components-button>
+        <mo-wb-components-button [classInclude]="'mo-wb-ml-12px'" (onClick)="cancelChangePass()" [type]="'dark'"
+          [label]="'i18n_cancel'">
+        </mo-wb-components-button> -->
+      </div>
+    </div>
+  </div>
+  <div class="position-fixed mo-wb-right-12px mo-wb-bottom-4px mo-wb-color-c1c1c1 mo-wb-font-head-3">
+    {{"i18n_label_version_web" | translate:{version:webVersion} }}
+  </div>
+</div>

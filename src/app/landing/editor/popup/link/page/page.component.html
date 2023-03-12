@@ -1,0 +1,24 @@
+<div class="mo-wb-landing-editor-comp-popup-link-page">
+  <div class="d-flex align-items-center mo-wb-mb-8px">
+    <div class="mo-wb-font-head-4s">
+      {{'i18n_Link_page' | translate}}
+    </div>
+    <mo-wb-components-tooltip [content]="'Di chuyển đến trang bạn muốn' | translate"
+    [width]="218"
+    [maxWidth]="218"
+    [classInclude]="'mo-wb-ml-8px'">
+  </mo-wb-components-tooltip>
+</div>
+  <mo-wb-components-dropdown
+    [items]="pages">
+
+  </mo-wb-components-dropdown>
+
+
+  <mo-wb-components-checkbox [classInclude]="'mo-wb-mt-8px mo-wb-mb-16px'"
+    [label]="'i18n_open_new_tab' | translate"
+    [checked]=""
+    (onChangeChecked)="handleOnOpenNewTap($event);">
+  </mo-wb-components-checkbox>
+
+</div>

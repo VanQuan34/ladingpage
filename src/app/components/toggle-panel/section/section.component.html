@@ -1,0 +1,22 @@
+<div class="mo-wb-inspect-section w-100 mo-wb-bg-color-white 
+    mo-wb-border-bottom-general none-selection">
+  <!-- Header -->
+  <div class="mo-wb-h-44px mo-wb-bg-color-gray1 w-100 align-items-center 
+    justify-content-between d-flex mo-wb-pl-20px mo-wb-pr-20px mo-wb-cursor-pointer"
+    (click)="handleOnToggleClick($event);">
+    <div class="d-flex align-items-center">
+      <div class="{{ isOpen ? 'mo-icn-up-arrow' : 'mo-icn-down-arrow' }} mo-wb-mr-8px mo-wb-font-size-12px"></div>
+      <div class="mo-wb-font-head-3s">{{title.toUpperCase()}}</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class=" {{hasContentPadding ? 'mo-wb-p-20px' : ''}} {{classInclude}}
+    {{ isOpen ? 'd-block' : 'd-none'}}">
+    <ng-content>
+
+    </ng-content>
+  </div>
+
+</div>
+ 

@@ -1,0 +1,49 @@
+<div class="d-flex h-100 align-items-center">
+  <mo-wb-components-button 
+    [type]="bgColorActive === 'SETTING' ? 'text-bg-selected' : 'text-selected'"
+    [label]="'Thiết lập nút'"
+    [classInclude]="''"
+    [classIconLeft]="''"
+    (click)="handleOnSettingButtonClick($event);">
+  </mo-wb-components-button>
+
+  <div class="mo-wb-border-right-general h-100 mo-wb-mx-8px"></div>
+
+  <mo-wb-components-button 
+    [type]="bgColorActive === 'LAYOUT' ? 'icon-selected' : 'icon'"
+    [tooltipContent]="'Giao diện'"
+    [classInclude]="'mo-wb-mr-4px'"
+    [classIconLeft]="'mo-icn-popup_form_template'"
+    (click)="handleOnLayoutButtonClick($event);">
+  </mo-wb-components-button>
+
+  <mo-wb-components-button 
+    [type]="bgColorActive === 'ANIMATION' ? 'icon-selected' : 'icon'"
+    [tooltipContent]="'Hiệu ứng động'"
+    [classInclude]="'mo-wb-mr-4px'"
+    [classIconLeft]="'mo-icn-animation-icon'"
+    (click)="handleOnAnimationButtonClick($event);">
+  </mo-wb-components-button>
+
+  <mo-wb-components-button 
+    [type]="bgColorActive === 'LINK' ? 'icon-selected' : 'icon'"
+    [tooltipContent]="'Liên kết'"
+    [classInclude]=""
+    [classIconLeft]="hasLink ? 'mo-icn-link-com mo-wb-color-009cdb' : 'mo-icn-link-com'"
+    (click)="handleOnSetupLinkButtonClick($event);">
+  </mo-wb-components-button>
+
+  <mo-wb-components-button [type]="bgColorActive === 'EVENT' ? 'icon-selected' : 'icon'"
+    [tooltipContent]="'Sự kiện'"
+    [classInclude]="'mo-wb-ml-4px'"
+    [classIconLeft]="hasEvent ? 'mo-icn-create_trigger_event mo-wb-color-009cdb' : 'mo-icn-create_trigger_event'"
+    (click)="handleOnEventButtonClick($event);">
+  </mo-wb-components-button>
+  
+  <div class="mo-wb-border-right-general h-100 mo-wb-mx-8px"></div>
+
+  <mo-wb-landing-editor-layer-toolbar-more_action>
+  </mo-wb-landing-editor-layer-toolbar-more_action>
+  
+
+</div>

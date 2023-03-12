@@ -1,0 +1,33 @@
+
+<!-- padding -->
+<ng-container *ngIf="pa && pa.length && isShow">
+  <div *ngFor="let item of pa; let i = index;">
+    <div *ngIf="item.pl && item.pl.valuePx" 
+      class="mo-wb-padding-over"
+      [style.top]="item.top+'px'"
+      [style.left]="item.left+'px'"
+      [style.width]="item.pl.valuePx + 'px'"
+      [style.height]="item.height + 'px'"></div>
+
+    <div *ngIf="item.pt && item.pt.valuePx" 
+      class="mo-wb-padding-over"
+      [style.top]="item.top+'px'"
+      [style.left]="item.left+'px'"
+      [style.width]="item.width + 'px'"
+      [style.height]="item.pt.valuePx + 'px'"></div>
+
+    <div *ngIf="item.pb && item.pb.valuePx" 
+      class="mo-wb-padding-over"
+      [style.top]="(item.top + item.height - item.pb.valuePx)+'px'"
+      [style.left]="item.left+'px'"
+      [style.width]="item.width + 'px'"
+      [style.height]="item.pb.valuePx + 'px'"></div>
+
+    <div *ngIf="item.pr && item.pr.valuePx"
+      class="mo-wb-padding-over"
+      [style.top]="item.top+'px'"
+      [style.left]="(item.left + item.width - item.pr.valuePx)+'px'"
+      [style.width]="item.pr.valuePx + 'px'"
+      [style.height]="item.height + 'px'"></div>
+  </div>
+</ng-container>

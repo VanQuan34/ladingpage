@@ -1,0 +1,8 @@
+@import "../../../../styles/variables";
+.mo-drag-screen {
+  height: 40px;
+  width: 6px;
+  border-radius: 3px;
+  background-color: $text2;
+  cursor: ew-resize;
+}

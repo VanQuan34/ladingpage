@@ -1,0 +1,29 @@
+<div 
+  class="mo-wb-landing-site_styles mo-wb-z-index-100 mo-wb-bg-ffffff"
+  [style.left]="isOpen ? '0px' : '-1000px'">
+  
+  <div class="d-flex h-100">
+    <div class="mo-wb-w-200px h-100 mo-wb-py-12px mo-wb-border-right-general">
+      <div *ngFor="let item of menu; let i = index;"
+        class="mo-wb-pl-40px mo-wb-pl-20px mo-wb-py-12px 
+          {{ selectedId === item.id ? 'mo-wb-bg-color-blue-3 mo-wb-text-color-blue' : ' mo-wb-cursor-pointer mo-wb-bg-hover-ebf0f5' }}"
+        (click)="handleOnSelectedMenuItem(item);">
+        <div class="mo-wb-font-head-4s">
+          {{item.title | upperCasePipe}}</div>
+      </div>
+    </div>
+
+    <div class="mo-wb-border-right-general">
+      <mo-wb-landing-editor-toolbar-site_styles-color
+        *ngIf="selectedId === 'color'"
+        (onClose)="handleOnMenuClose();">
+      </mo-wb-landing-editor-toolbar-site_styles-color>
+      <mo-wb-landing-editor-toolbar-site_styles-text
+        *ngIf="selectedId === 'textStyle'"
+        (onClose)="handleOnMenuClose();">
+      </mo-wb-landing-editor-toolbar-site_styles-text>
+    </div>
+
+  </div>
+
+</div>

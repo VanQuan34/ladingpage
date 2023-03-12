@@ -1,0 +1,102 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Đường viền'"
+  [isOpen]="isOpen">
+  
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center mo-wb-border-top mo-wb-cursor-pointer mo-wb-border-radius-4px mo-wb-px-8px"
+      [ngClass]="{'selected' : isAll || selBorderType === 't'}"
+      (click)="handleOnBorderItemClick($event, 't');">
+      <div class="mo-wb-border-line"
+        [style.border-top]="generateBorderLine('t')"></div>
+    </div>
+  </div>
+  
+  <div class="mo-wb-my-4px d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center mo-wb-border-left mo-wb-cursor-pointer mo-wb-border-radius-4px mo-wb-py-8px"
+      [ngClass]="{'selected' : isAll || selBorderType === 'l'}"
+      (click)="handleOnBorderItemClick($event, 'l');">
+      <div class="mo-wb-border-line"
+        [style.border-left]="generateBorderLine('l')"></div>
+    </div>
+
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]="isAll ? 'mo-wb-button-icon-selected' : ''"
+      [classIconLeft]="'mo-icn-popup_border_radius_all'"
+      (click)="handleOnAllValueClick($event);">
+    </mo-wb-components-button>
+
+    <div class="d-flex align-items-center justify-content-center mo-wb-border-right mo-wb-cursor-pointer mo-wb-border-radius-4px mo-wb-py-8px"
+      [ngClass]="{'selected' : isAll || selBorderType === 'r'}"
+      (click)="handleOnBorderItemClick($event, 'r');">
+      <div class="mo-wb-border-line"
+        [style.border-left]="generateBorderLine('r')"></div>
+    </div>
+  </div>  
+
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center mo-wb-border-bottom mo-wb-cursor-pointer mo-wb-border-radius-4px mo-wb-px-8px"
+      [ngClass]="{'selected' : isAll || selBorderType === 'b'}"
+      (click)="handleOnBorderItemClick($event, 'b');">
+      <div class="mo-wb-border-line"
+        [style.border-top]="generateBorderLine('b')"></div>
+    </div>
+  </div>
+  
+  <ng-container *ngIf="selBorder">
+    <div class="mo-wb-pb-20px mo-wb-mt-20px d-flex align-items-center justify-content-between">
+      <div class="mo-wb-mr-12px ">
+        <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Chiều rộng' | translate}}</div>
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="mo-wb-calc-w-80px">
+            <mo-wb-components-slider #slider
+              [value]="selBorder.width"
+              [min]="0"
+              [max]="100"
+              [step]="1"
+              [classInclude]=""
+              (onValueChanged)="handleOnWidthChange($event)"
+              (onInputValueChanged)="handleOnInputWidthSliderValueChanged($event)">
+            </mo-wb-components-slider>
+          </div>
+          <mo-wb-components-input-number
+            [step]="1"
+            [value]="selBorder.width"
+            [max]="100"
+            [min]="0"
+            [unit]="'px'"
+            [hasPlusButton]="true"
+            [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+            (onValueChanged)="handleOnWidthChange($event)">
+          </mo-wb-components-input-number>
+        </div>
+      </div>
+
+      <div>
+        <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Kiểu'}}</div>
+        <mo-wb-components-dropdown
+          [label]="''"
+          [defaultTitle]="''"
+          [tooltip]="''"
+          [items]="borderStyles"
+          [selectedId]="selBorder.style"
+          [key]="'id'"
+          [classInclude]="'mo-wb-w-100px'"
+          (onSelectedItem)="handleOnSelectBorderStyle($event);">
+        </mo-wb-components-dropdown>
+      </div>
+    </div>
+  
+    <mo-wb-components-color-rgba 
+      [classInclude]="'mo-wb-mt-0px w-100'"
+      [title]="'Màu'"
+      [isOnlyColor]="true"
+      [color]="selBorder.colorVar"
+      (onSelectColor)="handleOnSelectBorderColor($event);"
+      (onColorChanged)="handleOnOverBorderColor($event);"
+      (onSetColorClosed)="handleOnCancelBorderColor($event);">
+    </mo-wb-components-color-rgba>
+
+  </ng-container>
+
+</mo-wb-components-toggle_panel-section>

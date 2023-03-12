@@ -1,0 +1,27 @@
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-3500" 
+  (click)="handleOverlayClick()"></div>
+  <div 
+  [style.top]="top+'px'"
+  [style.right]="'5px'"
+  class="position-absolute mo-wb-z-index-5000 mo-wb-bg-ffffff d-flex align-items-center 
+  justify-content-between mo-wb-w-310px mo-wb-pl-20px mo-wb-pr-20px">
+    <mo-wb-components-input
+      #buttonName
+      [title]="''"
+      [value]="titleItem"
+      [placeholder]="'Đặt tên cho mục này'"
+      [classInclude]="'mo-wb-pt-5px mo-wb-pb-5px mo-wb-w-170px'"
+      [actionKey]="'KEY-UP'"
+      (onValueChanged)="handleOnContentChange($event);"
+      (onInputError)="handleOnInputContentError($event);">
+    </mo-wb-components-input>
+    <mo-wb-components-button
+      [type]="'blue-solid'"
+      [disable]="titleItem === '' ? true : false"
+      [classInclude]="'mo-wb-pb-3px mo-wb-pt-3px mo-wb-pl-10px mo-wb-pr-10px'"
+      [classIconLeft]="''"
+      [label]="'Xong'"
+      [classLabel]="'mo-wb-font-size-12px'"
+      (click)="handleOnSubmitContentChange($event);">
+    </mo-wb-components-button>
+  </div>

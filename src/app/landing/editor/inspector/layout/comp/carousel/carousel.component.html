@@ -1,0 +1,18 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Thiết lập Carousel'">
+  <div>
+    <span class="mo-wb-font-head-3s">{{'Thiết lập hình ảnh' | translate}}</span>
+    <div class="d-flex align-items-center justify-content-center mo-wb-border-bottom-general mo-wb-pb-15px">
+      <mo-wb-components-button
+        [type]="'blue-border'"
+        [classInclude]="'mo-wb-mt-10px mo-wb-pt-6px mo-wb-pb-6px w-100 justify-content-center'"
+        [classIconLeft]="''"
+        [label]="'Quản lí phương tiện'"
+        [classLabel]="'mo-wb-font-size-13px'"
+        (click)="handleOnClickSettingMedia($event)">
+      </mo-wb-components-button>
+    </div>
+    <mo-wb-landing-editor-inspector-layout-comps-attributes-carousel>
+    </mo-wb-landing-editor-inspector-layout-comps-attributes-carousel>
+  </div>
+ </mo-wb-components-toggle_panel-section>

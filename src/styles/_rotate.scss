@@ -1,0 +1,6 @@
+$rotates: 45deg 90deg 180deg 270deg;
+@each $val in $rotates {
+    .#{$prefixCss}rotate-#{$val}{
+        transform: rotate($val) !important;;
+    }
+}

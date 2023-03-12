@@ -1,0 +1,36 @@
+<div class="{{ classInclude }}">
+  <div *ngIf="title"
+    class="mo-wb-font-head-4s mo-wb-mb-8px">
+    {{ title | translate }}
+  </div>
+  <div class="d-flex align-items-center justify-content-between ">
+    <div #colorEl class="mo-wb-color-box mo-wb-h-28px mo-wb-w-28px mo-wb-border-general 
+      mo-wb-border-radius-4px mo-wb-cursor-pointer position-relative"
+      [style.background]="background"
+      (click)="handleOnRgbColorClick($event, colorEl);">
+    </div>
+    <div class="mo-wb-calc-w-40px d-flex align-items-center">
+      <input 
+        #slider
+        type="range" 
+        min="0" 
+        max="100" 
+        value="{{alphaValue}}" 
+        class="slider mo-wb-calc-w-80px"
+        [style.background]="backgroundAlpha">
+      <mo-wb-components-input-number
+        [title]="''"
+        [value]="alphaValue"
+        [min]="0"
+        [max]="100"
+        [step]="1"
+        [unit]="'%'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnSelectAlpha($event);">  
+      </mo-wb-components-input-number>
+      
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,20 @@
+<div class="mo-wb-landing-editor-comp-popup-link-web">
+  <div class="">
+    <div class="mo-wb-mb-10px mo-wb-font-head-4s">{{'i18n_link_web-address' | translate}}</div>
+    <mo-wb-components-input #inputUrl
+      [label]="'URL'"
+      [value]="tagLink && tagLink.href"
+      [validType]="'URL'"
+      [placeholder]="'https://...'"
+      (onValueChanged)="handlerOnChangeInput($event);"
+      (onInputError)="handleOnInputError($event)">
+    </mo-wb-components-input>
+
+    <mo-wb-components-checkbox [classInclude]="'mo-wb-mt-8px mo-wb-mb-16px'"
+      [label]="'i18n_open_new_tab' | translate"
+      [checked]="tagLink && tagLink.target==='_blank'"
+      (onChangeChecked)="handleOnOpenNewTap($event);">
+    </mo-wb-components-checkbox>
+   
+  </div>
+</div>

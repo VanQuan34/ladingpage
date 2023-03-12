@@ -1,0 +1,164 @@
+<mo-wb-components-section
+  *ngIf="type === 'container'"
+  [hasContentPadding]="false"
+  [classInclude]="'mo-wb-py-12px'"
+  [title]="'Bố cục'">
+
+  <div class="{{ isColumnOpen ? 'mo-wb-border-bottom-general' : ''}}">
+
+    <!-- <div #targetEl class="mo-wb-px-20px">
+      <mo-wb-components-dropdown
+      #dropdown
+      [label]="'Kiểu hiển thị'"
+      [key]="'id'"
+      [keyName]="'name'"
+      [selectedId]="selectedIdTypeGrid"
+      [items]="listGridType"
+      (onSelectedItem)="handlerOnSelectedViewGrid($event, targetEl)">      
+      </mo-wb-components-dropdown>
+    </div> -->
+
+    <div class=" mo-wb-py-12px d-flex align-items-center justify-content-between mo-wb-px-20px mo-wb-cursor-pointer"
+      (click)="handleOnColumnToggle($event);">
+      <div class=""> <span class="mo-wb-font-head-4s">{{ 'Cột' | translate }}</span><span>({{columns.length}})</span></div>
+      <div class="{{ isColumnOpen ? 'mo-icn-up-arrow' : 'mo-icn-down-arrow' }} mo-wb-font-size-12px"></div>
+    </div>
+
+    <div *ngIf="isColumnOpen">
+      <ng-container *ngFor="let item of columns; let i = index;">
+        <div class="mo-wb-py-12px d-flex align-items-center 
+          justify-content-between mo-wb-px-20px mo-wb-bg-hover-ebf0f5"
+          (mouseover)="handleOnMouseOver($event, item);"
+          (mouseout)="handleOnMouseOut($event, item);">
+          <div class="d-flex align-items-center">
+            <div class="mo-wb-font-head-4 mo-wb-pr-8px">{{ i + 1 }}</div>
+            <mo-wb-components-input-number
+              [title]="''"
+              [units]="item.info.unit === 'minmax' ? units : fullUnits"
+              [unit]="item.info.unit"
+              [value]="item.info.unit === 'minmax' ? item.info : item.info.value"
+              [classInclude]="item.info.unit === 'minmax' ? 'auto' : 'mo-wb-w-80px'"
+              (onChangeMinUnit)="handleOnChangeColumnMinUnit($event, item, i);"
+              (onChangeMaxUnit)="handleOnChangeColumnMaxUnit($event, item, i);"
+              (onUnitChange)="handleOnColumnUnitChange($event, item, i);"
+              (onValueChanged)="handleOnColumnValueChanged($event, item, i);"
+              (onChangeMinValue)="handleOnChangeColumnMinValue($event, item, i);"
+              (onChangeMaxValue)="handleOnChangeColumnMaxValue($event, item, i);">
+            </mo-wb-components-input-number>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <mo-wb-landing-editor-inspector-menu-icon
+              [menuItemList]="menuColumnItem"
+              (onSelectMenuItem)="handleOnMenuColumnSelect($event, item, i);">
+            </mo-wb-landing-editor-inspector-menu-icon>
+          </div>
+          
+        </div>
+      </ng-container>
+
+      <div class="d-flex justify-content-center align-items-center
+        mo-wb-pt-8px mo-wb-pb-12px">
+        <mo-wb-components-button
+          [type]="'blue-solid'"
+          [classInclude]="''"
+          [classIconLeft]="'mo-icn-pvdemo_plus mo-wb-mr-8px'"
+          [label]="'Thêm cột'"
+          (click)="handleOnAddColumnButtonClick($event)">
+        </mo-wb-components-button>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="{{ isRowOpen ? 'mo-wb-border-bottom-general' : ''}}">
+    <div class="mo-wb-py-12px d-flex align-items-center 
+      justify-content-between mo-wb-cursor-pointer mo-wb-px-20px"
+      (click)="handleOnRowToggle($event);">
+      <div> <span class="mo-wb-font-head-4s">{{ 'Hàng' | translate }}</span><span>({{rows.length}})</span></div>
+      <div class="{{ isRowOpen ? 'mo-icn-up-arrow' : 'mo-icn-down-arrow' }} mo-wb-font-size-12px"></div>
+    </div>
+
+    <div *ngIf="isRowOpen">
+      <ng-container *ngFor="let item of rows; let i = index;">
+        <div class="mo-wb-py-12px d-flex align-items-center 
+          justify-content-between mo-wb-px-20px mo-wb-bg-hover-ebf0f5"
+          (mouseover)="handleOnRowMouseOver($event, item);"
+          (mouseout)="handleOnRowMouseOut($event, item);">
+          <div class="d-flex align-items-center">
+            <div class="mo-wb-font-head-4 mo-wb-pr-8px">{{ i + 1 }}</div>
+            <mo-wb-components-input-number
+              [title]="''"
+              [units]="item.info.unit === 'minmax' ? units : fullUnits"
+              [unit]="item.info.unit"
+              [value]="item.info.unit === 'minmax' ? item.info : item.info.value"
+              [classInclude]="item.info.unit === 'minmax' ? 'auto' : 'mo-wb-w-80px'"
+              (onChangeMinUnit)="handleOnChangeRowMinUnit($event, item, i);"
+              (onChangeMaxUnit)="handleOnChangeRowMaxUnit($event, item, i);"
+              (onUnitChange)="handleOnRowUnitChange($event, item, i);"
+              (onValueChanged)="handleOnRowValueChanged($event, item, i);"
+              (onChangeMinValue)="handleOnChangeRowMinValue($event, item, i);"
+              (onChangeMaxValue)="handleOnChangeRowMaxValue($event, item, i);">
+            </mo-wb-components-input-number>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <mo-wb-landing-editor-inspector-menu-icon
+              [menuItemList]="menuRowItem"
+              (onSelectMenuItem)="handleOnMenuRowSelect($event, item, i);">
+            </mo-wb-landing-editor-inspector-menu-icon>
+          </div>
+          
+        </div>
+      </ng-container>
+
+      <div class="d-flex justify-content-center align-items-center
+        mo-wb-pt-8px mo-wb-pb-12px">
+        <mo-wb-components-button
+          [type]="'blue-solid'"
+          [classInclude]="''"
+          [classIconLeft]="'mo-icn-pvdemo_plus mo-wb-mr-8px'"
+          [label]="'Thêm hàng'"
+          (click)="handleOnAddRowButtonClick($event)">
+        </mo-wb-components-button>
+      </div>
+    </div>
+  </div>
+
+  <div 
+    *ngIf="rowGap && colGap"
+    class="mo-wb-mt-12px mo-wb-mb-8px mo-wb-px-20px"
+    style="display: grid; 
+      grid-template-rows: 1fr; 
+      grid-template-columns: 1fr 1fr; 
+      column-gap: 20px;">
+    <mo-wb-components-input-number
+      [title]="'Cách hàng'"
+      [unit]="rowGap.unit"
+      [units]="gapUnits"
+      [value]="rowGap.value"
+      [classInclude]="'w-100'"
+      (onValueChanged)="handleOnRowGapValueChanged($event);"
+      (onUnitChange)="handleOnRowGapUnitChange($event);">
+    </mo-wb-components-input-number>
+    <mo-wb-components-input-number
+      [title]="'Cách cột'"
+      [unit]="colGap.unit"
+      [units]="gapUnits"
+      [value]="colGap.value"
+      [classInclude]="'w-100'"
+      (onValueChanged)="handleOnColGapValueChanged($event);"
+      (onUnitChange)="handleOnColumnGapUnitChange($event);">
+    </mo-wb-components-input-number>
+  </div>
+
+  <div 
+    *ngIf="rectOver"
+    class="mo-grid-layout-over"
+    [style.width]="rectOver.width + 'px'"
+    [style.height]="rectOver.height + 'px'"
+    [style.top]="rectOver.top + 'px'"
+    [style.left]="rectOver.left + 'px'">
+
+  </div>
+</mo-wb-components-section>

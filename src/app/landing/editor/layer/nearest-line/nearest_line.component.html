@@ -1,0 +1,13 @@
+<div class="mo-nearest-lines"
+  [style.display]="isOpen && isShowing ? 'block' : 'none'">
+  <div class="mo-nearest-vert-line"
+    [style.display]="!isVertShowing ? 'none' : 'block'"
+    [style.top]="vertLine.top"
+    [style.left]="vertLine.left"
+    [style.height]="vertLine.height"></div>
+  <div class="mo-nearest-horz-line"
+    [style.display]="!isHozShowing ? 'none' : 'block'"
+    [style.top]="hozLine.top"
+    [style.left]="hozLine.left"
+    [style.width]="hozLine.width"></div>
+</div>

@@ -1,0 +1,42 @@
+[
+    {
+        "key": "0",
+        "label": "manual_input"
+    },
+    {
+        "key": "2",
+        "label": "facebook"
+    },
+    {
+        "key": "4",
+        "label": "landing_page"
+    },
+    {
+        "key": "5",
+        "label": "upload_file"
+    },
+    {
+        "key": "6",
+        "label": "zalo"
+    },
+    {
+        "key": "7",
+        "label": "instagram"
+    },
+    {
+        "key": "8",
+        "label": "mobile_app"
+    },
+    {
+        "key": "9",
+        "label": "youtube"
+    },
+    {
+        "key": "11",
+        "label": "smart_wifi"
+    },
+    {
+        "key": "12",
+        "label": "call_center"
+    }
+]

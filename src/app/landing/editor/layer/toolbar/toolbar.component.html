@@ -1,0 +1,47 @@
+<ng-container *ngIf="isOpen && !isPage">
+
+  <!-- toolbar -->
+  <div class="mo-wb-shadow mo-wb-comp-toolbar mo-wb-px-8px mo-wb-py-4px mo-wb-border-radius-4px"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'">
+    <mo-wb-landing-editor-layer-toolbar-button
+      *ngIf="moType === 'button'">
+    </mo-wb-landing-editor-layer-toolbar-button>
+    <mo-wb-landing-editor-layer-toolbar-section
+      *ngIf="moType === 'section'">
+    </mo-wb-landing-editor-layer-toolbar-section>
+    <mo-wb-landing-editor-layer-toolbar-footer
+      *ngIf="moType === 'footer'">
+    </mo-wb-landing-editor-layer-toolbar-footer>
+    <mo-wb-landing-editor-layer-toolbar-header
+      *ngIf="moType === 'header'">
+    </mo-wb-landing-editor-layer-toolbar-header>
+    <mo-wb-landing-editor-layer-toolbar-repeater
+      *ngIf="moType === 'repeater-item'">
+    </mo-wb-landing-editor-layer-toolbar-repeater>
+
+    <mo-wb-landing-editor-layer-toolbar-table
+      *ngIf="moType === 'table'">
+    </mo-wb-landing-editor-layer-toolbar-table>
+
+    <mo-wb-landing-editor-layer-toolbar-form
+      *ngIf="moType === 'form'">
+    </mo-wb-landing-editor-layer-toolbar-form>
+    <mo-wb-landing-editor-comp-toolbar-menu
+      *ngIf="moType === 'menu'">
+    </mo-wb-landing-editor-comp-toolbar-menu>
+    <mo-wb-landing-editor-layer-toolbar-container
+      *ngIf="moType === 'container'">
+    </mo-wb-landing-editor-layer-toolbar-container>
+  </div>
+  
+
+<!-- </div> -->
+  <!-- breadcrumb -->
+  <mo-wb-landing-editor-layer-toolbar-breadcrumb
+    [posTop]="top"
+    [posLeft]="left">
+  </mo-wb-landing-editor-layer-toolbar-breadcrumb>
+
+</ng-container>
+  

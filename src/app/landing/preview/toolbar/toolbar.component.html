@@ -1,0 +1,43 @@
+<div class="mo-wb-landing-preview-toolbar d-flex align-items-center justify-content-between
+    mo-wb-border-bottom-general mo-wb-border-top-general">
+
+  <!-- left -->
+  <div class="left d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center mo-wb-cursor-pointer mo-wb-ml-20px"
+        (click)="handleOnBackClick($event);">
+        <i class="mo-icn-go-back mo-wb-font-size-14px mo-wb-mr-8px"></i>
+        <div class="mo-wb-font-head-4s">{{'Quay lại'}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- center -->
+  <div class="d-flex align-items-center justify-content-center">
+
+    <mo-wb-landing-preview-toolbar-page
+      [landingPage]="landingPage"
+      (onSelectedPageChanged)="handleOnSelectedPageChanged($event);">
+    </mo-wb-landing-preview-toolbar-page>
+
+    <mo-wb-landing-preview-toolbar-devices
+      #deviceEl
+      [selectedPageId]="selectedPageId"
+      [canvasEl]="canvasEl"
+      [landingPage]="landingPage"
+      (onSelectedItemChanged)="handleOnSelectedDeviceChanged($event);">
+    </mo-wb-landing-preview-toolbar-devices>
+
+  </div>
+
+  <!-- right -->
+  <div class="d-flex align-items-center justify-content-center mo-wb-px-20px">
+    <mo-wb-components-button
+      [type]="'blue-solid'"
+      [classInclude]="''"
+      [label]="'Xuất bản'"
+      (click)="handleOnPublicButtonClick($event)">
+    </mo-wb-components-button>
+  </div>
+
+</div>

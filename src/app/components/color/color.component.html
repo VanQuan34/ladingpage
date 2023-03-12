@@ -1,0 +1,36 @@
+<div #container
+  class="mo-wb-picker-color position-absolute  {{classInclude}}"
+  [style.z-index]="zIndex"
+  [style.display]="isShow ? 'block' : 'none'"
+  [style.top]="top+'px'"
+  [style.left]="left+'px'">
+
+  <div [attr.acp-color]="color"
+    id="picker-color-{{pickerColorId}}"
+    acp-show-alpha="no"
+    acp-show-rgb="yes"
+    acp-show-hsl="yes"
+    acp-show-hex="yes">
+  </div>
+
+  <div class="d-flex justify-content-end align-items-center mo-wb-mb-12px">
+    <mo-wb-components-button
+      [classInclude]="'mo-wb-mt-0px mo-wb-mr-12px'"
+      [label]="'i18n_agree'"
+      (click)="handleOnSubmitButtonClick($event);">
+    </mo-wb-components-button>
+    <mo-wb-components-button 
+      [classInclude]="'mo-wb-mt-0px mo-wb-mr-15px'"
+      [type]="'dark'"
+      [label]="'i18n_closed'"
+      (click)="handleOnCloseColorClick($event);">
+    </mo-wb-components-button>
+  </div>
+</div>
+
+<div class="mo-wb-picker-overlay"
+  [style.z-index]="(zIndex - 1)"
+  [style.display]="isShow ? 'block' : 'none'"
+  (click)="handleOnOverlayClick($event);">
+
+</div>

@@ -1,0 +1,47 @@
+<mo-wb-components-modal
+  #modal
+  [title]="label | translate"
+  [width]="width + 'px'"
+  [height]="'auto'"
+  [zIndex]="zIndex"
+  [ignoreButtonClose]="false">
+
+  <div class="large-container d-flex flex-column mo-icon-setting-container h-100">
+    <div class="mo-wb-pl-40px mo-wb-pr-40px">
+      <div class="mo-wb-pb-12px mo-wb-pt-12px flex-grow-1">
+        <mo-wb-components-dropdown
+          #fontDropdown
+          [label]="'Google Font'"
+          [selectedId]="''"
+          [selectedItem]=""
+          [classInclude]="''"
+          [classIncludeEmptyMsg]="'mo-wb-font-head-5 mo-wb-mt-2px'"
+          [defaultTitle]="defaultTitle | translate"
+          [isRequired]="false"
+          [items]="[]"
+          [api]="apiFetchList"
+          [isStaticData]="false"
+          [key]="'id'"
+          [keyName]="'title'"
+          [maxLines]="9"
+          [hasSearch]="true"
+          [ignoreKeys]="ignoreKeys"
+          [searchHolder]="searchHolder | translate"
+          (onSelectedItem)="handleOnFontSelected($event);">
+        </mo-wb-components-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-container">
+    <mo-wb-components-button
+      label="{{'i18n_save' | translate}}"
+      (onClick)="handleOnSaveClick()">
+      </mo-wb-components-button>
+    <mo-wb-components-button
+      [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

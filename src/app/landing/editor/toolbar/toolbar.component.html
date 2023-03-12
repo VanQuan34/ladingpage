@@ -1,0 +1,125 @@
+<!-- toolbar -->
+<div class="mo-wb-h-44px w-100 mo-wb-bg-color-white mo-wb-border-b-gray d-flex align-items-center mo-wb-pl-12px justify-content-between">
+  <!-- function -->
+  <div class="d-flex align-items-center">
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]=" buttonLeft === 'addNew' ? 'mo-wb-button-icon-selected' : ''"
+      [classIconLeft]="'mo-icn-add-new'"
+      [tooltipContent]="'Thêm phần tử'"
+      (click)="handleOnIconLeftClick($event, 'addNew');">
+    </mo-wb-components-button>
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]=" buttonLeft === 'layer' ? 'mo-wb-button-icon-selected mo-wb-ml-12px' : ' mo-wb-ml-12px'"
+      [classIconLeft]="'mo-icn-layer-com'"
+      [tooltipContent]="'Lớp'"
+      (click)="handleOnIconLeftClick($event, 'layer');">
+    </mo-wb-components-button>
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]=" buttonLeft === 'pages' ? 'mo-wb-button-icon-selected mo-wb-ml-12px' : ' mo-wb-ml-12px'"
+      [classIconLeft]="'mo-icn-new_survey_page'"
+      [tooltipContent]="'Danh sách trang'"
+      (click)="handleOnIconLeftClick($event, 'pages');">
+    </mo-wb-components-button>
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]=" buttonLeft === 'site-styles' ? 'mo-wb-button-icon-selected mo-wb-ml-12px' : ' mo-wb-ml-12px'"
+      [classIconLeft]="'mo-icn-font-com'"
+      [tooltipContent]="'Kiểu dáng'"
+      (click)="handleOnIconLeftClick($event, 'site-styles');">
+    </mo-wb-components-button>
+  </div>
+
+  <!-- center -->
+  <div class="d-flex align-items-center">
+    <!-- page list -->
+    <mo-wb-landing-editor-page_list>
+    </mo-wb-landing-editor-page_list>
+    <!-- devices -->
+    <mo-wb-landing-editor-toolbar-device
+      #device>
+    </mo-wb-landing-editor-toolbar-device>
+  </div>
+  
+  
+
+  <!-- right function -->
+  <div class="d-flex align-items-center h-100">
+    <mo-wb-components-button 
+      [disable]="!isUndo"
+      [type]="'icon'"
+      [classInclude]="'mo-wb-ml-8px mo-wb-mr-2px'"
+      [classIconLeft]="'mo-icn-undo'"
+      (click)="handleOnUndoClick($event)">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button 
+      [disable]="!isRedo"
+      [type]="'icon'"
+      [classInclude]="'mo-wb-ml-2px mo-wb-mr-8px'"
+      [classIconLeft]="'mo-icn-redo'"
+      (click)="handleOnRedoClick($event)">
+    </mo-wb-components-button>
+    <div class="mo-wb-divider-vertical"></div>
+
+    <mo-wb-components-button
+      [type]="'icon'"
+      [disable]="saving"
+      [classInclude]="'mo-wb-ml-8px'"
+      [classIconLeft]="'mo-icn-act-save'"
+      (click)="handleOnSaveTemplate($event);">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]="'mo-wb-ml-8px'"
+      [classIconLeft]="'mo-icn-preview'"
+      (click)="handleOnPreviewButtonClick($event);">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]="'mo-wb-ml-8px mo-wb-mr-8px'"
+      [classIconLeft]="'mo-icn-zoom-com'">
+    </mo-wb-components-button>
+
+    <div class="mo-wb-divider-vertical"></div>
+
+    <mo-wb-components-button 
+      [type]="'icon'"
+      [classInclude]="'mo-wb-ml-8px mo-wb-mr-8px ' + (inspectorOpen ? 'mo-wb-button-icon-selected' : '')"
+      [classIconLeft]="'mo-icn-inspect-com'"
+      (onClick)="handleOnInspectorButtonClick($event);">
+    </mo-wb-components-button>
+    
+
+  </div>
+</div>
+
+<!-- menu -->
+<mo-wb-landing-editor-menu
+  [isOpen]="buttonLeft === 'addNew'"
+  (onMenuClose)="handleOnMenuClose();">
+</mo-wb-landing-editor-menu>
+
+<!-- site styles -->
+<mo-wb-landing-editor-toolbar-site_styles
+  *ngIf="buttonLeft === 'site-styles'"
+  (onMenuClose)="handleOnMenuClose();">
+</mo-wb-landing-editor-toolbar-site_styles>
+
+<!-- page list -->
+<mo-wb-landing-editor-toolbar-page
+  *ngIf="buttonLeft === 'pages'"
+  (onMenuClose)="handleOnMenuClose();">
+</mo-wb-landing-editor-toolbar-page>
+
+<!-- preview -->
+<mo-wb-landing-preview 
+  *ngIf="isPreviewShow"
+  [landingPage]="landingPage"
+  (onClose)="handleOnPreviewClose();">
+  
+</mo-wb-landing-preview>

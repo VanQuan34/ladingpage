@@ -1,0 +1,41 @@
+<div class="mo-wb-py-15px mo-wb-px-20px">
+  <mo-wb-components-dropdown
+    [key]="'id'"
+    [keyName]="'keyName'"
+    [selectedId]="state"
+    [items]="stateList"
+    (onSelectedItem)="handleOnSelectState($event)">
+  </mo-wb-components-dropdown>
+</div>
+<div *ngIf="stateInput==='NORMAL'" class="">
+
+  <mo-wb-landing-editor-inspector-design-elements-background>
+  </mo-wb-landing-editor-inspector-design-elements-background>
+
+  <mo-wb-landing-editor-inspector-design-elements-border>
+  </mo-wb-landing-editor-inspector-design-elements-border>
+
+  <mo-wb-landing-editor-inspector-design-elements-border_radius
+    [isOpen]="false">
+  </mo-wb-landing-editor-inspector-design-elements-border_radius>
+
+  <mo-wb-landing-editor-inspector-design-elements-shadow
+    [isOpen]="false">
+  </mo-wb-landing-editor-inspector-design-elements-shadow>
+</div>
+<div *ngIf="stateInput==='HOVER' || stateInput==='FOCUS' || stateInput==='ERROR'" class="">
+  <mo-wb-landing-editor-inspector-design-elements-background>
+  </mo-wb-landing-editor-inspector-design-elements-background>
+
+  <mo-wb-landing-editor-inspector-design-elements-border>
+  </mo-wb-landing-editor-inspector-design-elements-border>
+
+</div>
+<div *ngIf="" class="">
+  
+
+</div>
+<div *ngIf="stateInput==='ERROR'" class="">
+  
+
+</div>

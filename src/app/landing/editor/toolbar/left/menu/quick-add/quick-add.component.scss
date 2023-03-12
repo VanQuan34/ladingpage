@@ -1,0 +1,22 @@
+@import "../../../../../../../styles/_variables.scss";
+.mo-wb-landipage-block-item {
+  &:hover {
+    border-color: $blue3 !important;
+    .mo-wb-landipage-block-item-text {
+      color: $blue3 !important;
+    }
+    .mo-wb-landipage-block-item-icon::before {
+      color: $blue3 !important;
+    }
+  }
+}
+
+.mo-wb-landipage-block-item.selected {
+  border-color: $blue !important;
+  .mo-wb-landipage-block-item-text {
+    color: $blue !important;
+  }
+  .mo-wb-landipage-block-item-icon::before {
+    color: $blue !important;
+    }
+}

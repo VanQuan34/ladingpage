@@ -1,0 +1,49 @@
+<div *ngIf="pt && pl && pr && pb"
+  class="mo-wb-border-top-general {{classInclude}}">
+  <div class="mo-wb-px-20px mo-wb-pb-20px">
+    <div class="mo-wb-font-head-4s mo-wb-mb-20px mo-wb-mt-12px">{{ 'Khoảng đệm' | translate }}</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; column-gap: 10px;">
+      <mo-wb-components-input-number
+        #inputNumber
+        [title]="'Trên'"
+        [unit]="pt.unit"
+        [value]="pt.value"
+        [units]="units"
+        [classInclude]="'w-100'"
+        (onValueChanged)="handleOnPaddingValueChange($event, 'top');"
+        (onUnitChange)="handleOnPaddingUnitChange($event, 'top');">  
+      </mo-wb-components-input-number>
+      <mo-wb-components-input-number
+        #inputNumber
+        [title]="'Trái'"
+        [unit]="pl.unit"
+        [value]="pl.value"
+        [units]="units"
+        [classInclude]="'w-100'"
+        (onValueChanged)="handleOnPaddingValueChange($event, 'left');"
+        (onUnitChange)="handleOnPaddingUnitChange($event, 'left');">  
+      </mo-wb-components-input-number>
+      <mo-wb-components-input-number
+        #inputNumber
+        [title]="'Phải'"
+        [unit]="pr.unit"
+        [value]="pr.value"
+        [units]="units"
+        [classInclude]="'w-100'"
+        (onValueChanged)="handleOnPaddingValueChange($event, 'right');"
+        (onUnitChange)="handleOnPaddingUnitChange($event, 'right');">  
+      </mo-wb-components-input-number>
+      <mo-wb-components-input-number
+        #inputNumber
+        [title]="'Dưới'"
+        [unit]="pb.unit"
+        [units]="units"
+        [value]="pb.value"
+        [classInclude]="'w-100'"
+        (onValueChanged)="handleOnPaddingValueChange($event, 'bottom');"
+        (onUnitChange)="handleOnPaddingUnitChange($event, 'bottom');">  
+      </mo-wb-components-input-number>
+    </div>
+  </div>
+  
+</div>

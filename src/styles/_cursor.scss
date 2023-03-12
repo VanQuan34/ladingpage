@@ -1,0 +1,7 @@
+$cursor: pointer default text move copy help none;
+
+@each $val in $cursor {
+    .#{$prefixCss}cursor-#{$val}{
+      cursor: $val !important;
+    }
+}

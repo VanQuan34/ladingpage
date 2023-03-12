@@ -1,0 +1,78 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Lề'"
+  [isOpen]="isOpen">
+
+  <div class="">
+    <div class="d-flex align-items-center justify-content-between position-relative mo-wb-mb-10px">
+      <div class="mo-wb-font-head-3s">{{'Căn lề' | translate}}</div>
+      <div class="button-all" 
+        (click)="handleOnAllValueClick($event)">
+        <div class="icon-lock" *ngIf="!isAll">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 12 12" class="_7lmfX"><path fill-rule="evenodd" d="M9 5H4V3c0-1.103.897-2 2-2s2 .897 2 2h1c0-1.654-1.346-3-3-3S3 1.346 3 3v2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1"></path></svg>
+        </div>
+        <div class="icon-lock" *ngIf="isAll">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 12 12" class="_7lmfX"><path fill-rule="evenodd" d="M4 4c0-1.103.897-2 2-2s2 .897 2 2v1H4V4zm5 1V4c0-1.654-1.346-3-3-3S3 2.346 3 4v1a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"></path></svg>
+        </div> 
+      </div>   
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex flex-column align-items-center">
+          <mo-wb-components-input-number
+            [step]="1"
+            [value]="ml"
+            [max]="100"
+            [min]="0"
+            [unit]="'px'"
+            [hasPlusButton]="true"
+            [classInclude]="disabledL ? 'disabled' :''"
+            (onValueChanged)="handleOnValueChange($event, 'ml')">
+          </mo-wb-components-input-number>
+          <svg class="mo-wb-mt-5px" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill-rule="evenodd" d="M6 2 2 5.5 6 9V6h3V4.999H6V2Z"></path></svg>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <mo-wb-components-input-number
+            [step]="1"
+            [value]="mt"
+            [max]="100"
+            [min]="0"
+            [unit]="'px'"
+            [hasPlusButton]="true"
+            [classInclude]="disabledT ? 'disabled' :''"
+            (onValueChanged)="handleOnValueChange($event, 'mt')">
+          </mo-wb-components-input-number>
+          <svg class="mo-wb-mt-5px" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill-rule="evenodd" d="M9 6H6.001v3H5V6H2l3.5-4L9 6Z"></path></svg>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <mo-wb-components-input-number
+            [step]="1"
+            [value]="mb"
+            [max]="100"
+            [min]="0"
+            [unit]="'px'"
+            [hasPlusButton]="true"
+            [classInclude]="disabledB ? 'disabled' :''"
+            (onValueChanged)="handleOnValueChange($event, 'mb')">
+          </mo-wb-components-input-number>
+          <svg class="mo-wb-mt-5px" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill-rule="evenodd" d="M2 5h2.998l.001-3H6l-.001 3H9L5.5 9 2 5Z"></path></svg>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <mo-wb-components-input-number
+            [step]="1"
+            [value]="mr"
+            [max]="100"
+            [min]="0"
+            [unit]="'px'"
+            [hasPlusButton]="true"
+            [classInclude]="disabledR ? 'disabled' :''"
+            (onValueChanged)="handleOnValueChange($event, 'mr')">
+          </mo-wb-components-input-number>
+          <svg class="mo-wb-mt-5px" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill-rule="evenodd" d="M5 2v2.999H2V6h3v3l4-3.5L5 2Z"></path></svg>
+      </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+</mo-wb-components-toggle_panel-section>

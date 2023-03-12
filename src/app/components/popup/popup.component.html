@@ -1,0 +1,63 @@
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0"
+  [style.zIndex]="zIndex"
+  [style.display]="isShow ? 'block' : 'none'"
+  (click)="handleOnOverlayClick($event);">
+
+  <div 
+    #popup
+    class="{{classInclude}} mo-wb-z-index-100 mo-wb-border-radius-8px align-items-center 
+    position-absolute mo-wb-border-general mo-wb-bg-color-white mo-wb-shadow"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    [style.width]="width+'px'"
+    (click)="handleOnPopupClick($event);">
+
+    <div *ngIf="hasHeader" class="mo-wb-h-52px d-flex align-items-center justify-content-between 
+      {{padHorClassInclude}} mo-wb-border-bottom-general">
+      <div class="mo-wb-font-head-2s">{{ title | translate }}</div>
+      <div class="mo-icn-close-popup mo-wb-cursor-pointer mo-wb-font-size-12px"
+        (click)="handleOnClosePopupClick($event);">
+      </div>
+    </div>
+
+    <div 
+      [style.height]="height"
+      [style.min-height]="minHeight"
+      [style.max-height]="maxHeight">
+      <ng-content>
+
+      </ng-content>
+    </div>
+
+    <div #btnAddItem *ngIf="hasFooter" class="mo-wb-h-52px d-flex align-items-center {{padHorClassInclude}} 
+      mo-wb-border-top-general {{typeFooter === 'ADD-ITEM' ? 'justify-content-center' : 'justify-content-end'}}">
+
+      <mo-wb-components-button
+        *ngIf="typeFooter === 'ADD-ITEM'"
+        [type]="'text-blue'"
+        [classLabel]="'mo-wb-font-head-3s'"
+        [classInclude]=""
+        [classIconLeft]="'mo-icn-pvdemo_plus mo-wb-mr-8px mo-wb-font-size-10px'"
+        [label]="labelBtnFooter"
+        (onClick)="handleOnAddItemClick($event);">
+      </mo-wb-components-button>
+     
+      <mo-wb-components-button 
+        *ngIf="typeFooter === 'BUTTON'"
+        [label]="'i18n_agree'" 
+        [classInclude]="'mo-wb-mr-12px'"
+        (click)="handleOnButtonAgreeClick($event)">
+      </mo-wb-components-button>
+      
+      <mo-wb-components-button
+        *ngIf="typeFooter === 'BUTTON'"
+        type="dark" 
+        [label]="'Huỷ bỏ'" 
+        (click)="handleOnCancelButtonClick($event)">
+      </mo-wb-components-button>
+      
+    </div>
+
+  </div>
+
+<div>

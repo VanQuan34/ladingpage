@@ -1,0 +1,197 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Văn bản'"
+  [hasContentPadding]="false"
+  [isOpen]="isOpen">
+
+  <div class="mo-wb-px-20px mo-wb-pt-20px">
+    
+    <mo-wb-components-dropdown
+      *ngIf="state==='REGULAR'"
+      [label]="'Chủ đề'"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="themeFonts"
+      [selectedId]="themeFontId"
+      [key]="'id'"
+      [keyName]="'html'"
+      [classInclude]="'w-100 mo-wb-mb-20px'"
+      (onSelectedItem)="handleOnSelectThemeFont($event);">
+    </mo-wb-components-dropdown>
+
+    <mo-wb-components-dropdown
+      [label]="'Phông chữ'"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="fonts"
+      [selectedId]="selectedFontValue"
+      [key]="'value'"
+      [keyName]="'html'"
+      [classInclude]="'w-100'"
+      (onSelectedItem)="handleOnSelectFont($event);">
+    </mo-wb-components-dropdown>
+
+    <mo-wb-components-dropdown
+      [label]="'Loại chữ'"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="fontWeights"
+      [selectedId]="fontWeight"
+      [key]="'id'"
+      [keyName]="'name'"
+      [classInclude]="'w-100 mo-wb-mt-20px'"
+      (onSelectedItem)="handleOnSelectFontWeight($event);">
+    </mo-wb-components-dropdown>
+  </div>
+
+    <div class="mo-wb-border-top-general mo-wb-mt-20px mo-wb-mb-20px"></div>
+
+    <!-- <div class="d-flex align-items-center justify-content-between mo-wb-px-20px">
+    <div class="mo-wb-font-head-4s">{{'Kích thước'}}</div>
+    <div class="d-flex align-items-center">
+      <mo-wb-components-input-number
+        [title]="''"
+        [value]="fontSize"
+        [min]="0"
+        [max]="100"
+        [unit]="'px'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-80px mo-wb-ml-12px'"
+        (onValueChanged)="handleOnFontSizeChange($event);">  
+      </mo-wb-components-input-number>
+    </div>
+  </div> -->
+
+    <div class="mo-wb-px-20px">
+      <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Kích thước' | translate}}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="mo-wb-calc-w-80px">
+          <mo-wb-components-slider #slider
+            [value]="fontSize"
+            [min]="0"
+            [max]="100"
+            [step]="1"
+            [classInclude]=""
+            (onValueChanged)="handleOnFontSizeChange($event)"
+            (onInputValueChanged)="handleOnInputFontSizeSliderValueChanged($event)">
+          </mo-wb-components-slider>
+        </div>
+        <mo-wb-components-input-number [step]="1"
+          [value]="fontSize"
+          [max]="100"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+          (onValueChanged)="handleOnFontSizeChange($event)">
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+  <div class="mo-wb-border-top-general mo-wb-mt-20px mo-wb-mb-20px"></div>
+  <div class="mo-wb-px-20px">
+    <mo-wb-components-color-rgba 
+      [classInclude]="'w-100'"
+      [title]="'Màu chữ'"
+      [isOnlyColor]="true"
+      [type]="'color'"
+      [color]="fontColorVar"
+      (onColorChanged)="handleOnFontColorChanged($event);"
+      (onSelectColor)="handleOnFontColorSelect($event);"
+      (onSetColorClosed)="handleOnFontColorClosed();">
+    </mo-wb-components-color-rgba>
+  </div>
+
+  <div class="mo-wb-border-top-general mo-wb-mt-12px mo-wb-mb-20px"></div>
+
+
+
+  <div class="mo-wb-px-20px">
+    <div class="mo-wb-mb-20px">
+      <div class="mo-wb-font-head-4s mo-wb-mb-4px">Kiểu dáng</div>
+      <div class="d-flex align-items-center">
+        <mo-wb-components-button [type]="'icon'"
+          [classInclude]=" fontStyle === 'italic' ? 'mo-wb-button-icon-selected' : ''"
+          [classIconLeft]="'mo-icn-italic'"
+          (click)="handleOnIconFormatClick($event, 'style');">
+        </mo-wb-components-button>
+        <mo-wb-components-button [type]="'icon'"
+          [classInclude]="fontDecoration === 'underline' ? 'mo-wb-button-icon-selected mo-wb-ml-8px' : 'mo-wb-ml-8px'"
+          [classIconLeft]="'mo-icn-underline'"
+          (click)="handleOnIconFormatClick($event, 'underline');">
+        </mo-wb-components-button>
+        <mo-wb-components-button [type]="'icon'"
+          [classInclude]=" fontDecoration === 'line-through' ? 'mo-wb-button-icon-selected mo-wb-ml-8px' : 'mo-wb-ml-8px'"
+          [classIconLeft]="'mo-icn-strikethrough mo-wb-font-size-22px'"
+          (click)="handleOnIconFormatClick($event, 'line-through');">
+        </mo-wb-components-button>
+      </div>
+    </div>
+
+    <div *ngIf="moType === 'text'" 
+      class="mo-wb-mb-12px">
+      <div class="mo-wb-font-head-4s mo-wb-mb-4px">Căn lề</div>
+      <div class="d-flex align-items-center">
+        <mo-wb-components-button [type]="'icon'"
+          [classInclude]=" textAlign === 'left' ? 'mo-wb-button-icon-selected' : ''"
+          [classIconLeft]="'mo-icn-popup_textblock_left'"
+          (click)="handleOnIconAlignClick($event, 'left');">
+        </mo-wb-components-button>
+        <mo-wb-components-button [type]="'icon'"
+          [classInclude]="textAlign === 'center' ? 'mo-wb-button-icon-selected mo-wb-ml-8px' : 'mo-wb-ml-8px'"
+          [classIconLeft]="'mo-icn-popup_textblock_center'"
+          (click)="handleOnIconAlignClick($event, 'center');">
+        </mo-wb-components-button>
+        <mo-wb-components-button [type]="'icon'"
+          [classInclude]="textAlign === 'right' ? 'mo-wb-button-icon-selected mo-wb-ml-8px' : 'mo-wb-ml-8px'"
+          [classIconLeft]="'mo-icn-popup_textblock_right'"
+          (click)="handleOnIconAlignClick($event, 'right');">
+        </mo-wb-components-button>
+        <mo-wb-components-button [type]="'icon'"
+          [classInclude]="textAlign === 'justify' ? 'mo-wb-button-icon-selected mo-wb-ml-8px' : 'mo-wb-ml-8px'"
+          [classIconLeft]="'mo-icn-popup_textblock_justify'"
+          (click)="handleOnIconAlignClick($event, 'justify');">
+        </mo-wb-components-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mo-wb-border-top-general mo-wb-mt-12px mo-wb-mb-20px"></div>
+
+  <div class="mo-wb-px-20px mo-wb-pb-20px">
+    <div class="mo-wb-font-head-4s mo-wb-mb-8px">{{'Giãn cách'}}</div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <!-- line height -->
+        <i class="mo-icn-line-height mo-wb-font-size-24px mo-wb-mr-8px"></i>
+        <mo-wb-components-input-number [title]="''"
+          [value]="lineHeight"
+          [min]="0"
+          [max]="500"
+          [step]="5"
+          [unit]="'%'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-80px'"
+          (onValueChanged)="handleOnLineHeightChange($event);">
+        </mo-wb-components-input-number>
+      </div>
+      <!-- line specing -->
+      <div class="d-flex align-items-center">
+        <i class="mo-icn-letter-spacing mo-wb-font-size-22px mo-wb-mr-8px"></i>
+        <mo-wb-components-input-number [title]="''"
+          [value]="letterSpacing"
+          [min]="0"
+          [max]="50"
+          [step]="1"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-80px mo-wb-mr-12px'"
+          (onValueChanged)="handleOnLetterSpacingChange($event);">  
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</mo-wb-components-toggle_panel-section>

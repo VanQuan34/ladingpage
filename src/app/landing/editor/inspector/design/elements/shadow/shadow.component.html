@@ -1,0 +1,139 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Bóng đổ'"
+  [isOpen]="isOpen">
+  <div class="d-flex align-items-center justify-content-between mo-wb-border-bottom-general mo-wb-pb-12px">
+    <div class="mo-wb-font-head-4">{{'Áp dụng bóng đổ'}}</div>
+    <mo-wb-components-button-toggle_button
+      [active]="isActive"
+      (onChangeToggle)="handleOnActiveToggle($event)">
+    </mo-wb-components-button-toggle_button>
+  </div>
+
+  <div *ngIf="isActive" class="">
+  
+    <!-- horizontal offset -->
+    <div class="mo-wb-pt-20px">
+      <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Khoảng cách ngang' | translate}}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="mo-wb-calc-w-90px">
+          <mo-wb-components-slider #slider
+            [value]="shadow.hOffset"
+            [min]="-50"
+            [max]="50"
+            [step]="1"
+            [classInclude]=""
+            (onValueChanged)="handleOnHorizontalDistanceChange($event)"
+            (onInputValueChanged)="handleOnInputHorizontalDistanceSliderValueChanged($event)">
+          </mo-wb-components-slider>
+        </div>
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="shadow.hOffset"
+          [max]="50"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-80px mo-wb-ml-10px'"
+          (onValueChanged)="handleOnHorizontalDistanceChange($event)">
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+
+    <!-- vertical offset -->
+    <div class="mo-wb-pt-20px">
+      <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Khoảng cách dọc' | translate}}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="mo-wb-calc-w-90px">
+          <mo-wb-components-slider #slider
+            [value]="shadow.vOffset"
+            [min]="-50"
+            [max]="50"
+            [step]="1"
+            [classInclude]=""
+            (onValueChanged)="handleOnVerticalDistanceChange($event)"
+            (onInputValueChanged)="handleOnInputVerticalDistanceSliderValueChanged($event)">
+          </mo-wb-components-slider>
+        </div>
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="shadow.vOffset"
+          [max]="50"
+          [min]="-50"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-80px mo-wb-ml-10px'"
+          (onValueChanged)="handleOnVerticalDistanceChange($event)">
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+    <!-- Size -->
+    <div class="mo-wb-pt-20px">
+      <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Kích cỡ' | translate}}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="mo-wb-calc-w-90px">
+          <mo-wb-components-slider #slider
+            [value]="shadow.spread"
+            [min]="0"
+            [max]="50"
+            [step]="1"
+            [classInclude]=""
+            (onValueChanged)="handleOnSizeChange($event)"
+            (onInputValueChanged)="handleOnInputSizeSliderValueChanged($event)">
+          </mo-wb-components-slider>
+        </div>
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="shadow.spread"
+          [max]="50"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-80px mo-wb-ml-10px'"
+          (onValueChanged)="handleOnSizeChange($event)">
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+    <!-- Blur -->
+    <div class="mo-wb-pt-20px">
+      <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Làm mờ' | translate}}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="mo-wb-calc-w-90px">
+          <mo-wb-components-slider #slider
+            [value]="shadow.blur"
+            [min]="0"
+            [max]="50"
+            [step]="1"
+            [classInclude]=""
+            (onValueChanged)="handleOnBlurChange($event)"
+            (onInputValueChanged)="handleOnInputBlurSliderValueChanged($event)">
+          </mo-wb-components-slider>
+        </div>
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="shadow.blur"
+          [max]="50"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-80px mo-wb-ml-10px'"
+          (onValueChanged)="handleOnBlurChange($event)">
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+    <!-- Màu -->
+    <mo-wb-components-color-rgba 
+      [classInclude]="'mo-wb-mt-20px w-100'"
+      [title]="'Màu'"
+      [isOnlyColor]="true"
+      [color]="shadow.colorVar"
+      (onSelectColor)="handleOnSelectColor($event);"
+      (onColorChanged)="handleOnOverColor($event);"
+      (onCancelSelectedColor)="handleOnCancelColor($event);">
+    </mo-wb-components-color-rgba>
+
+  </div>
+</mo-wb-components-toggle_panel-section>

@@ -1,0 +1,8 @@
+<div class="mo-wb-category d-flex {{classInclude}}">
+  <div *ngFor="let item of categoryList; let i = index;" 
+  class="mo-wb-category-item mo-wb-border-radius-14px d-flex justify-content-center align-items-center mo-wb-font-head-4s mo-wb-border-general mo-wb-mr-12px mo-wb-px-12px mo-wb-py-5px mo-wb-cursor-pointer
+  {{ item.id === selectedKey ? 'mo-wb-category-item-selected' : '' }}" 
+  (click)="onSelectedCategory($event, item)">
+    {{item.title}}
+  </div>
+</div>

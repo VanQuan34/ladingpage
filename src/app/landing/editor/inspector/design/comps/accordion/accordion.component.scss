@@ -1,0 +1,29 @@
+.mo-wb-comps-tab-item {
+	width: 50%;
+
+	.tab-icon {
+		font-size: 20px;
+		&::before {
+			color: var(--text);
+		}
+	}
+
+	.mo-wb-comps-tab-item-divider {
+		border-bottom: 1px solid var(--blue);
+	}
+}
+
+.mo-wb-comps-tab-item.tabed {
+	.mo-wb-comps-tab-item-divider {
+		border-bottom: 3px solid var(--blue);
+	}
+	.tab-icon {
+		&::before {
+			color: var(--blue);
+		}
+	}
+
+  .title {
+    color: var(--blue) !important;
+  }
+}

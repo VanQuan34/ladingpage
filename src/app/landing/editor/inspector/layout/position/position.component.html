@@ -1,0 +1,202 @@
+<mo-wb-components-section
+  [hasContentPadding]="false"
+  [title]="'Vị trí'">
+
+  <div>
+    <!-- Position Type -->
+    <div class="mo-wb-p-20px mo-wb-border-bottom-general">
+      <mo-wb-components-dropdown
+        #posSelect
+        [label]="'Loại vị trí'"
+        [items]="posTypes"
+        [selectedId]="'default'"
+        [maxLines]="6"
+        [key]="'key'"
+        (onSelectedItem)="handleOnPosTypeSelected($event);">
+
+      </mo-wb-components-dropdown>
+
+      <div class="d-flex align-items-center justify-content-between mo-wb-mt-12px">
+        <div class="mo-wb-font-head-4s">Khoảng cách đầu trang</div>
+        <mo-wb-components-input-number
+          [title]="''"
+          [classInclude]="'mo-wb-w-80px'">  
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+    
+    <!-- Grid -->
+    <div *ngIf="hasDocking && gridRowsTemplate && gridColsTemplate" class="mo-wb-p-20px mo-wb-border-bottom-general">
+      <div class="mo-wb-font-head-4s">Vị trí trong ô lưới</div>
+      <div class="mo-wb-mt-8px w-100" 
+        style="display: grid; 
+          column-gap: 5px;
+          row-gap: 5px;"
+        [style.grid-template-rows]="gridRowsTemplate"
+        [style.grid-template-columns]="gridColsTemplate">
+        <ng-container *ngFor="let item of cells; let i = index;">
+          <div class="mo-wb-border-general w-100 mo-wb-h-25px mo-wb-border-radius-4px {{ item.isSelected ?  ' mo-wb-bd-color-blue mo-wb-bg-color-blue-3' : ''}}"></div>
+        </ng-container>
+      </div>
+
+      <div class="mo-wb-mt-12px w-100"
+        style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; column-gap: 10px;">
+        <mo-wb-components-input-number
+          [title]="'Từ cột'"
+          [value]="startCol"
+          [min]="0"
+          [max]="endCol"
+          [unit]="''"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnColRowChange($event, 'startCol');">  
+        </mo-wb-components-input-number>
+        <mo-wb-components-input-number
+          [title]="'Tới cột'"
+          [value]="endCol"
+          [min]="startCol"
+          [max]="colLength"
+          [unit]="''"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnColRowChange($event, 'endCol');">  
+        </mo-wb-components-input-number>
+        <mo-wb-components-input-number
+          [title]="'Từ hàng'"
+          [value]="startRow"
+          [min]="0"
+          [max]="endRow"
+          [unit]="''"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnColRowChange($event, 'startRow');">  
+        </mo-wb-components-input-number>
+        <mo-wb-components-input-number
+          [title]="'Tới hàng'"
+          [value]="endRow"
+          [min]="startRow"
+          [max]="rowLength"
+          [unit]="''"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnColRowChange($event, 'endRow');">  
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+    <!-- Constraints -->
+    <div *ngIf="hasDocking" class="mo-wb-p-20px">
+      <div class="mo-wb-font-head-4s">Trạm nối</div>
+      <div class="mo-wb-mt-12px d-flex align-items-center ">
+        <div class="mo-wb-w-100px mo-wb-h-100px mo-wb-border-radius-4px 
+          mo-wb-border-general mo-wb-bg-color-gray1 position-relative">
+          
+          <div class=" mo-wb-inspector-constraits-inner  mo-wb-w-40px mo-wb-h-40px mo-wb-border-radius-4px position-absolute mo-wb-bg-color-white">
+            <div class="mo-wb-constraits-hor center {{justifySelf === 'center' ? 'selected' : ''}}"
+              (click)="handleOnJustifySelfClick('center');">
+              <div class="mo-wb-constraits-hor-line"></div>
+            </div>
+            <div class="mo-wb-constraits-ver center {{alignSelf === 'center' ? 'selected' : ''}}"
+              (click)="handleOnAlignSelfClick('center');">
+              <div class="mo-wb-constraits-ver-line"></div>
+            </div>
+          </div>
+
+          <div class="mo-wb-constraits-ver {{alignSelf === 'start'  || alignSelf === 'stretch' ? 'selected' : ''}}"
+            (click)="handleOnAlignSelfClick('start');">
+            <div class="mo-wb-constraits-ver-line"></div>
+          </div>
+
+          <div class="mo-wb-constraits-ver {{alignSelf === 'end' || alignSelf === 'stretch' ? 'selected' : ''}} bottom"
+            (click)="handleOnAlignSelfClick('end');">
+            <div class="mo-wb-constraits-ver-line"></div>
+          </div>
+
+          <div class="mo-wb-constraits-hor {{justifySelf === 'start' || justifySelf === 'stretch' ? 'selected' : ''}}"
+            (click)="handleOnJustifySelfClick('start');">
+            <div class="mo-wb-constraits-hor-line"></div>
+          </div>
+
+          <div class="mo-wb-constraits-hor right {{justifySelf === 'end' || justifySelf === 'stretch' ? 'selected' : ''}}"
+            (click)="handleOnJustifySelfClick('end');">
+            <div class="mo-wb-constraits-hor-line"></div>
+          </div>
+
+        </div>
+        <div class="mo-wb-ml-20px">
+          <mo-wb-components-dropdown
+            #horLineSelect
+            [label]="'Ngang'"
+            [classInclude]="'mo-wb-w-120px'"
+            [items]="horItems"
+            [selectedId]="justifySelf"
+            [maxLines]="6"
+            [key]="'key'"
+            (onSelectedItem)="handleOnHorConstraitSelected($event);">
+
+          </mo-wb-components-dropdown>
+
+          <mo-wb-components-dropdown
+            #horLineSelect
+            [label]="'Dọc'"
+            [classInclude]="'mo-wb-w-120px mo-wb-mt-12px'"
+            [items]="verItems"
+            [selectedId]="alignSelf"
+            [maxLines]="6"
+            [key]="'key'"
+            (onSelectedItem)="handleOnVerConstraitSelected($event);">
+
+          </mo-wb-components-dropdown>
+        </div>
+      </div>
+
+      <div class="mo-wb-mt-20px w-100"
+        style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; column-gap: 10px;">
+        <mo-wb-components-input-number
+          #inputNumber
+          [title]="'Trên'"
+          [unit]="mUnit.mt"
+          [value]="mt"
+          [units]="units"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnMarginTopChange($event);"
+          (onUnitChange)="handleOnMarginUnitChange($event, 'top');">  
+        </mo-wb-components-input-number>
+        <mo-wb-components-input-number
+          #inputNumber
+          [title]="'Trái'"
+          [unit]="mUnit.ml"
+          [value]="ml"
+          [units]="units"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnMarginLeftChange($event);"
+          (onUnitChange)="handleOnMarginUnitChange($event, 'left');">  
+        </mo-wb-components-input-number>
+        <mo-wb-components-input-number
+          #inputNumber
+          [title]="'Phải'"
+          [unit]="mUnit.mr"
+          [value]="mr"
+          [units]="units"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnMarginRightChange($event);"
+          (onUnitChange)="handleOnMarginUnitChange($event, 'right');">  
+        </mo-wb-components-input-number>
+        <mo-wb-components-input-number
+          #inputNumber
+          [title]="'Dưới'"
+          [unit]="mUnit.mb"
+          [units]="units"
+          [value]="mb"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnMarginBottomChange($event);"
+          (onUnitChange)="handleOnMarginUnitChange($event, 'bottom');">  
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+     <!-- padding -->
+    <mo-wb-landing-editor-inspector-layout-position-padding
+      *ngIf="isContainer">
+    </mo-wb-landing-editor-inspector-layout-position-padding>
+
+  </div>
+  
+
+</mo-wb-components-section>

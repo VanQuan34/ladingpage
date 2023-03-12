@@ -1,0 +1,84 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Bo góc'"
+  [isOpen]="isOpen">
+
+  <div class="">
+    <div class="mo-wb-font-head-4s mo-wb-pb-12px">{{'Bán kính(px)' | translate}}</div>
+
+    <div class="d-flex align-items-center justify-content-between">
+
+      <div class="d-flex align-items-center">
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="tl"
+          [max]="1000"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-100px'"
+          (onValueChanged)="handleOnValueChange($event, 'tl')">
+        </mo-wb-components-input-number>
+      </div>
+
+      <div class="d-flex align-items-center">
+       
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="tr"
+          [max]="1000"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-100px'"
+          (onValueChanged)="handleOnValueChange($event, 'tr')">
+        </mo-wb-components-input-number>
+      </div>
+      
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center mo-wb-h-100px position-relative">
+      <i class="mo-icn-popup_border_radius_topleft border-radius-top-left mo-wb-font-size-12px mo-wb-color-999999 position-absolute"></i>
+      <i class="mo-icn-popup_border_radius_topright border-radius-top-right mo-wb-font-size-12px mo-wb-color-999999 position-absolute"></i>
+      <i class="mo-icn-popup_border_radius_bottomleft border-radius-bottom-left mo-wb-font-size-12px mo-wb-color-999999 position-absolute"></i>
+      <i class="mo-icn-popup_border_radius_bottomright border-radius-bottom-right mo-wb-font-size-12px mo-wb-color-999999 position-absolute"></i>
+      <mo-wb-components-button 
+        [type]="'icon'"
+        [classInclude]="isAll ? 'mo-wb-button-icon-selected' : ''"
+        [classIconLeft]="'mo-icn-popup_border_radius_all'"
+        (click)="handleOnAllValueClick($event);">
+      </mo-wb-components-button>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+
+      <div class="d-flex align-items-center">
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="bl"
+          [max]="1000"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-100px'"
+          (onValueChanged)="handleOnValueChange($event, 'bl')">
+        </mo-wb-components-input-number>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="br"
+          [max]="1000"
+          [min]="0"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-100px'"
+          (onValueChanged)="handleOnValueChange($event, 'br')">
+        </mo-wb-components-input-number>
+      </div>
+      
+    </div>
+
+  </div>
+
+</mo-wb-components-toggle_panel-section>

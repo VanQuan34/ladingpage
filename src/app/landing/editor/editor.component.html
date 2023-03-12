@@ -1,0 +1,119 @@
+<div #wrapperEl 
+  class="w-100 h-100">
+  <ng-container>
+    <!-- top bar -->
+    <div class="mo-wb-topbar mo-wb-h-44px w-100 mo-wb-bg-color-dark"></div>
+    <div class="mo-wb-toolbar mo-wb-h-44px w-100">
+      <mo-wb-landing-editor-toolbar
+        *ngIf="!loading"
+        #toolbar
+        (onInspectorToggle)="handleOnInspectorToggle($event);">
+      </mo-wb-landing-editor-toolbar>
+    </div>
+    
+    <!-- Content -->
+    <div class="mo-wb-content mo-wb-bg-color-light">
+      <div class="h-100 mo-wb-overflow-x-auto {{ inspectorOpen ? 'mo-wb-calc-w-320px' : 'w-100'}}"
+        (scroll)="handleOnCanvasScroll($event);">
+        <div #content
+          class="mo-wb-pl-10px mo-wb-pr-10px mo-wb-pt-20px mo-wb-pb-5px h-100 mo-wb-min-width-100vw position-relative">
+         
+          <div *ngIf="breakPoint && breakPoint.id !== 'all'" 
+            class="mo-wb-breakpoint-screen none-selection mo-wb-calc-h-25px position-absolute mo-wb-z-index-5 mo-wb-bg-e6e8ed" 
+            [style.width]="mediaScreenWidth + 'px'">
+            <div class="position-relative w-100 h-100">
+              <div class="mo-wb-breakpoint-screen-text d-flex position-absolute align-items-center justify-content-center">
+                <i class="{{breakPoint.deviceIcon}} mo-wb-mr-8px mo-wb-font-size-20px"></i>
+                <div class="mo-wb-font-head-4s mo-wb-mr-4px">{{breakPoint.name}}</div>
+                <div class="mo-wb-font-head-4">({{mediaScreenWidth}} px trở xuống)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center h-100 position-relative mo-wb-z-index-10" style="margin:auto;" 
+            [style.width]="canvasWidth+'px'">
+            <mo-wb-landing-editor-drag_screen
+              [editor]="editor"
+              [classInclude]="'mo-wb-mr-30px'"
+              (onDragStarted)="handleOnDragLeftStarted();"
+              (onDragMoving)="handleOnDragLeftMoving($event);"
+              (onDragEnd)="handleOnDragEnd();">
+            </mo-wb-landing-editor-drag_screen>
+            <div #canvasEl style=" box-shadow: 0 2px 10px 1px rgba(51, 51, 51, 0.1); width: calc(100% - 72px)"
+              class="h-100 float-left">
+              <div #editorWrap 
+                id="editor"></div> 
+            </div>
+            <mo-wb-landing-editor-drag_screen
+              [direction]="'right'"
+              [classInclude]="'mo-wb-ml-30px'"
+              [editor]="editor"
+              (onDragStarted)="handleOnDragRightStarted();"
+              (onDragMoving)="handleOnDragRightMoving($event);"
+              (onDragEnd)="handleOnDragEnd();">
+            </mo-wb-landing-editor-drag_screen>
+          </div>
+        </div>
+      </div>
+    
+      <div class="mo-wb-content-top mo-wb-bg-color-light"></div>
+      <ng-container *ngIf="pageId">
+        <!-- inspector -->
+        <mo-wb-landing-editor-inspector
+          *ngIf="!loading"
+          [isOpen]="inspectorOpen">
+        </mo-wb-landing-editor-inspector>
+
+        <!-- toolbar -->
+        <mo-wb-landing-editor-layer-toolbar
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-toolbar>
+
+        <!-- selected comp -->
+        <mo-wb-landing-editor-layer-selected
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-selected>
+
+        <!-- resize comp -->
+        <mo-wb-landing-layer-comp-resize
+          *ngIf="editor">
+        </mo-wb-landing-layer-comp-resize>
+
+        <!-- grid layout -->
+        <mo-wb-landing-editor-layer-grid_layout
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-grid_layout>
+
+        <!-- selected comp container -->
+        <mo-wb-landing-editor-layer-selected-container
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-selected-container>
+
+        <!-- docking position -->
+        <mo-wb-landing-editor-layer-dock
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-dock>
+
+        <!-- nearest lines -->
+        <mo-wb-landing-editor-layer-nearest_line
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-nearest_line>
+
+        <!-- comp hover -->
+        <mo-wb-landing-editor-layer-hover
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-hover>
+
+        <!-- comp padding -->
+        <mo-wb-landing-editor-layer-padding
+          *ngIf="editor">
+        </mo-wb-landing-editor-layer-padding>
+      </ng-container>
+
+    </div>
+  </ng-container>
+
+  <div *ngIf="loading" class="overlay-loading"> 
+    <mo-wb-components-spinner></mo-wb-components-spinner>
+  </div>
+</div>

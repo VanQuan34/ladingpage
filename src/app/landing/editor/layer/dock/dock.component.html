@@ -1,0 +1,78 @@
+<div *ngIf="isOpen && dockingPos && !isNotShow">
+
+  <div *ngIf="dockingPos.justifySelf === 'start' || dockingPos.justifySelf === 'stretch'"
+    class="mo-line-hor-left"
+    [style.top]="top + height/2 +'px'"
+    [style.left]="left - dockingPos.mlpx +'px'"
+    [style.width]="dockingPos.mlpx+'px'">
+    <div class="mo-line-text-hor mo-line-text-hor-left"
+      [style.display]="isTextShow ? 'block': 'none'">
+      {{  ml }}
+    </div>
+    <div class="mo-anchor-point-left"></div>
+  </div>
+
+  <div *ngIf="dockingPos.justifySelf === 'end' || dockingPos.justifySelf === 'stretch'"
+    class="mo-line-hor-right"
+    [style.top]="top + height/2 +'px'"
+    [style.left]="left + width +'px'"
+    [style.width]="dockingPos.mrpx+'px'">
+    <div class="mo-line-text-hor mo-line-text-hor-right"
+      [style.display]="isTextShow ? 'block': 'none'">{{  mr }}</div>
+    <div class="mo-anchor-point-right"></div>
+  </div>
+
+  <div *ngIf="dockingPos.alignSelf === 'start' || dockingPos.alignSelf === 'stretch'" 
+    class="mo-line-ver-top"
+    [style.top]="top - dockingPos.mtpx +'px'"
+    [style.left]="left + width/2 +'px'"
+    [style.height]="dockingPos.mtpx+'px'">
+    <div class="mo-line-text-ver mo-line-text-ver-top"
+      [style.display]="isTextShow ? 'block': 'none'">{{  mt }}</div>
+    <div class="mo-anchor-point-top"></div>
+  </div>
+
+  <div *ngIf="dockingPos.alignSelf === 'end' || dockingPos.alignSelf === 'stretch'" 
+    class="mo-line-ver-bottom"
+    [style.top]="top + height +'px'"
+    [style.left]="left + width/2 +'px'"
+    [style.height]="dockingPos.mbpx+'px'">
+    <div class="mo-line-text-ver mo-line-text-ver-bottom"
+      [style.display]="isTextShow ? 'block': 'none'">{{  mb }}</div>
+    <div class="mo-anchor-point-bottom"></div>
+  </div>
+
+  <div *ngIf="dockingPos.alignSelf === 'center' || dockingPos.justifySelf === 'center'">
+    <div class="mo-anchor-point-center"
+      [style.top]="top + height/2 - 3 +'px'"
+      [style.left]="left + width/2 - 3 +'px'">
+    </div>
+    <div class="mo-anchor-point-center-container"
+      [style.top]="areaRect.top + areaRect.height/2 - 3 +'px'"
+      [style.left]="areaRect.left + areaRect.width/2 - 3 +'px'">
+    </div>
+  </div>
+  
+
+  <div *ngIf="dockingPos.justifySelf === 'center'"
+    class="mo-line-hor-center"
+    [style.width]="centerHor.width +'px'"
+    [style.top]="centerHor.top +'px'"
+    [style.left]="centerHor.left +'px'">
+    <div class="mo-line-text-hor mo-line-text-hor-center"
+      [style.display]="isTextShow ? 'block': 'none'">{{  mch }}</div>
+    <div class="mo-line-border-hor mo-line-border-hor-left"></div>
+    <div class="mo-line-border-hor  mo-line-border-hor-right"></div>
+  </div>
+
+  <div *ngIf="dockingPos.alignSelf === 'center'" 
+    class="mo-line-ver-center"
+    [style.height]="centerVer.height +'px'"
+    [style.top]="centerVer.top +'px'"
+    [style.left]="centerVer.left +'px'">
+    <div class="mo-line-text-ver mo-line-text-ver-center"
+      [style.display]="isTextShow ? 'block': 'none'">{{  mcv }}</div>
+    <div class="mo-line-border-ver mo-line-border-ver-top"></div>
+    <div class="mo-line-border-ver  mo-line-border-ver-bottom"></div>
+  </div>
+</div>

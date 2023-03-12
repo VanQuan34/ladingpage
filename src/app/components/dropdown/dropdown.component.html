@@ -1,0 +1,126 @@
+<div class="mo-wb-dropdown {{ classInclude }}"
+  #container
+  [style.width]="width"
+  [ngClass]="{ 'mo-disable': !enable }">
+  <div *ngIf="label ? true : false"
+    class="d-flex align-items-center mo-wb-mb-4px">
+    <span class="mo-wb-font-head-4s">{{ label | translate }}</span>
+    <span *ngIf="hasNotRequireText"
+      class="mo-wb-color-999999 mo-wb-font-size-10px"
+      [innerHTML]="('i18n_optional_label' | translate) | safeHtml"></span>
+    <span *ngIf="showAsterisk" class="mo-wb-color-ff5454 mo-wb-ml-2px">*</span>
+    <mo-wb-components-tooltip *ngIf="tooltip"
+      [maxWidth]="255"
+      [maxHeight]="100"
+      [content]="tooltip"
+      [noContentPadding]="false"
+      [allowHover]="true"
+      type="other">
+      <i class="mo-icn-help mo-wb-font-size-14px mo-wb-ml-8px"></i>
+    </mo-wb-components-tooltip>
+  </div>
+  <div *ngIf="note ? true : false"
+    class="mo-wb-font-size-12px mo-wb-mb-4px mo-wb-color-999999">
+    {{ note | translate}}
+  </div>
+ 
+  <mo-wb-components-tooltip 
+      [maxWidth]="255"
+      [maxHeight]="100"
+      [content]="dropdownTooltip"
+      [noContentPadding]="false"
+      [allowHover]="true"
+      type="other">
+    <div class="mo-wb-dropdown-toggle
+        {{ classIncludeDropDown }}
+        {{ readOnly ? 'readOnly' : '' }}
+        {{ emptyError ? 'mo-wb-border-error-general' : '' }}
+        position-relative"
+      (click)="handleOnDropdownClick($event)"
+      [style.width]="dropdownWidth"
+      (mouseover)="handleOnMouseover($event)"
+      (mouseleave)="handleOnMouseleave($event)">
+      
+      <span *ngIf="!selectedItem || !selectedItem.html || isOnlyText">{{ (selectedItem ? selectedItem[keyName] : defaultTitle) | translate }}</span>
+      <div  class="w-100" *ngIf="selectedItem && selectedItem.html && !isOnlyText ? true : false" [innerHTML]="selectedItem.html | safeHtml"></div>
+      
+      <div 
+        *ngIf="selectedItem && hasCloseButton"
+        class="mo-wb-h-20px mo-wb-w-20px d-flex align-items-center justify-content-center mo-wb-cursor-pointer"
+        style="margin-right: -8px;"
+        (click)="handleOnRemoveClick($event)">
+        <i class="mo-icn-close-popup mo-wb-font-size-8px mo-wb-color-333333"></i> 
+      </div>
+ 
+      <i *ngIf="!selectedItem || (!hasCloseButton && selectedItem)" class="mo-icn-collapsed1 icon-arrow"></i>
+ 
+      <div *ngIf="!isFirstOpen"
+        class="mo-wb-dropdown-menu {{ isOpen ? 'd-block' : 'd-none'}} {{ isAbove ? 'mo-wb-dropdown-menu-above' : ''}}"
+        [style.height]="calcHeightPopup()">
+ 
+        <div class="mo-wb-dropdown-toggle mo-wb-border-radius-top-4px mo-wb-border-bottom-general"
+          (click)="handleOnCloseMenuClick($event)">
+          <span *ngIf="!selectedItem || !selectedItem.html || isOnlyText">{{(selectedItem ? selectedItem[keyName] : defaultTitle) |
+            translate}}</span>
+          <div class="w-100" *ngIf="selectedItem && selectedItem.html && !isOnlyText  ? true : false"
+            [innerHTML]="selectedItem.html | safeHtml"></div>
+          <i class="mo-icn-collapsed1 icon-arrow"></i>
+        </div>
+ 
+        <div *ngIf="hasSearch"
+          class="mo-wb-border-bottom-general mo-wb-dropdown-search-input d-flex align-items-center mo-wb-pl-12px mo-wb-pr-12px"
+          (click)="handleOnInputSearchClick($event);">
+          <i class="mo-icn-search mo-wb-mr-4px mo-wb-font-size-12px"></i>
+          <input #input
+            class="mo-wb-color-333333 flex-grow-1"
+            [placeholder]="searchHolder | translate"
+            [value]="searchValue"
+            (keyup)="handleOnInputSearchKeyUp($event);" />
+        </div>
+ 
+        <div class="position-relative d-flex justify-content-center align-items-center"
+          [style.height]="hasSearch ? 'calc(100% - 56px)' : 'calc(100% - 28px)'">
+          <virtual-scroller #scroll
+            *ngIf="items.length >= 30 || !isStaticData"
+            [items]="items"
+            (vsEnd)="fetchMoreData($event)"
+            class="h-100 w-100 mo-wb-overflow-auto">
+            <mo-wb-components-dropdown-item
+              *ngFor="let item of scroll.viewPortItems; index as i"
+              [item]="item"
+              [selectedId]="selectedId"
+              [key]="key"
+              [keyName]="keyName"
+              [level]="level"
+              (onSelectedItem)="handleOnSelectItem($event)">
+            </mo-wb-components-dropdown-item>
+          </virtual-scroller>
+ 
+          <div *ngIf="items.length < 30 && isStaticData"
+            class="h-100 w-100 mo-wb-overflow-auto">
+            <ng-container *ngFor="let item of items; index as i">
+              <mo-wb-components-dropdown-item
+                [item]="item"
+                [selectedId]="selectedId"
+                [key]="key"
+                [keyName]="keyName"
+                [level]="level"
+                (onSelectedItem)="handleOnSelectItem($event)">
+              </mo-wb-components-dropdown-item>
+            </ng-container>
+          </div>
+          <div *ngIf="isLoading && !isStaticData">
+            <mo-wb-components-spinner>
+            </mo-wb-components-spinner>
+          </div>
+          <div *ngIf=" (isStaticData || isLoaded) && !items.length" 
+            class="mo-wb-font-head-4 mo-wb-color-999999 position-absolute mo-center-text mo-wb-w-200px text-center">{{ (searchValue ? noSearchMsg
+            : noDataMsg) | translate }}</div>
+        </div>
+      </div>
+    </div>
+  </mo-wb-components-tooltip>
+ 
+  <div *ngIf="emptyError"
+    class="mo-wb-font-head-4 mo-wb-color-ff5454 mo-wb-mt-4px {{classIncludeEmptyMsg}}">{{emptyMsg | translate}}</div>
+</div>

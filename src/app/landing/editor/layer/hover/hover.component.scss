@@ -1,0 +1,18 @@
+.mo-wb-comp-hover {
+  border: 1px solid var(--blue3);
+  z-index: 999;
+}
+
+.mo-wb-comp-name {
+  z-index: 999;
+  padding: 4px 7px;
+  background-color: var(--blue3);
+  color: #fff;
+  border-radius: 4px;
+}
+
+.mo-wb-section-empty {
+  z-index: 1200;
+  flex-direction: column;
+  width: 300px;
+}

@@ -1,0 +1,23 @@
+
+.mo-wb-button-sort {
+    cursor: pointer;
+    [class^=mo-icn] {
+        font-size: 8px;
+        margin: 0;
+        &:before {
+            color: #333333;
+        }
+
+        &:hover{
+            &:before{
+                color: #009cdb;
+            }
+        }
+
+        &.mo-wb-button-sort-active{
+            &:before{
+                color: #009cdb;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "name": "Trên đại học",
+        "display_in_form": true
+    },
+    {
+        "id": 2,
+        "name": "Đại học",
+        "display_in_form": true
+    },
+    {
+        "id": 3,
+        "name": "Cao đẳng",
+        "display_in_form": true
+    },
+    {
+        "id": 4,
+        "name": "Phổ thông",
+        "display_in_form": true
+    },
+    {
+        "id": 5,
+        "name": "Trung cấp",
+        "display_in_form": true
+    }
+]
+

@@ -1,0 +1,15 @@
+
+<div class="d-flex align-items-center {{classInclude}}">
+  <div class="mo-wb-h-28px mo-wb-pl-12px mo-wb-pr-12px d-flex align-items-center justify-content-center btn-on
+    mo-wb-font-head-4s mo-wb-cursor-pointer {{ state === 'ON' ? 'mo-wb-bg-009cdb mo-wb-color-ffffff' : 'mo-wb-color-009cdb'}}"
+    (click)="handleOnButtonClick($event,'ON');"
+    [style.width]="width ? width +'px': 'auto'">
+    {{ textOn | translate }}
+  </div>
+  <div class="mo-wb-h-28px mo-wb-pl-12px mo-wb-pr-12px d-flex align-items-center justify-content-center btn-off
+    mo-wb-font-head-4s mo-wb-cursor-pointer {{ state === 'OFF' ? 'mo-wb-bg-009cdb mo-wb-color-ffffff' : 'mo-wb-color-009cdb'}}"
+    (click)="handleOnButtonClick($event,'OFF');"
+    [style.width]="width ? width +'px': 'auto'">
+    {{ textOff | translate }}
+  </div>
+ </div> 

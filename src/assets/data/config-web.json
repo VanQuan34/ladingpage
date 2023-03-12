@@ -1,0 +1,19 @@
+{
+    "exit_time_when_there_is_no_action": 0,
+    "time_interval_check_web_has_action": 3000,
+    "ignore_disable_exclude_filter_marketing": {
+        "domain": [
+            "cem.vnpay.vn"
+        ],
+        "merchant_code": [],
+        "merchant_id": []
+    },
+    "merchant_type_accept_made_transaction": ["BANK"],
+    "merchant_type_accept_journey_report_rate_convert_spend": ["BANK"],
+    "merchant_type_accept_journey_report_effect_interaction_spend": ["BANK"],
+    "merchant_type_accept_journey_report_rate_interaction_by_channel_spend": ["BANK"],
+    "merchant_type_accept_master_campaign_report_rate_convert_spend": ["BANK"],
+    "merchant_type_accept_master_campaign_report_by_journey_spend": ["BANK"],
+    "time_interval_load_report_journey": 30000,
+    "time_interval_load_report_master_campaign": 30000
+}

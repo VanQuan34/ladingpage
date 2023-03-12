@@ -1,0 +1,139 @@
+<div class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+  <span class="mo-wb-font-head-4s">{{'Tự động chạy' | translate }}</span>
+  <mo-wb-components-button-toggle_button
+    [active]="autoPlay"
+    (onChangeToggle)="handleOnChangeAutoplay($event)">
+  </mo-wb-components-button-toggle_button>
+</div>
+
+<div *ngIf="autoPlay" class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+  <span class="mo-wb-font-head-4s">{{'Thời gian chạy (giây)' | translate }}</span>
+    <mo-wb-components-input-number
+      #gapLR_IP
+      [step]="1"
+      [value]="timePlay"
+      [max]="100"
+      [min]="0"
+      [unit]="'sec'"
+      [hasPlusButton]="true"
+      [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+      (onValueChanged)="handleOnChangeTimeAutoplay($event)">
+    </mo-wb-components-input-number>
+</div>
+
+<div class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+  <span class="mo-wb-font-head-4s">{{'Chiều rộng item' | translate }}</span>
+    <mo-wb-components-input-number
+      #wThumb
+      [step]="1"
+      [value]="widthImage"
+      [max]="1200"
+      [min]="0"
+      [unit]="'px'"
+      [hasPlusButton]="true"
+      [classInclude]="'mo-wb-w-90px mo-wb-ml-10px'"
+      (onValueChanged)="handleOnChangeWidthImage($event)">
+    </mo-wb-components-input-number>
+</div>
+
+<div class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+  <span class="mo-wb-font-head-4s">{{'Chiều cao item' | translate }}</span>
+    <mo-wb-components-input-number
+      #hThumb
+      [step]="1"
+      [value]="heightImage"
+      [max]="500"
+      [min]="0"
+      [unit]="'px'"
+      [hasPlusButton]="true"
+      [classInclude]="'mo-wb-w-90px mo-wb-ml-10px'"
+      (onValueChanged)="handleOnChangeHeightImage($event)">
+    </mo-wb-components-input-number>
+</div>
+
+<div class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+  <span class="mo-wb-font-head-4s">{{'K/cách giữa các mục' | translate }}</span>
+    <mo-wb-components-input-number
+      #gapTHUMB
+      [step]="1"
+      [value]="gapItem"
+      [max]="100"
+      [min]="0"
+      [unit]="'px'"
+      [hasPlusButton]="true"
+      [classInclude]="'mo-wb-w-90px mo-wb-ml-10px'"
+      (onValueChanged)="handleOnChangeGapItem($event)">
+    </mo-wb-components-input-number>
+</div>
+
+<div class="d-flex align-items-center mo-wb-border-top-general justify-content-between mo-wb-pt-20px mo-wb-mt-20px">
+  <span class="mo-wb-font-head-4s">{{'Hiển thị dots' | translate }}</span>
+  <mo-wb-components-button-toggle_button
+    [active]="onDots"
+    (onChangeToggle)="handleOnChangeShowDots($event)">
+  </mo-wb-components-button-toggle_button>
+</div>
+
+<div class="mo-wb-pt-20px">
+  <div class="d-flex align-items-center justify-content-between">
+    <span class="mo-wb-font-head-4s">{{'Biểu tượng (Mũi tên)' | translate}}</span>
+    <mo-wb-components-dropdown
+      [label]="''"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="listArrow"
+      [selectedId]="arrow"
+      [key]="'id'"
+      [keyName]="'name'"
+      [classInclude]="'mo-wb-w-130px'"
+      (onSelectedItem)="handleOnChangeSelectArrow($event);">
+    </mo-wb-components-dropdown>
+  </div>
+  <div *ngIf="arrow === 'default'" class="w-100">
+    <div class="mo-wb-mt-20px">
+      <mo-wb-components-color-rgba 
+      [classInclude]="'w-100'"
+      [title]="'Màu sắc'"
+      [isOnlyColor]="true"
+      [type]="'color'"
+      [color]="fontColor"
+      (onColorChanged)="handleOnFontColorChanged($event);"
+      (onSelectColor)="handleOnFontColorSelect($event);"
+      (onSetColorClosed)="handleOnFontColorClosed();">
+    </mo-wb-components-color-rgba>
+    </div>
+    <div class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+      <div class="mo-wb-font-head-4s">{{'Xem trước'| translate}}</div>
+      <div class="d-flex align-items-center mo-wb-font-size-20px">
+        <span class="mo-icon mo-icn-down-arrow mo-wb-rotate-90deg mo-wb-mr-15px" [style.color]="colorBtn"></span>
+        <span class="mo-icon mo-icn-up-arrow mo-wb-rotate-90deg" [style.color]="colorBtn"></span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="arrow === 'custom'">
+    <div class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+      <div class="mo-wb-font-head-4s">{{'Thư viện biểu tượng' | translate}}</div>
+      <mo-wb-components-button
+      [type]="'blue-border'"
+      [classInclude]="'mo-wb-m-auto'"
+      [classLabel] = "'mo-wb-pl-5px mo-wb-pr-5px'"
+      [label]="'Biểu tượng'"
+      (click)="handleOnClickShowIcon()">
+      </mo-wb-components-button>
+    </div>
+  </div>
+  <div *ngIf="arrow === 'custom'" class="d-flex align-items-center justify-content-between mo-wb-mt-20px">
+    <span class="mo-wb-font-head-4s">{{'Độ lớn icon' | translate }}</span>
+      <mo-wb-components-input-number
+        #gapGLR
+        [step]="1"
+        [value]="sizeIcon"
+        [max]="100"
+        [min]="10"
+        [unit]="'px'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-90px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnChangeSizeIcon($event)">
+      </mo-wb-components-input-number>
+  </div>
+</div>

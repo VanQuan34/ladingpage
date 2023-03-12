@@ -1,0 +1,20 @@
+.tab-selected {
+  .title{
+    color: var(--blue);
+  }
+
+  .tab-divider {
+    display: block;
+  }
+}
+
+.tab-divider {
+  display: none;
+  position: absolute;
+  height: 2px;
+  background-color: var(--blue);
+  width: 120px;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}

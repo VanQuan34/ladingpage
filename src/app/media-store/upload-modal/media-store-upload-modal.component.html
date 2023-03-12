@@ -1,0 +1,63 @@
+<mo-wb-components-modal #modal 
+  [title]="'i18n_file_new' | translate" 
+  [width]="'598px'"
+  [maxWidth]="'1200px'"
+  [height]="modalHeight"
+  [zIndex]="zIndex"
+  (onClose)="handleOnCloseModal()"
+  (onClosed)="handlerClickButtonClose()">
+  <div class="large-container media-store-upload-file-container">
+    <div #container class="mo-wb-pb-12px">
+
+      <div #containerTop class="mo-wb-pt-12px mo-wb-pb-12px">
+        <mo-wb-components-dropdown 
+          #folder
+          [label]="'i18n_folder_lowercase' | translate"
+          [hasSearch]="true"
+          [selectedId]="'name'"
+          [key]="'name'"
+          [enable]="true"
+          [items]="folderListItems"
+          [defaultTitle]="'i18n_select_folder' | translate"
+          (onSelectedItem)="handleOnSelectFolder($event)">
+        </mo-wb-components-dropdown>
+
+        <div class="mo-wb-pt-12px" >
+          <div class="mo-wb-font-head-4s">File media</div>
+          <div *ngIf="type === 'IMAGE' || type === 'ALL'" class="mo-wb-font-family-regular mo-wb-mt-4px">{{'i18n_format_file_and_limit' | translate}} {{convertFileSize(maxImageSize, 0)}}.</div>
+          <div *ngIf="type === 'FILE' || type === 'ALL'" class="mo-wb-font-family-regular mo-wb-mt-4px">{{'i18n_format_file_and_limit' | translate}} {{convertFileSize(maxFileSize, 0)}}.</div>
+        </div>
+      </div>
+
+      <mo-wb-media_store_upload
+        #upload
+        [hasInfo]="false"
+        [minHeight]="224"
+        [mode]="'UPLOAD'"
+        [type]="type"
+        [multiple]="true"
+        [maxImageSize]="maxImageSize"
+        [maxFileSize]="maxFileSize"
+        (onFileChanged)="handleOnFileUploadChanged($event);"
+        (onValidationFailed)="handleOnUploadValidationFailed($event);"
+        (onUploadSuccess)="handleOnUploadSuccess($event);">
+      </mo-wb-media_store_upload>
+    </div>
+    
+  </div>
+  <div class="footer-container">
+
+    <mo-wb-components-button
+      label="i18n_save"
+      (onClick)="handleOnSaveClick()"
+      [disable]="loading">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button
+      [disable]="loading"
+      [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

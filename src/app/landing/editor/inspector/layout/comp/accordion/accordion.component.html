@@ -1,0 +1,88 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Thiết lập Accordion'"
+  [hasContentPadding]="false">
+  <div>
+    <div class="mo-wb-pl-20px mo-wb-pr-20px mo-wb-mt-20px mo-wb-pb-20px mo-wb-border-bottom-general">
+      <mo-wb-components-button
+        [type]="'text-blue'"
+        [classInclude]="'d-flex justify-content-center w-100 mo-wb-border-general mo-wb-pt-10px mo-wb-pb-10px mo-wb-bg-hover-ebf0f5'"
+        [classLabel] = "'mo-wb-font-head-3'"
+        [label]="'Chỉnh sửa Accordion'"
+        (click)="handleOnClickEditAccordion($event)">
+      </mo-wb-components-button>
+    </div>
+    <mo-wb-components-dropdown
+      [label]="'Kiểu hiển thị'"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="dsTypes"
+      [selectedId]="dsType"
+      [key]="'id'"
+      [keyName]="'name'"
+      [classInclude]="'w-100 mo-wb-p-20px'"
+      (onSelectedItem)="handleOnSelectDisplayType($event);">
+    </mo-wb-components-dropdown>
+
+    <mo-wb-components-dropdown
+      [label]="'Hướng'"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="directions"
+      [selectedId]="direction"
+      [key]="'id'"
+      [keyName]="'name'"
+      [classInclude]="'w-100 mo-wb-pl-20px mo-wb-pr-20px mo-wb-pb-20px'"
+      (onSelectedItem)="handleOnSelectDirection($event);">
+    </mo-wb-components-dropdown>
+
+    <div class="d-flex align-items-center justify-content-between mo-wb-pl-20px mo-wb-pr-20px ">
+    <div class="mo-wb-font-head-4s mo-wb-my-10px">{{'Hiển thị icon' | translate}}</div>
+      <mo-wb-components-button-toggle_button
+      [active]="showIcon"
+      (onChangeToggle)="handleOnChangeShowIcon($event)">
+      </mo-wb-components-button-toggle_button>
+    </div>
+
+    <div *ngIf="showIcon"
+      class="mo-wb-pl-20px mo-wb-pr-20px mo-wb-pb-20px mo-wb-mt-20px">
+      <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Độ lớn icon' | translate}}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="mo-wb-calc-w-80px">
+          <mo-wb-components-slider #slider
+            [value]="sizeIcon"
+            [min]="10"
+            [max]="100"
+            [step]="1"
+            [classInclude]=""
+            (onValueChanged)="handleOnChangeSizeIcon($event)"
+            (onInputValueChanged)="handleOnInputSizeValueChanged($event)">
+          </mo-wb-components-slider>
+        </div>
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="sizeIcon"
+          [max]="100"
+          [min]="10"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-90px mo-wb-ml-10px'"
+          (onValueChanged)="handleOnChangeSizeIcon($event)">
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+    <div *ngIf="showIcon">
+      <mo-wb-components-color-rgba 
+        [classInclude]="'w-100 mo-wb-pl-20px mo-wb-pr-20px mo-wb-mb-20px'"
+        [title]="'Màu sắc icon'"
+        [isOnlyColor]="true"
+        [type]="'color'"
+        [color]="fontColor"
+        (onColorChanged)="handleOnFontColorChanged($event);"
+        (onSelectColor)="handleOnFontColorSelect($event);"
+        (onSetColorClosed)="handleOnFontColorClosed();">
+    </mo-wb-components-color-rgba>
+    </div>
+
+  </div>
+ </mo-wb-components-toggle_panel-section>

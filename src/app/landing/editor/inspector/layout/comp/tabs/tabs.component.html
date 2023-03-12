@@ -1,0 +1,74 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Thiết lập Tabs'"
+  [hasContentPadding]="false">
+  <div>
+    <div class="mo-wb-font-head-3s mo-wb-pl-20px mo-wb-mt-10px mo-wb-mb-10px">{{'Danh sách tabs' | translate}}</div>
+    <mo-wb-landing-editor-inspector-layout-list-of-tabs> 
+    </mo-wb-landing-editor-inspector-layout-list-of-tabs>
+
+    <mo-wb-components-dropdown
+        [label]="'Kiểu hiển thị'"
+        [defaultTitle]="''"
+        [tooltip]="''"
+        [items]="dsTypes"
+        [selectedId]="dsType"
+        [key]="'id'"
+        [keyName]="'name'"
+        [classInclude]="'w-100 mo-wb-p-20px mo-wb-border-top-general'"
+        (onSelectedItem)="handleOnSelectDisplayType($event);">
+    </mo-wb-components-dropdown>
+
+    <div class="mo-wb-font-head-4s mo-wb-px-20px mo-wb-my-10px">{{'Vị trí hiển thị title' | translate}}</div>
+    <div class="d-flex mo-wb-px-20px">
+      <mo-wb-components-button
+        [attr.tooltip]="'Bắt đầu' | translate"
+        [type]="alignTitle === 'flex-start' ? 'icon-selected' : 'icon'"
+        [classInclude]="'mo-wb-h-38px mo-wb-w-38px mo-wb-border-general'"
+        [classIconLeft]="'mo-icn-survey_photo_align_left_selected mo-wb-font-size-14px'"
+        (onClick)="handlerSelectAlignTitle($event, 'flex-start')">
+      </mo-wb-components-button>
+      <mo-wb-components-button
+        [attr.tooltip]="'Trung tâm' | translate"
+        [type]="alignTitle === 'center' ? 'icon-selected' : 'icon'"
+        [classInclude]="'mo-wb-h-38px mo-wb-w-38px mo-wb-mx-10px mo-wb-border-general'"
+        [classIconLeft]="'mo-icn-survey_photo_align_center_selected mo-wb-font-size-14px'"
+        (onClick)="handlerSelectAlignTitle($event, 'center')">
+      </mo-wb-components-button>
+      <mo-wb-components-button
+        [attr.tooltip]="'Kết thúc' | translate"
+        [type]="alignTitle === 'flex-end' ? 'icon-selected' : 'icon'"
+        [classInclude]="'mo-wb-h-38px mo-wb-w-38px mo-wb-border-general'"
+        [classIconLeft]="'mo-icn-survey_photo_align_right_selected mo-wb-font-size-14px'"
+        (onClick)="handlerSelectAlignTitle($event, 'flex-end')">
+      </mo-wb-components-button>
+    </div>
+
+    <div class="mo-wb-pl-20px mo-wb-pr-20px mo-wb-pb-20px mo-wb-mt-20px">
+      <div class="mo-wb-font-head-4s mo-wb-pb-4px">{{'Độ rộng tối đa Tab title' | translate}}</div>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="mo-wb-calc-w-80px">
+          <mo-wb-components-slider #slider
+            [value]="widthVer"
+            [min]="50"
+            [max]="500"
+            [step]="1"
+            [classInclude]=""
+            (onValueChanged)="handleOnVerticalChange($event)"
+            (onInputValueChanged)="handleOnInputVerticalSliderValueChanged($event)">
+          </mo-wb-components-slider>
+        </div>
+        <mo-wb-components-input-number
+          [step]="1"
+          [value]="widthVer"
+          [max]="500"
+          [min]="50"
+          [unit]="'px'"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-90px mo-wb-ml-10px'"
+          (onValueChanged)="handleOnVerticalChange($event)">
+        </mo-wb-components-input-number>
+      </div>
+    </div>
+
+  </div>
+ </mo-wb-components-toggle_panel-section>

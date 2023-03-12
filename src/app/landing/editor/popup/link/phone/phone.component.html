@@ -1,0 +1,11 @@
+<div class="mo-wb-landing-editor-comp-popup-link-phone">
+  <div class="mo-wb-mb-10px mo-wb-font-head-4s">{{'i18n_add_my_phone_number' | translate}}</div>
+  <mo-wb-components-input #input
+      [label]="'Tel'"
+      [value]="tel"
+      [validType]="'PHONE'"
+      [placeholder]="'e.g, 0xxxxxx...'"
+      (onValueChanged)="handlerChangeInput($event);"
+      (onInputError)="handleOnInputError($event)">
+    </mo-wb-components-input>
+</div> 

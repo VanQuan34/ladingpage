@@ -1,0 +1,82 @@
+
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0"
+  [style.zIndex]="zIndex"
+  [style.display]="isShow ? 'block' : 'none'"
+  (click)="handleOnOverlayClick($event);">
+
+  <div class="{{classInclude}} mo-wb-z-index-100 mo-wb-border-radius-8px align-items-center 
+    position-absolute mo-wb-border-general mo-wb-bg-color-white mo-wb-shadow"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    [style.width]="width+'px'"
+    (click)="handleOnMenuClick($event);">
+
+    <div class="mo-wb-h-52px d-flex align-items-center justify-content-between mo-wb-px-20px 
+        mo-wb-border-bottom-general">
+      <div class="mo-wb-font-head-2s">{{ 'Bộ chọn mầu' | translate }}</div>
+      <i class="mo-icn-close-popup mo-wb-cursor-pointer mo-wb-hover-009cdb"
+        (click)="handleOnCloseClick($event);">
+      </i>
+    </div>
+
+    <div *ngIf="!isOnlyColor" 
+      class="d-flex align-items-center mo-wb-pt-20px mo-wb-pb-0px mo-wb-px-20px">
+      <div class="flex-grow-1">
+        <mo-wb-components-radio
+          [active]="type === 'color'"
+          [label]="'Mầu'"
+          (onActiveChanged)="handleOnTypeChange('color');">
+        </mo-wb-components-radio>
+      </div>
+      <div class="flex-grow-1">
+        <mo-wb-components-radio
+          [active]="type === 'gradient'"
+          [label]="'Mầu gradient'"
+          (onActiveChanged)="handleOnTypeChange('gradient');">
+        </mo-wb-components-radio>
+      </div>
+      <div class="flex-grow-1">
+        <mo-wb-components-radio
+          [active]="type === 'image'"
+          [label]="'Ảnh'"
+          (onActiveChanged)="handleOnTypeChange('image');">
+        </mo-wb-components-radio>
+      </div>
+    </div>
+
+    <mo-wb-components-color-set-color 
+      #colorSet
+      *ngIf="type === 'color' || isOnlyColor"
+      [inputColor]="inputColor"
+      [zIndex]="zIndex"
+      (onColorChanged)="handleOnColorChanged($event);">
+    </mo-wb-components-color-set-color>
+
+    <mo-wb-components-color-set-gradient
+      *ngIf="type === 'gradient'"
+      [inputGradient]="gradient"
+      [zIndex]="zIndex"
+      (onGradientColorChanged)="handleOnGradientColorChanged($event);">
+    </mo-wb-components-color-set-gradient>
+
+    <div class="mo-wb-h-52px justify-content-end d-flex mo-wb-border-top-general align-items-center mo-wb-px-20px">
+      
+      <mo-wb-components-button
+        [classInclude]="'mo-wb-mr-12px'"
+        [label]="'Áp dụng'"
+        [disable]="false"
+        (click)="handleOnApplyClick($event)">
+      </mo-wb-components-button>
+
+      <mo-wb-components-button
+        [type]="'dark'"
+        [classInclude]="''"
+        [label]="'Huỷ bỏ'"
+        [disable]="false"
+        (click)="handleOnCancelClick($event)">
+      </mo-wb-components-button>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="d-flex">
+  <div *ngFor="let item of listBtn; let i = index"
+    (click)="click(item)"
+    class="{{ item.initClass }} mo-wb-font-head-4s"
+    [ngClass]="{
+      'btn-active': item.selected,
+      'title_button': !item.selected
+    }">
+    {{ item.name | translate }}
+  </div>
+</div>

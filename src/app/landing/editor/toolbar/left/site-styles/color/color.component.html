@@ -1,0 +1,57 @@
+
+<div class="none-selection mo-wb-w-420px h-100 mo-wb-bg-ffffff">
+  <div class="d-flex justify-content-between mo-wb-h-52px 
+    mo-wb-px-20px align-items-center mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-2s">Kiểu mầu</div>
+    <div class="mo-icn-close-popup mo-wb-font-size-18 mo-wb-text-color-blue-hover mo-wb-cursor-pointer"
+      (click)="handleOnCloseIconClick($event);"></div>
+  </div>
+
+  <div class="mo-wb-calc-h-52px w-100 mo-wb-overflow-y-auto">
+    <div class="w-100 mo-wb-py-20px mo-wb-px-20px" >
+      <div *ngFor="let item of paletteColors; let i = index;"
+        class="mo-wb-mb-20px">
+        <div class="mo-wb-font-head-4 mo-wb-pb-4px">{{ item.title | upperCasePipe }}</div>
+        <div class="d-flex align-items-center">
+          
+          <div class="mo-wb-border-general mo-wb-border-radius-4px d-flex align-items-center mo-wb-overflow-hidden"
+            (mouseout)="handleOnColorMouseout($event);">
+            <div 
+              #colorEl
+              *ngFor="let color of item.colors; let i = index;"
+              class="mo-wb-h-50px mo-wb-w-50px mo-wb-cursor-pointer
+                d-flex align-items-center justify-content-center"
+                [style.background-color]="color.hex"
+                (mouseover)="handleOnColorMouseover($event, color);"
+                (click)="handleOnColorItemClick($event, color, colorEl);">
+                <i class="mo-icn-quick-edit mo-wb-font-size-15px mo-wb-z-index-10 pointer-event-none" 
+                  [ngClass]="{'mo-wb-color-333333' : !color.isDark, 'mo-wb-color-ffffff' : color.isDark, 
+                    'd-block' : selectedColorId === color.id, 'd-none' : selectedColorId !== color.id}">
+                </i>
+            </div>
+          </div>
+          <div #editEl>
+            <mo-wb-components-button
+              [type]="'text-blue'"
+              [label]="'Sửa mầu'"
+              [classInclude]="'mo-wb-ml-20px'"
+              (click)="handleOnEditColorButtonClick(item, i, editEl);">
+            </mo-wb-components-button>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+  <div #refSel 
+    class="mo-wb-w-56px mo-wb-h-56px position-fixed align-items-center justify-content-center"
+    [ngClass]="{'d-flex': selectedColorItem, 'd-none': !selectedColorItem}"
+    [style.background-color]="selectedColorItem && selectedColorItem.hex">
+      <i *ngIf="selectedColorItem"
+        class="mo-icn-quick-edit mo-wb-font-size-15px mo-wb-z-index-10 pointer-event-none" 
+        [ngClass]="{'mo-wb-color-333333' : !selectedColorItem.isDark, 'mo-wb-color-ffffff' : selectedColorItem.isDark}"></i>
+  </div>
+  
+</div> 

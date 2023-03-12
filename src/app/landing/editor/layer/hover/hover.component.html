@@ -1,0 +1,24 @@
+<div [style.display]="isShow ? 'block' : 'none'">
+  <div 
+    class="mo-wb-comp-hover position-fixed mo-wb-pointer-events-none"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    [style.width]="width + 'px'"
+    [style.height]="height + 'px'">
+  </div>
+
+  <div class="mo-wb-comp-name position-fixed mo-wb-pointer-events-none mo-wb-font-head-5"
+    [style.top]="(top - 25)+'px'"
+    [style.left]="left+'px'">
+    {{compName}}
+  </div>
+  
+  <div *ngIf="isSection" 
+    class="d-flex justify-content-center align-items-center mo-wb-section-empty position-fixed"
+    [style.top]="top + (height - 40) / 2 + 'px'"
+    [style.left]="left + (width - 300) / 2 + 'px'">
+    <div class="mo-wb-font-head-4 mo-wb-mb-8px"> {{ 'Đây là phần trống, thêm vào đây.'}} </div>
+    <div class="mo-wb-cursor-pointer mo-wb-color-009cdb"
+      (click)="handleOnAddElementClick($event);">Thêm phần tử</div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="none-selection mo-wb-w-420px h-100 mo-wb-bg-ffffff">
+  <div class="d-flex justify-content-between mo-wb-h-52px 
+    mo-wb-px-20px align-items-center mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-2s">Kiểu chữ</div>
+    <div class="mo-icn-close-popup mo-wb-font-size-18 mo-wb-text-color-blue-hover mo-wb-cursor-pointer"
+      (click)="handleOnCloseIconClick($event);"></div>
+  </div>
+  <div class="mo-wb-calc-h-52px w-100 mo-wb-overflow-y-auto mo-wb-py-12px">
+    <div *ngFor="let item of fonts; let i = index;"
+      class="">
+      <div #itemEl class="mo-wb-cursor-pointer mo-wb-px-20px mo-wb-pt-20px mo-wb-pb-8px mo-wb-bg-hover-ebf0f5"
+        (click)="handleOnItemClick($event, item, itemEl);">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="mo-wb-font-head-4 mo-wb-font-size-18px"><span>{{item.fontFamily}}</span><span> , </span><span>{{item.fontWeight | fontWeightPipe}}</span><span> , </span><span>{{item.fontSize}}</span></div>
+          <div><i class="mo-icn-quick-edit mo-wb-font-size-18px"></i></div>
+        </div>
+        <div class="mo-wb-py-20px">
+          <span 
+            [style.font-family]="item.font"
+            [style.font-size]="item.fontSize"
+            [style.color]="item.color"
+            [style.background-color]="'#eeeeee'"
+            [style.font-weight]="item.fontWeight"
+            [style.font-style]="item.fontStyle">
+            {{item.name}}
+          </span>
+        </div>
+      </div>
+
+      <div class="mo-wb-px-20px">
+        <div class="mo-wb-border-bottom-general"></div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div> 

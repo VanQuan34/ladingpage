@@ -1,0 +1,40 @@
+<mo-wb-components-modal
+  #modal
+  [title]="label | translate"
+  [maxWidth]="maxWidth + 'px'"
+  [width]="width + 'px'"
+  [height]="height + 'px'"
+  [zIndex]="zIndex"
+  [ignoreButtonClose]="false">
+
+  <div class="large-container h-100">
+    <div class="d-flex align-items-center h-100 justify-content-between">
+        <div (click)="handleOnSelectItem($event, 'GOOGLE')" class="buttonAdd mo-wb-ml-40px d-flex flex-column justify-content-center align-items-center {{ typeFont==='GOOGLE' ? 'selected' : '' }}">
+          <img src="{{urlImgGoogle}}" width="56" height="56"/>
+          <div class="mo-wb-font-head-4s mo-wb-mb-4px mo-wb-mt-12px">{{'i18n_google_font' | translate}}</div>
+          <span class="mo-wb-font-head-4 mo-wb-color-999999">{{'i18n_select_font_from_google_font_message'| translate}}</span>
+        </div>
+        <div (click)="handleOnSelectItem($event, 'MY')" class="buttonAdd mo-wb-mr-40px d-flex flex-column justify-content-center align-items-center {{ typeFont==='MY' ? 'selected' : '' }}">
+          <img src="{{urlImgMyFont}}" width="56" height="56"/>
+          <div class="mo-wb-font-head-4s mo-wb-mb-4px mo-wb-mt-12px">{{'i18n_my_font' | translate}}</div>
+          <span class="mo-wb-font-head-4 mo-wb-color-999999">{{'i18n_up_load_my_font_message' | translate}}</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-container">
+    <mo-wb-components-button
+        label="{{'i18n_continue' | translate}}"
+        classIconRight="mo-wb-ml-8px mo-icn-JB_position_right mo-wb-color-ffffff"
+        [disable]="!typeFont"
+        (onClick)="handleContinueFont()"
+        >
+      </mo-wb-components-button>
+    <mo-wb-components-button
+      [disable]="loading"
+      [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

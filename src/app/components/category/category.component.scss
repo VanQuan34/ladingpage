@@ -1,0 +1,15 @@
+.mo-wb-category{
+  width: 100%;
+  height: 100%;
+  .mo-wb-category-item{
+    &:hover {
+      background-color: #009CDB;
+      color: #ffffff;
+    }
+  }
+  .mo-wb-category-item-selected{
+    background-color: #009CDB;
+    border: 1px solid #009CDB !important;
+    color: #ffffff;
+  }
+}

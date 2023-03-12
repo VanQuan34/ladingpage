@@ -1,0 +1,28 @@
+
+<mo-wb-components-tooltip
+  [maxWidth]="maxWidthTooltip || 200"
+  [maxHeight]="maxHeightTooltip || 100"
+  [template]="templateOutlet"
+  [content]="tooltipContent"
+  [noContentPadding]="noContentTooltipPadding"
+  [ignoreCaculatorMaxHeightContent]="ignoreCaculatorMaxHeightTooltipContent"
+  [allowHover]="true"
+  [direction]="direction"
+  type="other">
+  <button #buttonEl
+    [class]="class + ' ' + classInclude"
+    
+    [class.mo-wb-disable]="disable"
+    [class.mo-wb-pointer-events-none]="disable"
+    (click)="clickButton($event)">
+    <i *ngIf="classIconLeft" [class]="classIconLeft"></i>
+    <span [class]="classLabel" [innerHtml]="label | translate"></span>
+    <i *ngIf="classIconRight" [class]="classIconRight"></i>
+    <div *ngIf="isPending" class="position-relative mo-wb-w-30px mo-wb-left-8px" >
+      <mo-wb-components-spinner 
+        width="30px" 
+        height="30px">
+      </mo-wb-components-spinner>
+    </div>
+  </button>
+</mo-wb-components-tooltip>

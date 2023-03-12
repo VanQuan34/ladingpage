@@ -1,0 +1,27 @@
+<div #toggleEl
+  class="mo-wb-langing-preview mo-wb-w-200px mo-wb-h-45px mo-wb-border-left-general mo-wb-border-right-general 
+  d-flex align-items-center justify-content-between mo-wb-px-20px mo-wb-cursor-pointer"
+  (click)="handleOnToggleOpenPageList($event, toggleEl);"> 
+  
+  <div class="mo-wb-font-head-4">{{ selectedPage && selectedPage.name }}</div>
+
+  <i class="mo-icn-down-arrow mo-wb-font-size-10px"></i>
+</div>
+
+<div *ngIf="isOpen" 
+  class="page-list-overlay" 
+  (click)="handleOnOverlayClick($event);">
+
+  <div class="mo-wb-page-list mo-wb-shadow"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    (click)="handleOnPageListClick($event);">
+    <div *ngFor="let page of pages"
+      class="mo-wb-page-list-item mo-wb-px-15px mo-wb-h-40px d-flex align-items-center mo-wb-cursor-pointer"
+        [ngClass]="{'mo-wb-item-selected' : page.id === selectedPage.id}"
+        (click)="handleOnPageItemClick($event, page);">
+      <div class="title mo-wb-font-head-4">{{ page.name }}</div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<mo-wb-components-popup #popup
+  [title]="'Quản lí menu'"
+  [height]="'auto'"
+  [width]="230"
+  [isShow]="isShow"
+  [error]="disableBtnAgree"
+  (onOk)="handlerApplyListPage($event)"
+  (onClose)="handleOnClosePopup($event);">
+  <div class="mo-wb-mx-20px mo-wb-my-12px">
+    <div class="mo-wb-mb-4px">
+      <mo-wb-components-checkbox
+      [checked]="groupIdPage.length === listPage.length"
+      [label]="'Tất cả trang'"
+      [key]="'ALL'"
+      (onChangeChecked)="handlerOnCheckBoxAll($event)">
+      </mo-wb-components-checkbox>
+    </div>
+    <div *ngFor="let item of listPage; let last = last" class="{{!last ? 'mo-wb-mb-4px' : ''}} d-flex">
+      <mo-wb-components-checkbox
+      [checked]="groupIdPage.includes(item.id)"
+      [label]="item && item.name"
+      (onChangeChecked)="handlerOnCheckBox($event, item)">
+      </mo-wb-components-checkbox>
+    </div>
+  </div>
+  </mo-wb-components-popup>

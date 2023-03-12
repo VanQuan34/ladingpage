@@ -1,0 +1,14 @@
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-2500 mo-wb-bg-333333 mo-wb-opacity-3"></div>
+<mo-wb-components-popup
+  #popup
+  [title]="'Thông báo'"
+  [height]="'50px'"
+  [width]="400"
+  [isShow]="true"
+  [zIndex]="3500"
+  (onOk)="handleRemoveTabTitle($event);"
+  (onClose)="handleOnClosePopup($event);">
+  <div class="mo-wb-pl-20px mo-wb-pr-20px mo-wb-mt-10px">
+    <p class="mo-wb-font-size-13px">{{'Bạn có chắc chắn muốn xóa tab' | translate}} {{'['+(idx + 1)+']'}} {{tabTitle}}?</p>
+  </div>
+</mo-wb-components-popup>

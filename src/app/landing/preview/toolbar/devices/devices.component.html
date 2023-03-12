@@ -1,0 +1,90 @@
+<div class="d-flex align-items-center">
+
+  <div #deviceEl
+    class="mo-wb-langing-preview mo-wb-w-230px mo-wb-h-45px mo-wb-border-right-general 
+    d-flex align-items-center justify-content-between mo-wb-px-20px mo-wb-cursor-pointer"
+    (click)="handleOnToggleOpenDeviceList($event, deviceEl);"> 
+
+    <div *ngIf="selectedItem" class="d-flex align-items-center">
+      <i class="{{selectedItem && selectedItem.icon}} mo-wb-font-head-14px mo-wb-mr-8px mo-wb-font-size-18px"></i>
+      <div class="mo-wb-font-head-4s">{{ selectedItem && selectedItem.name }}</div>
+    </div>
+
+    <i *ngIf="selectedItem" class="mo-icn-down-arrow mo-wb-font-size-10px"></i>
+  </div>  
+  <!-- size -->
+  <div class="d-flex align-items-center mo-wb-border-right-general mo-wb-px-15px">
+    <!-- width -->
+    <div class="d-flex align-items-center mo-wb-h-45px">
+      <div class="mo-wb-font-head-4 mo-wb-mr-8px">{{'R' | translate}}</div>
+      <mo-wb-components-input-number
+        [title]="''"
+        [value]="width"
+        [min]="320"
+        [max]="10000"
+        [unit]="'px'"
+        [classInclude]="'mo-wb-w-80px'"
+        (onValueChanged)="handleOnWidthChanged($event);">  
+      </mo-wb-components-input-number>
+    </div>
+    <!-- height -->
+    <div class="d-flex align-items-center mo-wb-h-45px mo-wb-ml-20px">
+      <div class="mo-wb-font-head-4 mo-wb-mr-8px">{{'C' | translate}}</div>
+      <mo-wb-components-input-number
+        [title]="''"
+        [enable]="false"
+        [value]="height"
+        [min]="0"
+        [max]="10000"
+        [unit]="'px'"
+        [classInclude]="'mo-wb-w-80px'">  
+      </mo-wb-components-input-number>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isOpen" 
+  class="mo-wb-overlay" 
+  (click)="handleOnOverlayClick($event);">
+
+  <div class="mo-wb-popup-list mo-wb-shadow mo-wb-w-230px"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    (click)="handleOnDeviceListClick($event);">
+    <!-- breakpoints -->
+    <ng-container *ngFor="let device of breakPoints">
+      <!-- header -->
+      <div *ngIf="device.type === 'Title'" 
+        class="mo-wb-px-15px mo-wb-h-40px d-flex align-items-center mo-wb-border-bottom-general">
+        <div class="mo-wb-font-head-3s">{{device.name | translate | upperCasePipe}}</div>
+      </div>
+      <!-- item -->
+      <div *ngIf="device.type !== 'Title'"
+        class="mo-wb-list-item mo-wb-px-15px mo-wb-h-40px d-flex align-items-center mo-wb-cursor-pointer"
+          [ngClass]="{'mo-wb-item-selected' : device.id === selectedItem.id}"
+          (click)="handleOnDeviceItemClick($event, device);">
+          <i class="{{device.icon}} mo-wb-font-head-14px mo-wb-mr-8px mo-wb-font-size-18px"></i> 
+          <div class="title mo-wb-font-head-4">{{ device.name }}</div>
+      </div>
+    </ng-container>
+
+    <!-- devices -->
+    <ng-container *ngFor="let device of devices">
+      <!-- header -->
+      <div *ngIf="device.type === 'Title'" 
+        class="mo-wb-px-15px mo-wb-h-40px d-flex align-items-center mo-wb-border-bottom-general mo-wb-border-top-general">
+        <div class="mo-wb-font-head-3s">{{device.name | translate | upperCasePipe}}</div>
+      </div>
+      <!-- item -->
+      <div *ngIf="device.type !== 'Title'"
+        class="mo-wb-list-item mo-wb-px-15px mo-wb-h-40px d-flex align-items-center mo-wb-cursor-pointer"
+          [ngClass]="{'mo-wb-item-selected' : device.id === selectedItem.id}"
+          (click)="handleOnDeviceItemClick($event, device);">
+          <i class="{{device.icon}} mo-wb-font-head-14px mo-wb-mr-8px mo-wb-font-size-18px"></i> 
+          <div class="title mo-wb-font-head-4">{{ device.name }}</div>
+      </div>
+    </ng-container>
+    
+  </div>
+
+</div>

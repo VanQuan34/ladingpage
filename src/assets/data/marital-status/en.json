@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Độc thân",
+        "display_in_form": true
+    },
+    {
+        "id": 2,
+        "name": "Đã đính hôn",
+        "display_in_form": true
+    },
+    {
+        "id": 3,
+        "name": "Đã kết hôn",
+        "display_in_form": true
+    },
+    {
+        "id": 4,
+        "name": "Ly thân",
+        "display_in_form": true
+    },
+    {
+        "id": 5,
+        "name": "Đã ly hôn",
+        "display_in_form": true
+    },
+    {
+        "id": 6,
+        "name": "Quả phụ",
+        "display_in_form": true
+    },
+    {
+        "id": 7,
+        "name": "Góa vợ",
+        "display_in_form": true
+    }
+]

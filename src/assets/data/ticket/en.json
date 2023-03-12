@@ -1,0 +1,84 @@
+{
+    "priority": [
+        {
+            "id": 3,
+            "label": "Cao"
+        },
+        {
+            "id": 2,
+            "label": "Trung bình"
+        },
+        {
+            "id": 1,
+            "label": "Thấp"
+        }
+    ],
+    "type": [
+        {
+            "id": 1,
+            "label": "Đơn hàng"
+        },
+        {
+            "id": 2,
+            "label": "Hỗ trợ thông tin"
+        },
+        {
+            "id": 3,
+            "label": "Giải quyết khiếu nại"
+        },
+        {
+            "id": 4,
+            "label": "Setup menu"
+        },
+        {
+            "id": 5,
+            "label": "Training trực tiếp"
+        },
+        {
+            "id": 6,
+            "label": "Support trực tiếp"
+        },
+        {
+            "id": 7,
+            "label": "Support online"
+        },
+        {
+            "id": 0,
+            "label": "Khác"
+        }
+    ],
+    "source_type": [
+        {
+            "id": 1,
+            "label": "Facebook"
+        },
+        {
+            "id": 2,
+            "label": "Instagram"
+        },
+        {
+            "id": 3,
+            "label": "Zalo"
+        },
+        {
+            "id": 4,
+            "label": "Youtube"
+        },
+        {
+            "id": 5,
+            "label": "Website"
+        },
+        {
+            "id": 6,
+            "label": "Line"
+        },
+        {
+            "id": 7,
+            "label": "Call Center"
+        },
+        {
+            "id": 0,
+            "label": "Khác"
+        }
+    ]
+}

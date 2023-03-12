@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "keyword": "mienbac",
+        "name": "Miền Bắc",
+        "code": "MIEN_BAC"
+    },
+    {
+        "id": 2,
+        "keyword": "mientrung",
+        "name": "Miền Trung",
+        "code": "MIEN_TRUNG"
+    },
+    {
+        "id": 3,
+        "keyword": "miennam",
+        "name": "Miền Nam",
+        "code": "MIEN_NAM"
+    }
+]

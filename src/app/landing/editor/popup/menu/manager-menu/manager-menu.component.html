@@ -1,0 +1,46 @@
+<mo-wb-components-popup #popup
+  [title]="'Menu trang web'"
+  [height]="heightPopup"
+  [width]="widthPopup"
+  [isShow]="isShow"
+  [labelBtnFooter]="'Thêm menu mới'"
+  [typeFooter]="'ADD-ITEM'"
+  [position]="'followSelected'"
+  [targetEl]="targetEl"
+  (onAdd)="handlerOnAddMenuItem($event);"
+  (onClose)="handleOnClosePopup($event);">
+
+  <div class="">
+    <div class="mo-wb-font-head-4 mo-wb-p-20px">Chọn menu hiển thị bên trong phần tử menu này.</div>
+    <div class="mo-wb-h-200px mo-wb-overflow-auto">
+      <div *ngFor="let item of menus; let i = index" class="menus-item {{item.id === selectedIdMenu ? 'isSelectedMenuBg' : ''}} {{isRename ? '' : 'isHover'}} mo-wb-px-20px d-flex mo-wb-h-50px position-relative"
+      (click)="handlerChooseMenu($event, item)">
+        <div class="mo-wb-font-head-4 flex-grow-1"
+          (dblclick)="handlerDoubleClick($event, item)">{{item.name}}</div>
+        <div *ngIf="isRename && (item.id === selectedId)" class="position-absolute mo-wb-left-20px input-name-menu">
+          <mo-wb-components-input
+            #input
+            [width]="'150px'"
+            [value]="item.name"
+            [actionKey]="'ENTER'"
+            (onBlurInput)="onBlurInput($event)"
+            (onValueChanged)="handlerOnRenameChange()">
+          </mo-wb-components-input>
+        </div>
+      <div class="mo-wb-w-30px mo-wb-ml-10px">
+        <mo-wb-components-menu_dropdown [type]="'MENU-PAGE'"
+          [width]="'180px'"
+          [height]="'317px'"
+          [page]="item"
+          [listItem]="listOption"
+          [classInclude]="''"
+          [classLabelInclude]="''"
+          [classIconInclude]="''"
+          (onSelectedItemChanged)="handleOnSelectMenuItem($event, item)">
+        </mo-wb-components-menu_dropdown>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</mo-wb-components-popup>

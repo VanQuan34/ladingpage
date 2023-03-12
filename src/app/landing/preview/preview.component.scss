@@ -1,0 +1,30 @@
+.mo-wb-landing-preview {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #fff;
+}
+
+.mo-wb-landing-preview-toolbar {
+  height: 44px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.mo-wb-landing-preview-content {
+  height: calc(100% - 45px);
+}
+
+.mo-wb-breakpoint-screen {
+  left: 50%; 
+  transform: translate(-50%, 0);
+  border-left: 1px dashed #999999;
+  border-right: 1px dashed #999999;
+
+  .mo-wb-breakpoint-screen-text {
+    top: 150px;
+    left: -170px;
+    width: 300px;
+    transform: translate(0%, 0%) rotate(-90deg);
+  }
+}

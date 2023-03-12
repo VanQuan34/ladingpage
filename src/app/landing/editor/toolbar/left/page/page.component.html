@@ -1,0 +1,88 @@
+<div 
+  class="mo-wb-landing-toolbar-page mo-wb-z-index-100 mo-wb-bg-ffffff mo-wb-shadow-right"
+  [style.left]="isOpen ? '0px' : '-1000px'">
+  
+  <div class="d-flex h-100">
+    <!-- pages -->
+    <div class="mo-wb-w-250px h-100 mo-wb-border-right-general">
+      <!-- header -->
+      <div class="d-flex justify-content-between mo-wb-px-20px align-items-center mo-wb-h-52px mo-wb-border-bottom-general">
+        <div class="mo-wb-font-head-3s">{{'Quản lý trang web' | translate }}</div>
+
+        <div class="mo-icn-close-popup mo-wb-font-size-12px mo-wb-text-color-blue-hover mo-wb-cursor-pointer"
+          (click)="handleOnCloseClick($event);">
+        </div>
+      </div>
+      <!-- add page -->
+      <div class="d-flex justify-content-between mo-wb-px-20px align-items-center mo-wb-h-52px mo-wb-border-bottom-general">
+        <mo-wb-components-button
+          [type]="'text-blue'"
+          [label]="'Thêm trang mới'"
+          [classIconRight]="' mo-wb-ml-8px mo-icn-pvdemo_plus mo-wb-font-size-12px'"
+          [tooltipContent]="'Thêm một trang trống mới'"
+          (onClick)="handleAddPageButtonClick($event)">
+        </mo-wb-components-button>
+      </div>
+      <!-- page list -->
+      <div class="mo-wb-calc-vh-104px w-100 mo-wb-overflow-x-auto mo-wb-py-12px">
+        <div class="w-100 h-100 mo-wb-overflow-x-auto">
+          <div #pageEl 
+            *ngFor="let page of pages; let i = index;"
+            class="mo-wb-px-20px mo-wb-h-45px d-flex align-items-center justify-content-between mo-wb-cursor-pointer
+              {{ page.id === selectedPageId ? ' mo-wb-item-selected' : '  mo-wb-bg-hover-ebf0f5' }}"
+              (click)="handleOnPageItemClick($event, page);">
+              <div *ngIf="page.id === editNamePageId"
+                class="w-100">
+                <mo-wb-components-input
+                  [value]="page.name"
+                  [defaultFocus]="true"
+                  [actionKey]="'ENTER'"
+                  (onValueChanged)="handleOnPageNameChange($event, page);">
+                </mo-wb-components-input>
+              </div>
+
+              <ng-container *ngIf="page.id !== editNamePageId">
+                <div class="mo-wb-font-head-4 title">{{page.name}}</div>
+
+                <div class="d-flex align-items-center justify-content-start mo-wb-w-50px">
+                  <div class="mo-wb-w-14px mo-wb-h-14px mo-wb-mr-10px">
+                    <i *ngIf="page.isHome" class="mo-icn-Home mo-wb-font-size-12px"></i>
+                  </div>
+                  
+                  <mo-wb-components-menu
+                    [parentEl]="pageEl"
+                    [width]="200"
+                    [items]="page.isHome ? menuHomeItems : menuItems"
+                    [pos]="'left'"
+                    [fixedShow]="page.id === selectedPageId ? true : false"
+                    (onSelectItem)="handleOnSelectMenuItem($event, page, i);">
+                  </mo-wb-components-menu>
+                </div>
+              </ng-container>
+              
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- page setting -->
+    <mo-wb-landing-editor-toolbar-page-setting 
+      *ngIf="isSettingShow"
+      [page]="settingPage"
+      [tabSelected]="tabSetting"
+      (onMenuClose)="handleOnSettingClose($event);"
+      (onPageChanged)="handleOnPageChanged($event);">
+    </mo-wb-landing-editor-toolbar-page-setting>
+  </div>
+  <!-- confirm modal -->
+  <mo-wb-components-modal-confirm
+    *ngIf="isConfirmOpen"
+    [title]="'Xoá trang'"
+    (onClose)="handleOnConfirmClose();"
+    (onOk)="handleOnConfirmRemoveOk();">
+    <div class="mo-wb-font-head-4">{{'Bạn có chắc muốn xoá trang '+ settingPage.name+' không?'}}</div>
+  </mo-wb-components-modal-confirm>
+
+</div>

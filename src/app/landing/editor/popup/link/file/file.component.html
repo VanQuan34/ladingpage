@@ -1,0 +1,137 @@
+<div class="mo-wb-landing-editor-comp-popup-link-file">
+  <mo-wb-components-radio [label]="'i18n_download_file_use_link' | translate"
+    [classInclude]="'mo-wb-mb-10px'"
+    [key]="'LINK'"
+    [active]="actions[0].downloadType === 'LINK'"
+    (onActiveChanged)="handleOnActionFileChanged('LINK');">
+  </mo-wb-components-radio>
+
+  <div *ngIf="actions[0].downloadType === 'LINK'"
+    class="mo-wb-mt-4px mo-wb-mb-4px">
+    <mo-wb-components-input #inputUrl
+      [label]="'URL'"
+      [value]="actions[0].downloadUrl"
+      [placeholder]="'https://...'"
+      [validType]="'URL'"
+      (onInputError)="handleOnInputError($event)"
+      (onValueChanged)="handleOnDownloadUrlChanged($event);">
+    </mo-wb-components-input>
+  </div>
+
+  <div class="d-flex align-items-center">
+    <mo-wb-components-radio [classInclude]="'mo-wb-mt-4px'"
+      [key]="'MEDIA'"
+      [label]="'i18n_new_file' | translate"
+      [active]="actions[0].downloadType === 'UPLOAD'"
+      (onActiveChanged)="handleOnActionFileChanged('UPLOAD');">
+    </mo-wb-components-radio>
+
+    <mo-wb-components-tooltip [content]="'i18n_file_type_and_size' | translate"
+      [width]="218"
+      [maxWidth]="218"
+      [classInclude]="'mo-wb-ml-8px'">
+    </mo-wb-components-tooltip>
+  </div>
+
+  <div *ngIf="actions[0].downloadType === 'UPLOAD'"
+    class="mo-wb-mt-4px position-relative mo-wb-mb-8px">
+    <mo-wb-media_store_upload #upload
+      [minHeight]="158"
+      [mode]="'UPLOAD'"
+      [type]="'FILE'"
+      [multiple]="false"
+      [hasInfo]="false"
+      [fileExtList]="['gif', 'jpg', 'jpeg', 'png', 'rar', 'zip', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf']"
+      [maxImageSize]="15400000"
+      [maxFileSize]="15400000"
+      (onFileChanged)="handleOnFileUploadChanged($event);"
+      (onUploadSuccess)="handleOnUploadSuccess($event);">
+    </mo-wb-media_store_upload>
+    <div *ngIf="actions[0].downloadUrl"
+      class="mo-wb-mt-4px d-flex align-items-center">
+      <div class=""
+        style="flex: 1; max-width: 300px;">
+        <mo-wb-components-input #inputUrl
+          [title]="''"
+          [value]="actions[0].downloadUrl"
+          [classInclude]="''"
+          [readOnly]="true"
+          [validType]="'URL'"
+          (onInputError)="handleOnInputError($event)"
+          [placeholder]="'https://...'">
+        </mo-wb-components-input>
+      </div>
+      <div class="button-copy-url">
+        <mo-wb-components-button [classIconLeft]="'mo-icn-menu-duplicate'"
+          [tooltipContent]="'i18n_copy'"
+          [type]="'text-dark'"
+          [direction]="'bottom'"
+          [disable]="!actions[0].downloadUrl"
+          (click)="handleOnCopyUrl($event);">
+        </mo-wb-components-button>
+      </div>
+    </div>
+
+    <div *ngIf="!actions[0].downloadUrl && error"
+      class=" mo-wb-mt-4px mo-wb-color-ff5454 mo-wb-font-size-10px">
+      {{'i18n_valid_empty_message' | translate}}
+    </div>
+
+    <mo-wb-components-spinner *ngIf="loading"
+      [height]="'60px'"
+      [width]="'60px'">
+    </mo-wb-components-spinner>
+
+  </div>
+
+  <mo-wb-components-radio [classInclude]="'mo-wb-mt-4px'"
+    [key]="'MEDIA'"
+    [label]="'i18n_file_from_media' | translate"
+    [active]="actions[0].downloadType === 'MEDIA'"
+    (onActiveChanged)="handleOnActionFileChanged('MEDIA');">
+  </mo-wb-components-radio>
+
+  <div *ngIf="actions[0].downloadType === 'MEDIA'"
+    class="mo-wb-pt-8px">
+
+    <div class="mo-wb-border-general mo-wb-border-radius-4px mo-wb-h-158px
+            d-flex align-items-center justify-content-center flex-column mo-wb-cursor-pointer"
+      (click)="handleOnSelectMediaClick($event);">
+      <i class="mo-icn-new_zoom_in mo-wb-font-size-46px mo-wb-color-c1c1c1"></i>
+      <div class="mo-wb-font-head-4 mo-wb-color-c1c1c1 mo-wb-pt-12px">{{'i18n_select_files_from_media_library' |
+        translate }}</div>
+    </div>
+
+    <div *ngIf="actions[0].downloadUrl"
+      class="mo-wb-mt-8px d-flex align-items-center">
+      <div class=""
+        style="flex: 1; max-width: 300px;">
+        <mo-wb-components-input #inputUrl
+          [title]="''"
+          [value]="actions[0].downloadUrl"
+          [readOnly]="true"
+          [validType]="'URL'"
+          [placeholder]="'https://...'"
+          (onInputError)="handleOnInputError($event)">
+        </mo-wb-components-input>
+      </div>
+      <div class="button-copy-url">
+        <mo-wb-components-button [classIconLeft]="'mo-icn-menu-duplicate'"
+          [type]="'text-dark'"
+          [direction]="'bottom'"
+          [tooltipContent]="'i18n_copy'"
+          [disable]="!actions[0].downloadUrl"
+          (click)="handleOnCopyUrl($event);">
+        </mo-wb-components-button>
+      </div>
+    </div>
+
+    <div *ngIf="!actions[0].downloadUrl && error"
+      class=" mo-wb-mt-4px mo-wb-color-ff5454 mo-wb-font-size-10px">
+      {{'i18n_valid_empty_message' | translate}}
+    </div>
+
+  </div>
+
+
+</div>

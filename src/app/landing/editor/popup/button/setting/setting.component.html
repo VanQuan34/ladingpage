@@ -1,0 +1,70 @@
+<mo-wb-components-popup
+  #popup
+  [title]="titlePopup"
+  [height]="height"
+  [width]="width"
+  [isShow]="isShow"
+  [error]="error"
+  (onClose)="handleOnClosePopup($event);"
+  (onOk)="handlerOnAgreePopup($event);">
+  <div class="mo-form-field-input mo-wb-pt-20px mo-wb-pb-20px scroll-view h-100 mo-wb-overflow-auto mo-wb-bg-ffffff {{classInclude}}">
+   <div class="mo-wb-mx-20px">
+     <mo-wb-components-input
+     #buttonName
+     [title]="'i18n_button_name'"
+     [value]="buttonSetting && buttonSetting.name"
+     [classInclude]="''"
+     (onValueChanged)="handleOnContentChange($event);"
+     (onInputError)="handleOnInputContentError($event);">
+    </mo-wb-components-input>
+  </div>
+
+  <div class="mo-wb-my-12px mo-wb-mx-20px">
+    <div class="d-flex align-items-center">
+      <span class="mo-wb-font-head-4s">{{ 'i18n_tags_behavior' | translate}}</span>
+      <span class="mo-wb-color-999999 mo-wb-font-size-10px" [innerHTML]="('i18n_optional_label' | translate) | safeHtml"></span>
+    </div>
+    <mo-wb-components-tags
+      [label]="{text: '',
+        description: 'i18n_description_tag_product',
+        classDescInclude: 'mo-wb-color-999999'}"
+        [ignoreKeys]="[]"
+      (onSelectedItemChanged)="handleOnSelectTags($event.selectedItems)"
+      [selectedItems]="buttonSetting && buttonSetting.tags"
+      [isRequired]="false"
+    ></mo-wb-components-tags>
+  </div>
+  <div *ngIf="moType==='field-button'">
+
+    <div class="mo-wb-font-head-3 mo-wb-h-45px mo-wb-bg-f0f3f5 mo-wb-border-top-general mo-wb-border-bottom-general d-flex justify-content-center align-items-center">
+      Hành động sau khi gửi
+    </div>
+  
+    <div class="mo-wb-my-15px mo-wb-mx-20px">
+      <div class="mo-wb-font-head-4s mo-wb-mb-8px">{{'Khi khách truy cập gửi mẫu' | translate}}:</div>
+  
+  
+      <div *ngFor="let item of optAfterAction; let last = last" class="mo-wb-mb-10px">
+        <mo-wb-components-radio
+        [label]="item && item.title"
+        [active]="item.key === selectedKey"
+        [key]="item && item.key"
+        (onActiveChanged)="handlerSelectOption($event)">
+        </mo-wb-components-radio>
+      </div>
+      
+    
+      <div class="mo-wb-border-top-general mo-wb-mt-10px mo-wb-mb-10px"></div>
+  
+      <div class="mo-wb-mx-20px">
+        <div class="mo-wb-font-head-3s mo-wb-mb-10px">{{'Bạn muốn liên kết đến đâu ?'}}</div>
+        <div *ngIf="" class="d-flex justify-content-between">
+          <div class="mo-wb-font-head-2">Chọn một liên kết</div>
+          <div class="mo-wb-w-24px mo-wb-h-24px mo-wb-bg-009cdb mo-icn-Insert-link mo-wb-border-radius-12px mo-wb-color-ffffff d-flex align-items-center justify-content-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</mo-wb-components-popup>

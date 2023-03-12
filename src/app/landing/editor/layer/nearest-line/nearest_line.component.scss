@@ -1,0 +1,12 @@
+.mo-nearest-vert-line, 
+.mo-nearest-horz-line {
+  position: fixed;
+  width: 1px;
+  background-color: var(--red);
+  z-index: 1100;
+}
+
+.mo-nearest-horz-line {
+  height: 1px;
+  width: auto;
+}

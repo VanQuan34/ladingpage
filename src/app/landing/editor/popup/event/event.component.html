@@ -1,0 +1,53 @@
+<mo-wb-components-popup #popup
+  [title]="'Thiết lập Event'"
+  [height]="'100'"
+  [width]="600"
+  [isShow]="isShow"
+  (onClose)="handleOnClosePopup($event);"
+  (onOk)="handlerOnAgreePopup($event);">
+  <div class="mo-wb-landing-editor-comp-popup-link-event mo-wb-m-20px">
+    <div *ngFor="let item of events; let i = index;" class="position-relative mo-wb-pr-24px">
+      <div class="mo-wb-bg-ffffff mo-wb-border-general mo-wb-border-radius-4px mo-wb-p-12px flex-grow-1 {{ i !== events.length - 1 ? 'mo-wb-mb-8px' : ''}}">
+        <mo-wb-components-dropdown
+          #eventDropdown
+          [label]="'Event'"
+          [selectedId]="item.eventKey"
+          [selectedItem]="item.eventKey ? { event_key: item.eventKey, name: item.eventData.name} : null"
+          [classInclude]="''"
+          [defaultTitle]="'Chọn event'"
+          [isRequired]="false"
+          [items]="[]"
+          [api]="apiFetchList"
+          [isStaticData]="false"
+          [key]="'event_key'"
+          [maxLines]="9"
+          [hasSearch]="true"
+          [hasNotRequireText]="true"
+          [searchHolder]="'Nhập tên event cần tìm'"
+          (onSelectedItem)="handleOnEventSelected($event, i);">
+        </mo-wb-components-dropdown>
+      </div>
+      <div class="position-absolute mo-wb-top-0 mo-wb-right-0">
+        <mo-wb-components-button
+          *ngIf="events.length === 2"
+          [type]="'text-blue'"
+          [tooltipContent]="''"
+          [classInclude]="''"
+          [classIconLeft]="'mo-icn-new_zoom_out mo-wb-font-size-14px'"
+          [label]="''"
+          (click)="handleOnRemoveEventClick($event, i);">
+        </mo-wb-components-button>
+      </div>
+    </div>
+  
+    <mo-wb-components-button
+      *ngIf="events.length !== 2"
+      [type]="'text-blue'"
+      [tooltipContent]="''"
+      [classInclude]="'mo-wb-mt-8px'"
+      [classIconLeft]="'mo-icn-pvdemo_plus mo-wb-mr-8px mo-wb-font-size-10px'"
+      [label]="'i18n_add_event'"
+      (click)="handleOnAddEventClick($event);">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-popup>

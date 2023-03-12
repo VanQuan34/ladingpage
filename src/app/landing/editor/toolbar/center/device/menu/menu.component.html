@@ -1,0 +1,121 @@
+
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0"
+[style.zIndex]="zIndex"
+[style.display]="isShow ? 'block' : 'none'"
+(click)="handleOnOverlayClick($event);">
+  <div class="{{classInclude}} mo-wb-device-menu-content mo-wb-z-index-100 mo-wb-border-radius-4px
+    position-absolute mo-wb-border-general mo-wb-bg-color-white mo-wb-shadow"
+    [style.width]="width+'px'"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    (click)="handleOnMenuClick($event);">
+
+    <div class="mo-wb-h-52px mo-wb-border-bottom-general d-flex 
+      justify-content-between mo-wb-pl-20px mo-wb-pr-20px align-items-center">
+      <div class="mo-wb-font-head-2s">{{'Quản lý điểm ngắt'}}</div>
+      <i class="mo-icn-close-popup mo-wb-cursor-pointer mo-wb-hover-009cdb"
+        (click)="handleOnCloseClick($event);">
+      </i>  
+    </div>
+
+    <div class="w-100 mo-wb-overflow-y-auto  mo-wb-py-0px">
+      <div *ngFor="let item of breakPoints; let i = index;"
+        class="mo-wb-px-20px mo-wb-h-45px d-flex align-items-center justify-content-between
+          {{ item.id === 'all' || (selectedItem && selectedItem.id === item.id) ? ' ' : ' mo-wb-bg-hover-ebf0f5' }}"
+          (mouseover)="handleOnBreakItemMouseover(item);"
+          (mouseout)="handleOnBreakItemMouseout($event);">
+
+        <ng-container *ngIf="selectedItem && selectedItem.id === item.id">
+          <div class="d-flex align-items-center">
+            <i class="{{item.deviceIcon}} mo-wb-font-size-18px mo-wb-mr-8px"></i>
+            <div class="mo-wb-font-head-4">{{ item.min + '-'}}</div>
+            <mo-wb-components-input-number
+              [value]="item.max"
+              [unit]="'px'"
+              [min]="item.min"
+              [max]="item.next"
+              (onValueError) = "handleOnValueError();"
+              (onValueChanged) = "handleOnValueChanged($event);"
+              [classInclude]="'mo-wb-w-80px'">
+            </mo-wb-components-input-number>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <mo-wb-components-button
+              [label]="'Huỷ'"
+              [type]="'text-blue'"
+              [classInclude]="'mo-wb-mr-12px'"
+              (click)="handleOnCancelEditClick($event);">
+            </mo-wb-components-button>
+
+            <mo-wb-components-button
+              [label]="'Đồng ý'"
+              [type]="'blue-solid'"
+              [classInclude]="''"
+              [disable]="editError"
+              (click)="handleOnEditButtonClick($event);">
+            </mo-wb-components-button>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="!selectedItem || selectedItem.id !== item.id">
+          <div class="d-flex align-items-center">
+            <i class="{{item.deviceIcon}} mo-wb-font-size-18px mo-wb-mr-8px"></i>
+            <div *ngIf="item.max" class="mo-wb-font-head-4">{{ item.min + '-' + item.max +  ' px' }}</div>
+            <div *ngIf="!item.max"class="mo-wb-font-head-4">{{ item.min +  ' px trở lên' }}</div>
+          </div>
+  
+          <div *ngIf="hoverItem && hoverItem.id === item.id && item.id !== 'all'"
+            class="d-flex align-items-center">
+            <i class="mo-icn-quick-edit mo-wb-font-size-16px 
+              mo-wb-hover-009cdb mo-wb-mr-8px mo-wb-cursor-pointer"
+              (mouseover)="handleOnIconActionMouseover($event);"
+              (mouseout)="handleOnIconActionMouseout($event);"
+              (click)="handleOnEditIconClick(item);"></i>
+            <i class="mo-icn-menu-xoa mo-wb-font-size-16px 
+              mo-wb-hover-009cdb mo-wb-cursor-pointer"
+              (mouseover)="handleOnIconActionMouseover($event);"
+              (mouseout)="handleOnIconActionMouseout($event);"
+              (click)="handleOnRemoveIconClick(item);">
+            </i>
+          </div>
+        </ng-container>
+        
+      </div>
+    </div>
+
+    <ng-container *ngIf="breakPoints.length < 7">
+      <div class="mo-wb-h-52px justify-content-between d-flex 
+        mo-wb-border-top-general align-items-center mo-wb-px-20px">
+        <mo-wb-components-input-number
+          [value]="320"
+          [unit]="'px'"
+          [min]="320"
+          [max]="2000"
+          [actionKey]="'KEY-UP'"
+          [ignoreValues]="getIgnoreMediaWidth()"
+          (onValueError) = "handleOnAddValueError($event);"
+          (onValueChanged) = "handleOnAddValueChanged($event);"
+          [classInclude]="'mo-wb-w-80px'">
+        </mo-wb-components-input-number>
+        <mo-wb-components-button
+          [type]="'blue-solid'"
+          [classInclude]="''"
+          [classIconLeft]="'mo-icn-pvdemo_plus mo-wb-mr-8px'"
+          [label]="'Thêm điểm ngắt'"
+          
+          [disable]="addError || !addEnable"
+          (click)="handleOnAddBreakPointClick($event);">
+        </mo-wb-components-button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="breakPoints.length >= 7">
+      <div class="mo-wb-h-52px justify-content-center d-flex 
+        mo-wb-border-top-general align-items-center mo-wb-px-20px">
+        <div class="mo-wb-font-head-4s">{{'Số lượng điểm ngắt tối đa là 6 điểm' | translate}} </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

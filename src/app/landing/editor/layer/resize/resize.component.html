@@ -1,0 +1,89 @@
+<div *ngIf="isOpen && !isNotShow">
+
+  <div 
+    *ngIf="isWidthEnable && isHeightEnable"
+    class="mo-resize-button mo-resize-top-left"
+    [style.top]="(top-5) +'px'"
+    [style.left]="(left-5) +'px'"
+    (mousedown)="handleOnMousedown($event, 'TL', 'mo-resize-top-left');">
+  </div>
+
+  <div *ngIf="isWidthEnable"
+    class="mo-resize-button mo-resize-center-left"
+    [style.top]="(top - 5 + height/2) +'px'"
+    [style.left]="(left - 5) +'px'"
+    (mousedown)="handleOnMousedown($event, 'CL', 'mo-resize-center-left');">
+  </div>
+
+  <div *ngIf="isWidthEnable && isHeightEnable"
+    class="mo-resize-button mo-resize-bottom-left"
+    [style.top]="(top - 5 + height) + 'px'"
+    [style.left]="(left - 5) +'px'"
+    (mousedown)="handleOnMousedown($event, 'BL', 'mo-resize-bottom-left');">
+  </div>
+
+  <div *ngIf="isHeightEnable" 
+    class="mo-resize-button mo-resize-center-top"
+    [style.top]="(top - 5) + 'px'"
+    [style.left]="(left - 5 + width/2) +'px'"
+    (mousedown)="handleOnMousedown($event, 'CT', 'mo-resize-center-top');">
+  </div>
+
+  <div *ngIf="isHeightEnable" 
+    class="mo-resize-button mo-resize-center-bottom"
+    [style.top]="(top - 5 + height) + 'px'"
+    [style.left]="(left - 5 + width/2) +'px'"
+    (mousedown)="handleOnMousedown($event, 'CB', 'mo-resize-center-bottom');">
+  </div>
+
+  <div *ngIf="isWidthEnable && isHeightEnable" 
+    class="mo-resize-button mo-resize-top-right"
+    [style.top]="(top - 5) + 'px'"
+    [style.left]="(left - 5 + width) +'px'"
+    (mousedown)="handleOnMousedown($event, 'TR', 'mo-resize-top-right');">
+  </div>
+
+  <div *ngIf="isWidthEnable" 
+    class="mo-resize-button mo-resize-center-right"
+    [style.top]="(top - 5 + height/2) + 'px'"
+    [style.left]="(left - 5 + width) +'px'"
+    (mousedown)="handleOnMousedown($event, 'CR', 'mo-resize-center-right');">
+  </div>
+
+  <div *ngIf="isWidthEnable && isHeightEnable"
+   class="mo-resize-button mo-resize-bottom-right"
+    [style.top]="(top - 5 + height) + 'px'"
+    [style.left]="(left - 5 + width) +'px'"
+    (mousedown)="handleOnMousedown($event, 'BR', 'mo-resize-bottom-right');">
+  </div>
+
+  <div *ngIf="isSection || isFooter || isHeader"
+    class="mo-resize-line-bottom none-selection"
+    [style.top]="(top - 5 + height) + 'px'"
+    [style.left]="(left) +'px'"
+    [style.width]="width + 'px'"
+    (mousedown)="handleOnMousedown($event, 'BC', 'mo-resize-ns');">
+
+  </div>
+
+</div>
+
+<div *ngIf="movingSize"
+  class="mo-resize-size-moving mo-wb-font-head-4 "
+  [style.top]="movingSize.top+'px'"
+  [style.left]="movingSize.left+'px'">
+  <div class="mo-resize-size-moving-bg"></div>
+  <div class="mo-wb-z-index-1000 position-relative">
+      <span style="color: #fff">{{ movingSize.width }}</span>
+      <span style="color: #fff">,</span>
+      <span style="color: #fff">{{movingSize.height}}</span></div>
+</div>
+
+<div *ngIf="(isHoverSection || isHoverFooter || isHoverHeader)  && compHover"
+    class="mo-resize-line-bottom none-selection"
+    [style.top]="(hoverTop - 5 + hoverHeight) + 'px'"
+    [style.left]="(hoverLeft) +'px'"
+    [style.width]="hoverWidth + 'px'"
+    (mousedown)="handleOnResizeHoverMousedown($event, 'BC', 'mo-resize-ns');">
+
+  </div>

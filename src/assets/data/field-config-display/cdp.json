@@ -1,0 +1,728 @@
+[
+  {
+    "field_key": "devices",
+    "config_view": [
+      {
+        "fieldName": "devices",
+        "layoutView": "view-all",
+        "type": "Array",
+        "ignoreValidateDuplicate": true,
+        "configs": [
+          {
+            "fieldValue": "device_id",
+            "label": "Cookies",
+            "readonly": true,
+            "type": "input-text",
+            "class": "w-27",
+            "required": false,
+            "separator": ": "
+          },
+          {
+            "fieldValue": "source",
+            "label": "URL Website",
+            "readonly": true,
+            "type": "input-text",
+            "class": "w-27 mo-wb-ml-20px",
+            "required": false,
+            "separator": ": "
+          }
+        ]
+      },
+      {
+        "fieldName": "devices",
+        "layoutView": "view-add-edit",
+        "ignoreValidateDuplicate": true,
+        "type": "Array",
+        "configs": [
+          {
+            "fieldValue": "device_id",
+            "label": "Cookies",
+            "readonly": true,
+            "type": "input-text",
+            "class": "mo-wb-w-460px",
+            "required": false,
+            "separator": ": "
+          }
+        ]
+      },
+      {
+        "fieldName": "devices",
+        "layoutView": "view-table",
+        "type": "Array",
+        "configs": {
+          "hasSort": "",
+          "label": "",
+          "orderby": "",
+          "ngStyle": {
+            "flex": "0 0 200px",
+            "maxWidth": "200px"
+          },
+          "config": [
+            {
+              "cssWrapper": "d-flex align-items-center mo-wb-h-60px",
+              "fieldsConfig": [
+                {
+                  "field": "devices",
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "type": "text-ellipsis",
+                  "functionConfig": [
+                    {
+                      "dataType": "Array",
+                      "fieldsValue": [
+                        "device_id"
+                      ],
+                      "name": "parseValue",
+                      "template": "<span class='mo-wb-opacity-5'>Cookies: </span> <span> ${device_id}</span>"
+                    },
+                    {
+                      "dataType": "Array",
+                      "fieldsValue": [
+                        "device_id",
+                        "source"
+                      ],
+                      "name": "getTooltipContentValue",
+                      "template": "<span>Cookies: </span> <span> ${device_id}</span> <br> <span>URL Website: </span> <span> ${source}</span> "
+                    }
+                  ]
+                },
+                {
+                  "field": "devices",
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "type": "circle-and-numbers",
+                  "functionConfig": [
+                    {
+                      "dataType": "Array",
+                      "key": "devices",
+                      "fieldsValue": [
+                        "device_id",
+                        "source"
+                      ],
+                      "name": "getData",
+                      "template": "<span class='mo-wb-opacity-5'>Cookies: </span> <span> ${device_id}</span> <br> <span class='mo-wb-opacity-5'>URL Website: </span> <span> ${source}</span> "
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "field_key": "device_types",
+    "config_view": [
+      {
+        "fieldName": "device_types",
+        "layoutView": "view-all",
+        "type": "Array",
+        "ignoreValidateDuplicate": true,
+        "configs": [
+          {
+            "fieldValue": "device_type",
+            "label": "",
+            "readonly": true,
+            "type": "input-text",
+            "class": "w-37",
+            "required": false,
+            "separator": ": ",
+            "mappingValue": {
+              "laptop_pc": "Laptop/ PC",
+              "mobile_tablet": "Mobile/ Tablet"
+            }
+          },
+          {
+            "fieldValue": "device_name",
+            "label": "",
+            "class": "w-37",
+            "readonly": true,
+            "type": "input-text",
+            "required": false
+          }
+        ]
+      },
+      {
+        "fieldName": "device_types",
+        "layoutView": "view-add-edit",
+        "ignoreValidateDuplicate": true,
+        "class": "mo-wb-w-440px",
+        "type": "Array",
+        "configs": [
+          {
+            "fieldValue": "device_type",
+            "label": "",
+            "readonly": true,
+            "class": "w-100",
+            "type": "input-text",
+            "required": false,
+            "separator": ": ",
+            "mappingValue": {
+              "laptop_pc": "Laptop/ PC",
+              "mobile_tablet": "Mobile/ Tablet"
+            }
+          },
+          {
+            "fieldValue": "device_name",
+            "label": "",
+            "readonly": true,
+            "type": "input-text",
+            "required": false
+          }
+        ]
+      },
+      {
+        "fieldName": "device_types",
+        "layoutView": "view-table",
+        "type": "Array",
+        "configs": {
+          "hasSort": "",
+          "label": "",
+          "orderby": "",
+          "ngStyle": {
+            "flex": "0 0 200px",
+            "maxWidth": "200px"
+          },
+          "config": [
+            {
+              "cssWrapper": "d-flex align-items-center mo-wb-h-60px",
+              "fieldsConfig": [
+                {
+                  "field": "device_types",
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "type": "text-ellipsis",
+                  "functionConfig": [
+                    {
+                      "dataType": "Array",
+                      "fieldsValue": [
+                        "device_type",
+                        "device_name"
+                      ],
+                      "mappingValues": [
+                        {
+                          "device_type": {
+                            "laptop_pc": "Laptop/ PC",
+                            "mobile_tablet": "Mobile/ Tablet"
+                          }
+                        }
+                      ],
+                      "name": "parseValue",
+                      "template": "<span class='mo-wb-opacity-5'>${device_type}: </span> <span> ${device_name}</span>"
+                    },
+                    {
+                      "dataType": "Array",
+                      "fieldsValue": [
+                        "device_type",
+                        "device_name"
+                      ],
+                      "mappingValues": [
+                        {
+                          "device_type": {
+                            "laptop_pc": "Laptop/ PC",
+                            "mobile_tablet": "Mobile/ Tablet"
+                          }
+                        }
+                      ],
+                      "name": "getTooltipContentValue",
+                      "template": "<span>${device_type}: ${device_name}</span> "
+                    }
+                  ]
+                },
+                {
+                  "field": "device_types",
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "type": "circle-and-numbers",
+                  "functionConfig": [
+                    {
+                      "dataType": "Array",
+                      "key": "device_types",
+                      "fieldsValue": [
+                        "device_type",
+                        "device_name"
+                      ],
+                      "mappingValues": [
+                        {
+                          "device_type": {
+                            "laptop_pc": "Laptop/ PC",
+                            "mobile_tablet": "Mobile/ Tablet"
+                          }
+                        }
+                      ],
+                      "name": "getData",
+                      "template": "<span class='mo-wb-opacity-5'>${device_type}: </span> <span> ${device_name}</span>"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "field_key": "name",
+    "config_view": [
+      {
+        "fieldName": "name",
+        "layoutView": "view-add-edit",
+        "specificLabelByField": {
+          "fieldName": "is_non_profile",
+          "mappingLabel": {
+            "true": "i18n_fullname_or_device_id",
+            "false": "i18n_fullname"
+          },
+          "mappingTooltip": {
+            "true": {
+              "content": "i18n_tooltip_profile_in_none_profile",
+              "maxWidth": 195
+            },
+            "false": ""
+          }
+        },
+        "class": "mo-wb-w-460px",
+        "type": "Text",
+        "addNew": false,
+        "configs": [
+          {
+            "fieldValue": "name",
+            "label": "",
+            "placeholder": "i18n_import_content",
+            "type": "input-text",
+            "class": "mo-wb-w-460px",
+            "required": true
+          }
+        ]
+      },
+      {
+        "fieldName": "name",
+        "layoutView": "view-table",
+        "type": "Array",
+        "configs": {
+          "hasSort": "true",
+          "specificLabelByField": {
+            "fieldName": "is_non_profile",
+            "mappingLabel": {
+              "true": "i18n_fullname_or_device_id",
+              "false": "i18n_fullname"
+            },
+            "mappingTooltip": {
+              "true": {
+                "content": "i18n_tooltip_profile_in_none_profile",
+                "maxWidth": 195,
+                "width": 195
+              },
+              "false": ""
+            }
+          },
+          "label": "",
+          "orderby": "name",
+          "config": [
+            {
+              "cssWrapper": "d-flex align-items-center mo-wb-h-60px",
+              "fieldsConfig": [
+                {
+                  "field": "name",
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "type": "text-ellipsis",
+                  "functionConfig": [
+                    {
+                      "fieldsValue": [
+                        "name"
+                      ],
+                      "name": "parseValue,action",
+                      "template": "<a class='mo-wb-text-decoration-none mo-wb-color-009cdb mo-wb-hover-00b7ff mo-wb-cursor-pointer'>{value}</a>"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "fieldName": "name",
+        "layoutView": "view-all",
+        "specificLabelByField": {
+          "fieldName": "is_non_profile",
+          "mappingLabel": {
+            "true": "i18n_fullname_or_device_id",
+            "false": "i18n_fullname"
+          },
+          "mappingTooltip": {
+            "true": {
+              "content": "i18n_tooltip_profile_in_none_profile",
+              "maxWidth": 195
+            },
+            "false": ""
+          }
+        },
+        "type": "Text",
+        "addNew": false,
+        "configs": [
+          {
+            "fieldValue": "name",
+            "label": "",
+            "placeholder": "i18n_import_content",
+            "type": "input-text",
+            "class": "w-34",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "field_key": "profile_identify",
+    "config_view": [
+      {
+        "fieldName": "profile_identify",
+        "layoutView": "view-all",
+        "type": "Array",
+        "addNew": true,
+        "maxWidth": "37%",
+        "configs": [
+          {
+            "fieldValue": "identify_type",
+            "label": " ",
+            "readonly": false,
+            "type": "dropdown",
+            "data_select": [
+              {
+                "id": "citizen_identity",
+                "name": "i18n_citizen_identity"
+              },
+              {
+                "id": "identity_card",
+                "name": "i18n_identity_card"
+              },
+              {
+                "id": "passport",
+                "name": "i18n_passport"
+              },
+              {
+                "id": "driving_license",
+                "name": "i18n_driving_license_minimum"
+              },
+              {
+                "id": "identity_card_army",
+                "name": "i18n_identity_card_army"
+              }
+            ],
+            "class": "mo-wb-w-147px",
+            "required": false,
+            "placeholder": "i18n_select_type_of_papers"
+          },
+          {
+            "fieldValue": "identify_value",
+            "label": " ",
+            "readonly": false,
+            "type": "input-text",
+            "class": "mo-wb-ml-12px mo-wb-calc-w-159px",
+            "required": false,
+            "minLengthToValid": 3,
+            "placeholder": "i18n_import_content"
+          }
+        ]
+      },
+      {
+        "fieldName": "profile_identify",
+        "layoutView": "view-add-edit",
+        "type": "Array",
+        "addNew": true,
+        "configs": [
+          {
+            "fieldValue": "identify_type",
+            "label": " ",
+            "readonly": false,
+            "type": "dropdown",
+            "mappingValue": {
+              "CCCD": "i18n_citizen_identity",
+              "CMND": "i18n_identity_card",
+              "passport": "i18n_passport",
+              "GPLX": "i18n_driving_license_minimum",
+              "CMNDQD": "i18n_identity_card_army"
+            },
+            "data_select": [
+              {
+                "id": "citizen_identity",
+                "name": "i18n_citizen_identity"
+              },
+              {
+                "id": "identity_card",
+                "name": "i18n_identity_card"
+              },
+              {
+                "id": "passport",
+                "name": "i18n_passport"
+              },
+              {
+                "id": "driving_license",
+                "name": "i18n_driving_license_minimum"
+              },
+              {
+                "id": "identity_card_army",
+                "name": "i18n_identity_card_army"
+              }
+            ],
+            "class": "mo-wb-w-139px",
+            "required": false,
+            "placeholder": "i18n_select_type_of_papers"
+          },
+          {
+            "fieldValue": "identify_value",
+            "label": " ",
+            "readonly": false,
+            "type": "input-text",
+            "class": "mo-wb-ml-12px mo-wb-calc-w-151px",
+            "required": false,
+            "minLengthToValid": 3,
+            "placeholder": "i18n_import_content"
+          }
+        ]
+      },
+      {
+        "fieldName": "profile_identify",
+        "layoutView": "view-table",
+        "type": "Array",
+        "configs": {
+          "hasSort": "",
+          "label": "",
+          "orderby": "",
+          "ngStyle": {
+            "flex": "0 0 200px",
+            "maxWidth": "200px"
+          },
+          "config": [
+            {
+              "cssWrapper": "d-flex align-items-center mo-wb-h-60px",
+              "fieldsConfig": [
+                {
+                  "field": "profile_identify",
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "type": "text-ellipsis",
+                  "functionConfig": [
+                    {
+                      "dataType": "Array",
+                      "mappingValues": [
+                        {
+                          "identify_type": {
+                            "citizen_identity": "i18n_citizen_identity",
+                            "identity_card": "i18n_identity_card",
+                            "passport": "i18n_passport",
+                            "driving_license": "i18n_driving_license_minimum",
+                            "identity_card_army": "i18n_identity_card_army"
+                          }
+                        }
+                      ],
+                      "fieldsValue": [
+                        "identify_type",
+                        "identify_value"
+                      ],
+                      "name": "parseValue",
+                      "template": "<span class='mo-wb-opacity-5'>${identify_type}: </span> <span> ${identify_value}</span>"
+                    },
+                    {
+                      "dataType": "Array",
+                      "mappingValues": [
+                        {
+                          "identify_type": {
+                            "citizen_identity": "i18n_citizen_identity_full",
+                            "identity_card": "i18n_identity_card_full",
+                            "passport": "i18n_passport",
+                            "driving_license": "i18n_driving_license",
+                            "identity_card_army": "i18n_identity_card_army_full"
+                          }
+                        }
+                      ],
+                      "fieldsValue": [
+                        "identify_type",
+                        "identify_value"
+                      ],
+                      "name": "getTooltipContentValue",
+                      "template": "<span>${identify_type}: ${identify_value}</span>"
+                    }
+                  ]
+                },
+                {
+                  "field": "profile_identify",
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "type": "circle-and-numbers",
+                  "functionConfig": [
+                    {
+                      "dataType": "Array",
+                      "mappingValues": [
+                        {
+                          "identify_type": {
+                            "citizen_identity": "i18n_citizen_identity_full",
+                            "identity_card": "i18n_identity_card_full",
+                            "passport": "i18n_passport",
+                            "driving_license": "i18n_driving_license",
+                            "identity_card_army": "i18n_identity_card_army_full"
+                          }
+                        }
+                      ],
+                      "key": "profile_identify",
+                      "fieldsValue": [
+                        "identify_type",
+                        "identify_value"
+                      ],
+                      "name": "getData",
+                      "template": "<span class='mo-wb-opacity-5'>${identify_type}: </span> <span> ${identify_value}</span>"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "field_key": "vib_cards",
+    "config_view": [
+      {
+        "layoutView": "view-all",
+        "fieldName": "vib_cards",
+        "configs": [
+          {
+            "label": "",
+            "separator": ": ",
+            "disable": false,
+            "type": "input-text",
+            "fieldValue": "card_name",
+            "readonly": true,
+            "class": "w-37"
+          },
+          {
+            "label": "",
+            "readonly": true,
+            "disable": false,
+            "type": "input-text",
+            "fieldValue": "is_primary_card",
+            "mappingValue": {
+              "false": "Thẻ phụ",
+              "true": "Thẻ chính"
+            },
+            "separator": ": ",
+            "class": "w-37"
+          },
+          {
+            "type": "input-text",
+            "label": "",
+            "fieldValue": "status",
+            "disable": false,
+            "readonly": true,
+            "class": "w-37"
+          }
+        ],
+        "type": "Array"
+      },
+      {
+        "layoutView": "view-table",
+        "fieldName": "vib_cards",
+        "configs": {
+          "ngStyle": {
+            "flex": "0 0 200px",
+            "maxWidth": "200px"
+          },
+          "orderby": "",
+          "config": [
+            {
+              "cssWrapper": "d-flex align-items-center mo-wb-h-60px",
+              "fieldsConfig": [
+                {
+                  "ngStyle": {
+                    "maxWidth": "145px"
+                  },
+                  "field": "vib_cards",
+                  "functionConfig": [
+                    {
+                      "dataType": "Array",
+                      "fieldsValue": [
+                        "card_name",
+                        "is_primary_card",
+                        "status"
+                      ],
+                      "mappingValues": [
+                        {
+                          "is_primary_card": {
+                            "false": "Thẻ phụ",
+                            "true": "Thẻ chính"
+                          }
+                        }
+                      ],
+                      "template": "<span>${card_name}: ${is_primary_card}: ${status}</span>",
+                      "name": "parseValue"
+                    },
+                    {
+                      "dataType": "Array",
+                      "fieldsValue": [
+                        "card_name",
+                        "is_primary_card",
+                        "status"
+                      ],
+                      "mappingValues": [
+                        {
+                          "is_primary_card": {
+                            "false": "Thẻ phụ",
+                            "true": "Thẻ chính"
+                          }
+                        }
+                      ],
+                      "template": "<span>${card_name}:${is_primary_card}: ${status}</span>",
+                      "name": "getTooltipContentValue"
+                    }
+                  ],
+                  "type": "text-ellipsis"
+                },
+                {
+                  "field": "vib_cards",
+                  "functionConfig": [
+                    {
+                      "mappingValues": [
+                        {
+                          "is_primary_card": {
+                            "false": "Thẻ phụ",
+                            "true": "Thẻ chính"
+                          }
+                        }
+                      ],
+                      "template": "<span>${card_name}: ${is_primary_card}: ${status}</span>",
+                      "name": "getData",
+                      "key": "card_id",
+                      "dataType": "Array",
+                      "fieldsValue": [
+                        "card_name",
+                        "is_primary_card",
+                        "status"
+                      ]
+                    }
+                  ],
+                  "type": "circle-and-numbers"
+                }
+              ]
+            }
+          ],
+          "label": "",
+          "hasSort": ""
+        },
+        "type": "Array"
+      }
+    ]
+  }
+]

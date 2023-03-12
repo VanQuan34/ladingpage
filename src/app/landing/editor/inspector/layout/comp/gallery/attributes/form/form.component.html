@@ -1,0 +1,52 @@
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-2500 mo-wb-bg-333333 mo-wb-opacity-3"></div>
+<mo-wb-components-popup
+  #popup
+  [title]="'Cấu hình Gallery Video'"
+  [height]="'130px'"
+  [width]="500"
+  [isShow]="true"
+  [zIndex]="3500"
+  (onOk)="handleSettingUrlVideo($event);"
+  (onClose)="handleOnClosePopup($event);">
+  <div class="mo-wb-pl-20px mo-wb-pr-20px mo-wb-mt-10px">
+    <mo-wb-components-dropdown
+      [label]="'Kiểu Video'"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="listTypeVideo"
+      [selectedId]="typeVideo"
+      [key]="'id'"
+      [keyName]="'name'"
+      [classInclude]=""
+      (onSelectedItem)="handleOnChangeSelectTypeVideo($event);">
+    </mo-wb-components-dropdown>
+    <mo-wb-components-input
+      #input
+      *ngIf="typeVideo === 'youtube'"
+      [classInclude]="'mo-wb-mt-12px mo-wb-mt-10px'"
+      [enable]="true"
+      [isRequired]="false"
+      [title]="'YOUTUBE URL'"
+      [placeholder]="'Nhập đường dẫn video'"
+      [validType]="'YOUTUBE'"
+      [label]="'URL'"
+      [value]="url"
+      (onInputError)="onInputError($event)"
+      (onValueChanged)="handleOnUrlChanged($event)">
+    </mo-wb-components-input>
+    <mo-wb-components-input 
+      #inputYT
+      *ngIf="typeVideo === 'other'"
+      [classInclude]="'mo-wb-mt-12px'"
+      [enable]="true"
+      [isRequired]="false"
+      [title]="'VIDEO URL'"
+      [placeholder]="'Nhập đường dẫn video'"
+      [validType]="'URL'"
+      [label]="'URL'"
+      [value]="url"
+      (onInputError)="onInputError($event)"
+      (onValueChanged)="handleOnUrlChanged($event)">
+    </mo-wb-components-input>
+  </div>
+</mo-wb-components-popup>

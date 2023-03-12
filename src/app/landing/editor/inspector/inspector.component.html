@@ -1,0 +1,68 @@
+<div class="mo-wb-inspector position-absolute mo-wb-top-0 mo-wb-w-320px 
+  mo-wb-overflow-y-overlay h-100 mo-wb-border-left-general mo-wb-bg-color-white"
+  [style.right] = "isOpen ? '0px' : '-400px'">
+ 
+  <ng-container *ngIf="isOpen">
+    <ng-container *ngIf="selectedComp"> 
+      <mo-wb-landing-editor-inspector-breadcrumb>
+      </mo-wb-landing-editor-inspector-breadcrumb>
+
+      <div *ngIf="moType === 'repeater'">
+        <div class="mo-wb-border-top-general mo-wb-mt-15px mo-wb-mb-15px"></div>
+        <mo-wb-landing-editor-inspector-layout-list-controller>
+        </mo-wb-landing-editor-inspector-layout-list-controller>
+        <div class="mo-wb-border-top-general mo-wb-mt-15px mo-wb-mb-15px"></div>
+      </div>
+      
+      <ng-container *ngIf="isPage">
+        <mo-wb-landing-editor-inspector-page>
+        </mo-wb-landing-editor-inspector-page>
+      </ng-container>
+ 
+      <ng-container *ngIf="!isPage">
+        <div class="mo-wb-inspector-header-sticky w-100 mo-wb-bg-color-white">
+      
+          <div class="mo-wb-inspector-tab w-100 mo-wb-h-50px align-items-center d-flex mo-wb-border-bottom-general">
+            
+            <div class="mo-wb-inspector-tab-item d-flex h-100 align-items-center justify-content-center position-relative mo-wb-cursor-pointer"
+              [ngClass]="{'tabed': selectedTab === 'LAYOUT'}"
+              (click)="handleOnTabClick('LAYOUT');">
+              <div class="mo-icn-layout-com tab-icon"></div>
+              <div *ngIf="selectedTab === 'LAYOUT'" class="mo-wb-inspector-tab-item-divider position-absolute mo-wb-bottom-0 w-50"></div>
+            </div>
+  
+            <div class="mo-wb-inspector-tab-item h-100  d-flex align-items-center justify-content-center position-relative mo-wb-cursor-pointer"
+              [ngClass]="{'tabed': selectedTab === 'DESIGN'}"
+              (click)="handleOnTabClick('DESIGN');">
+              <div class="mo-icn-design-com tab-icon"></div>
+              <div *ngIf="selectedTab === 'DESIGN'" class="mo-wb-inspector-tab-item-divider position-absolute mo-wb-bottom-0 w-50"></div>
+            </div>
+  
+          </div>
+  
+          <mo-wb-landing-editor-inspector-layout-align 
+            *ngIf="selectedTab === 'LAYOUT'">
+          </mo-wb-landing-editor-inspector-layout-align>
+        </div>
+        
+        <mo-wb-landing-editor-inspector-design
+          *ngIf="selectedTab === 'DESIGN'">
+          </mo-wb-landing-editor-inspector-design>
+  
+        <mo-wb-landing-editor-inspector-layout
+          *ngIf="selectedTab === 'LAYOUT'">
+        </mo-wb-landing-editor-inspector-layout>
+      </ng-container>
+ 
+    </ng-container>
+  
+    <ng-container *ngIf="!selectedComp">
+      <div class="full-screen d-flex align-items-center justify-content-center mo-wb-px-20px mo-wb-py-20px flex-column">
+        <div class="mo-icn-comp-select mo-wb-font-size-40px mo-wb-mb-20px"></div>
+        <div class="mo-wb-font-head-4 text-center">Vui lòng chọn một phần tử đề xem và chỉnh sửa ở đây.</div>
+      </div>
+    </ng-container>
+ 
+  </ng-container>
+ 
+</div>

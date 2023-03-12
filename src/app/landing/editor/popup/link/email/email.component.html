@@ -1,0 +1,23 @@
+<div class="mo-wb-landing-editor-comp-popup-link-email">
+  <div class="mo-wb-mb-8px mo-wb-font-head-4s">{{'i18n_email_address' | translate}}</div>
+  <mo-wb-components-input #input
+      [label]="'Email'"
+      [value]="content && content.mailto"
+      [validType]="'EMAIL'"
+      [placeholder]="'ex@mobio.io'"
+      (onValueChanged)="handlerChangeMailTo($event);"
+      (onInputError)="handleOnInputError($event)">
+    </mo-wb-components-input>
+
+  <div class="mo-wb-border-top-general mo-wb-mt-20px mo-wb-mb-20px"></div>
+
+  <div class="mo-wb-font-head-4s mo-wb-mb-8px">{{'i18n_email_subject' | translate}}</div>
+
+  <mo-wb-components-input
+    [label]="'Subject'"
+    [value]="content && content.subject"
+    [validType]="'NONE'"
+    [placeholder]="'Thêm tiêu đề...'"
+    (onValueChanged)="handlerChangeSubject($event)">
+  </mo-wb-components-input>
+</div>

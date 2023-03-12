@@ -1,0 +1,24 @@
+.mo-wb-list-item-menu{
+  height: 258px;
+  overflow: auto;
+
+  .mo-wb-item-menu{
+    width: 100%;
+    height: 42px;
+    padding-left: 20px;
+    border-radius: 4px;
+    .mo-wb-option{
+      display: none;
+    }
+    &:hover{
+      background-color: #f0f1f5;
+      cursor: pointer;
+      .mo-wb-option{
+        display: block;
+      }
+    }
+    
+
+  }
+}
+

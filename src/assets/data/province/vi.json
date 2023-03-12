@@ -1,0 +1,450 @@
+[
+  {
+    "id": -1,
+    "name": "Không xác định",
+    "keyword": "",
+    "code": "KHONGXACDINH",
+    "display_in_form": true
+  },
+  {
+    "id": 1,
+    "keyword": "mienbac,top6",
+    "name": "Hà Nội",
+    "code": "HANOI",
+    "display_in_form": true
+  },
+  {
+    "id": 2,
+    "keyword": "mienbac",
+    "name": "Hà Giang",
+    "code": "HAGIANG",
+    "display_in_form": true
+  },
+  {
+    "id": 4,
+    "keyword": "mienbac",
+    "name": "Cao Bằng",
+    "code": "CAOBANG",
+    "display_in_form": true
+  },
+  {
+    "id": 6,
+    "keyword": "mienbac",
+    "name": "Bắc Kạn",
+    "code": "BACKAN",
+    "display_in_form": true
+  },
+  {
+    "id": 8,
+    "keyword": "mienbac",
+    "name": "Tuyên Quang",
+    "code": "TUYENQUANG",
+    "display_in_form": true
+  },
+  {
+    "id": 10,
+    "keyword": "mienbac",
+    "name": "Lào Cai",
+    "code": "LAOCAI",
+    "display_in_form": true
+  },
+  {
+    "id": 11,
+    "keyword": "mienbac",
+    "name": "Điện Biên",
+    "code": "DIENBIEN",
+    "display_in_form": true
+  },
+  {
+    "id": 12,
+    "keyword": "mienbac",
+    "name": "Lai Châu",
+    "code": "LAICHAU",
+    "display_in_form": true
+  },
+  {
+    "id": 14,
+    "keyword": "mienbac",
+    "name": "Sơn La",
+    "code": "SONLA",
+    "display_in_form": true
+  },
+  {
+    "id": 15,
+    "keyword": "mienbac",
+    "name": "Yên Bái",
+    "code": "YENBAI",
+    "display_in_form": true
+  },
+  {
+    "id": 17,
+    "keyword": "mienbac",
+    "name": "Hoà Bình",
+    "code": "HOABINH",
+    "display_in_form": true
+  },
+  {
+    "id": 19,
+    "keyword": "mienbac",
+    "name": "Thái Nguyên",
+    "code": "THAINGUYEN",
+    "display_in_form": true
+  },
+  {
+    "id": 20,
+    "keyword": "mienbac",
+    "name": "Lạng Sơn",
+    "code": "LANGSON",
+    "display_in_form": true
+  },
+  {
+    "id": 22,
+    "keyword": "mienbac",
+    "name": "Quảng Ninh",
+    "code": "QUANGNINH",
+    "display_in_form": true
+  },
+  {
+    "id": 24,
+    "keyword": "mienbac",
+    "name": "Bắc Giang",
+    "code": "BACGIANG",
+    "display_in_form": true
+  },
+  {
+    "id": 25,
+    "keyword": "mienbac",
+    "name": "Phú Thọ",
+    "code": "PHUTHO",
+    "display_in_form": true
+  },
+  {
+    "id": 26,
+    "keyword": "mienbac",
+    "name": "Vĩnh Phúc",
+    "code": "VINHPHUC",
+    "display_in_form": true
+  },
+  {
+    "id": 27,
+    "keyword": "mienbac",
+    "name": "Bắc Ninh",
+    "code": "BACNINH",
+    "display_in_form": true
+  },
+  {
+    "id": 30,
+    "keyword": "mienbac",
+    "name": "Hải Dương",
+    "code": "HAIDUONG",
+    "display_in_form": true
+  },
+  {
+    "id": 31,
+    "keyword": "mienbac,top6",
+    "name": "Hải Phòng",
+    "code": "HAIPHONG",
+    "display_in_form": true
+  },
+  {
+    "id": 33,
+    "keyword": "mienbac",
+    "name": "Hưng Yên",
+    "code": "HUNGYEN",
+    "display_in_form": true
+  },
+  {
+    "id": 34,
+    "keyword": "mienbac",
+    "name": "Thái Bình",
+    "code": "THAIBINH",
+    "display_in_form": true
+  },
+  {
+    "id": 35,
+    "keyword": "mienbac",
+    "name": "Hà Nam",
+    "code": "HANAM",
+    "display_in_form": true
+  },
+  {
+    "id": 36,
+    "keyword": "mienbac",
+    "name": "Nam Định",
+    "code": "NAMDINH",
+    "display_in_form": true
+  },
+  {
+    "id": 37,
+    "keyword": "mienbac",
+    "name": "Ninh Bình",
+    "code": "NINHBINH",
+    "display_in_form": true
+  },
+  {
+    "id": 38,
+    "keyword": "mientrung",
+    "name": "Thanh Hóa",
+    "code": "THANHHOA",
+    "display_in_form": true
+  },
+  {
+    "id": 40,
+    "keyword": "mientrung",
+    "name": "Nghệ An",
+    "code": "NGHEAN",
+    "display_in_form": true
+  },
+  {
+    "id": 42,
+    "keyword": "mientrung",
+    "name": "Hà Tĩnh",
+    "code": "HATINH",
+    "display_in_form": true
+  },
+  {
+    "id": 44,
+    "keyword": "mientrung",
+    "name": "Quảng Bình",
+    "code": "QUANGBINH",
+    "display_in_form": true
+  },
+  {
+    "id": 45,
+    "keyword": "mientrung",
+    "name": "Quảng Trị",
+    "code": "QUANGTRI",
+    "display_in_form": true
+  },
+  {
+    "id": 46,
+    "keyword": "mientrung,top6",
+    "name": "Thừa Thiên Huế",
+    "code": "THUATHIENHUE",
+    "display_in_form": true
+  },
+  {
+    "id": 48,
+    "keyword": "mientrung,top6",
+    "name": "Đà Nẵng",
+    "code": "DANANG",
+    "display_in_form": true
+  },
+  {
+    "id": 49,
+    "keyword": "mientrung",
+    "name": "Quảng Nam",
+    "code": "QUANGNAM",
+    "display_in_form": true
+  },
+  {
+    "id": 51,
+    "keyword": "mientrung",
+    "name": "Quảng Ngãi",
+    "code": "QUANGNGAI",
+    "display_in_form": true
+  },
+  {
+    "id": 52,
+    "keyword": "mientrung",
+    "name": "Bình Định",
+    "code": "BINHDINH",
+    "display_in_form": true
+  },
+  {
+    "id": 54,
+    "keyword": "mientrung",
+    "name": "Phú Yên",
+    "code": "PHUYEN",
+    "display_in_form": true
+  },
+  {
+    "id": 56,
+    "keyword": "mientrung",
+    "name": "Khánh Hòa",
+    "code": "KHANHHOA",
+    "display_in_form": true
+  },
+  {
+    "id": 58,
+    "keyword": "mientrung",
+    "name": "Ninh Thuận",
+    "code": "NINHTHUAN",
+    "display_in_form": true
+  },
+  {
+    "id": 60,
+    "keyword": "mientrung",
+    "name": "Bình Thuận",
+    "code": "BINHTHUAN",
+    "display_in_form": true
+  },
+  {
+    "id": 62,
+    "keyword": "mientrung",
+    "name": "Kon Tum",
+    "code": "KONTUM",
+    "display_in_form": true
+  },
+  {
+    "id": 64,
+    "keyword": "mientrung",
+    "name": "Gia Lai",
+    "code": "GIALAI",
+    "display_in_form": true
+  },
+  {
+    "id": 66,
+    "keyword": "mientrung",
+    "name": "Đắk Lắk",
+    "code": "DAKLAK",
+    "display_in_form": true
+  },
+  {
+    "id": 67,
+    "keyword": "mientrung",
+    "name": "Đắk Nông",
+    "code": "DAKNONG",
+    "display_in_form": true
+  },
+  {
+    "id": 68,
+    "keyword": "mientrung",
+    "name": "Lâm Đồng",
+    "code": "LAMDONG",
+    "display_in_form": true
+  },
+  {
+    "id": 70,
+    "keyword": "miennam",
+    "name": "Bình Phước",
+    "code": "BINHPHUOC",
+    "display_in_form": true
+  },
+  {
+    "id": 72,
+    "keyword": "miennam",
+    "name": "Tây Ninh",
+    "code": "TAYNINH",
+    "display_in_form": true
+  },
+  {
+    "id": 74,
+    "keyword": "miennam",
+    "name": "Bình Dương",
+    "code": "BINHDUONG",
+    "display_in_form": true
+  },
+  {
+    "id": 75,
+    "keyword": "miennam",
+    "name": "Đồng Nai",
+    "code": "DONGNAI",
+    "display_in_form": true
+  },
+  {
+    "id": 77,
+    "keyword": "miennam",
+    "name": "Bà Rịa - Vũng Tàu",
+    "code": "BARIAVUNGTAU",
+    "display_in_form": true
+  },
+  {
+    "id": 79,
+    "keyword": "miennam,top6",
+    "name": "Hồ Chí Minh",
+    "code": "HOCHIMINH",
+    "display_in_form": true
+  },
+  {
+    "id": 80,
+    "keyword": "miennam,dbscl",
+    "name": "Long An",
+    "code": "LONGAN",
+    "display_in_form": true
+  },
+  {
+    "id": 82,
+    "keyword": "miennam,dbscl",
+    "name": "Tiền Giang",
+    "code": "TIENGIANG",
+    "display_in_form": true
+  },
+  {
+    "id": 83,
+    "keyword": "miennam,dbscl,top6",
+    "name": "Bến Tre",
+    "code": "BENTRE",
+    "display_in_form": true
+  },
+  {
+    "id": 84,
+    "keyword": "miennam,dbscl",
+    "name": "Trà Vinh",
+    "code": "TRAVINH",
+    "display_in_form": true
+  },
+  {
+    "id": 86,
+    "keyword": "miennam,dbscl",
+    "name": "Vĩnh Long",
+    "code": "VINHLONG",
+    "display_in_form": true
+  },
+  {
+    "id": 87,
+    "keyword": "miennam,dbscl",
+    "name": "Đồng Tháp",
+    "code": "DONGTHAP",
+    "display_in_form": true
+  },
+  {
+    "id": 89,
+    "keyword": "miennam,dbscl",
+    "name": "An Giang",
+    "code": "ANGIANG",
+    "display_in_form": true
+  },
+  {
+    "id": 91,
+    "keyword": "miennam,dbscl",
+    "name": "Kiên Giang",
+    "code": "KIENGIANG",
+    "display_in_form": true
+  },
+  {
+    "id": 92,
+    "keyword": "miennam,dbscl",
+    "name": "Cần Thơ",
+    "code": "CANTHO",
+    "display_in_form": true
+  },
+  {
+    "id": 93,
+    "keyword": "miennam,dbscl",
+    "name": "Hậu Giang",
+    "code": "HAUGIANG",
+    "display_in_form": true
+  },
+  {
+    "id": 94,
+    "keyword": "miennam,dbscl",
+    "name": "Sóc Trăng",
+    "code": "SOCTRANG",
+    "display_in_form": true
+  },
+  {
+    "id": 95,
+    "keyword": "miennam,dbscl",
+    "name": "Bạc Liêu",
+    "code": "BACLIEU",
+    "display_in_form": true
+  },
+  {
+    "id": 96,
+    "keyword": "miennam,dbscl",
+    "name": "Cà Mau",
+    "code": "CAMAU",
+    "display_in_form": true
+  }
+]

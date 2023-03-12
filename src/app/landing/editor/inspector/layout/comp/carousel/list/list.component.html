@@ -1,0 +1,71 @@
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-2500 mo-wb-bg-333333 mo-wb-opacity-3"></div>
+  <mo-wb-components-popup
+    #popup
+    [title]="'Cấu hình Carousel'"
+    [height]="'460px'"
+    [width]="600"
+    [isShow]="true"
+    [zIndex]="2500"
+    [hasFooter]="false"
+    [classInclude]="''"
+    (onOk)="handleUpdateSettingsMedia($event);"
+    (onClose)="handleOnClosePopup($event);">  
+  <div class="position-relative mo-wb-bg-ffffff mo-wb-border-radius-4px mo-wb-p-20px mo-wb-border-bottom-general
+   mo-wb-h-390px mo-wb-max-calc-vh-120px overflow-auto">
+    <div class="item-container" cdkDropListGroup>
+      <div cdkDropList
+          (cdkDropListDropped)="dropListDropped($event)"
+          (cdkDropListEntered)="cdkDropListEntered($event)"></div>
+        <ng-container
+        *ngFor="let src of listSrc; index as idx">
+          <div
+          #parentEl
+          cdkDropList
+          (cdkDropListDropped)="dropListDropped($event)"
+          class="item-carousel-layout position-relative"
+          (cdkDropListEntered)="cdkDropListEntered($event)">
+          <div cdkDrag 
+          class="item-carousel d-flex justify-content-center text-center align-items-center position-relative"
+           style="background-image: url({{src}})" [style.width]="widthItem +'px'" [style.height]="widthItem +'px'"></div>
+           <mo-wb-components-menu
+              class="position-absolute mo-wb-right-0 mo-wb-top-0 mo-wb-z-index-2500"
+              [classInclude]="'mo-wb-bg-ffffff d-flex mo-wb-p-6px mo-wb-border-radius-20px'"
+              [parentEl]="parentEl"
+              [width]="150"
+              [items]="menuItems"
+              (onSelectItem)="handleOnSelectMenuItem($event, src, idx);">
+            </mo-wb-components-menu>
+          </div>
+        </ng-container>
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-between mo-wb-p-20px">
+    <div class="d-flex align-items-center">
+      <mo-wb-components-slider 
+        #slider
+        [value]="widthItem"
+        [min]="94"
+        [max]="560"
+        [step]="1"
+        [classInclude]="'mo-wb-w-120px mo-wb-pr-20px d-flex align-items-center'"
+        (onInputValueChanged)="handleOnAngleSliderInputValueChanged($event)">
+      </mo-wb-components-slider>
+      <mo-wb-components-button
+        [type]="'blue-solid'"
+        [classInclude]="'mo-wb-pb-5px mo-wb-pt-5px mo-wb-pl-20px mo-wb-pr-20px mo-wb-w-120px justify-content-center'"
+        [classIconLeft]="''"
+        [label]="'Thêm mới'"
+        [classLabel]="'mo-wb-font-size-13px'"
+        (click)="handleOnAddImageButtonClick($event)">
+    </mo-wb-components-button>
+  </div>
+    <mo-wb-components-button
+      [type]="'blue-solid'"
+      [classInclude]="'mo-wb-pb-5px mo-wb-pt-5px mo-wb-pl-20px mo-wb-pr-20px'"
+      [classIconLeft]="''"
+      [label]="'Xong'"
+      [classLabel]="'mo-wb-font-size-13px'"
+      (click)="handleOnClosePopup($event);">
+    </mo-wb-components-button>
+  </div>
+  </mo-wb-components-popup>

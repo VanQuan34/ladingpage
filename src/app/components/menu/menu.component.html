@@ -1,0 +1,33 @@
+<div *ngIf="isShow || fixedShow"
+  #menuToggleEl
+  class="mo-wb-menu-toggle d-flex align-items-center justify-content-center {{ classInclude }}"
+  [ngClass]="{'selected': isOpen}"
+  [class]="classInclude"
+  (click)="handleOnMenuToggleClick($event, menuToggleEl);">
+  <i class="mo-wb-menu-icon mo-wb-rotate-90deg mo-icn-dots mo-wb-font-size-14px"></i>
+
+  <div *ngIf="isOpen"
+    class="mo-wb-menu-overlay"
+    (click)="handleOnOverlayClick($event);">
+    <div class="mo-wb-menu-container position-fixed mo-wb-shadow mo-wb-py-4px"
+      [style.width]="width + 'px'"
+      [style.height]="height + 'px'"
+      [style.top]="top+'px'"
+      [style.left]="left+'px'"
+      (click)="handleOnMenuClick($event);">
+      <ng-container *ngFor="let item of items; let i = index;">
+        <div *ngIf="item.isDivider" class="mo-wb-border-bottom-general"></div> 
+        <div *ngIf="!item.isDivider"
+          class="d-flex align-items-center mo-wb-px-14px mo-wb-menu-item"
+          [ngClass]="{'remove': item.isRemove}"
+          [style.height]="itemHeight+'px'"
+          (click)="handleOnItemClick($event, item);">
+          <i *ngIf="item.icon"
+            class="{{item.icon}} menu-wb-item-icon mo-wb-mr-8px"></i>
+          <div class="mo-wb-font-head-4 menu-wb-item-name">{{item.name}}</div>
+        </div> 
+      </ng-container>
+    </div>
+  </div>
+  
+</div>

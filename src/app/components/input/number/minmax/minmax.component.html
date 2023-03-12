@@ -1,0 +1,35 @@
+
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-cursor-pointer"
+  [style.zIndex]="zIndex"
+  [style.display]="isShow ? 'block' : 'none'"
+  (click)="handleOnOverlayClick($event);">
+
+  <div class="{{classInclude}} mo-wb-z-index-100 mo-wb-border-radius-4px d-flex align-items-center 
+    position-absolute mo-wb-border-general mo-wb-bg-color-white mo-wb-shadow mo-wb-px-20px mo-wb-py-12px"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    (click)="handleOnMenuClick($event);">
+
+    <mo-wb-components-input-number
+      [title]="'Tối thiểu'"
+      [unit]="min.unit"
+      [units]="units"
+      [value]="min.value"
+      [classInclude]="'mo-wb-w-100px mo-wb-mr-20px'"
+      (onUnitChange)="handleOnMinUnitChange($event);"
+      (onValueChanged)="handleOnMinValueChange($event);">
+    </mo-wb-components-input-number>
+
+    <mo-wb-components-input-number
+      [title]="'Tối đa'"
+      [unit]="max.unit"
+      [units]="units"
+      [value]="max.value"
+      [classInclude]="'mo-wb-w-100px'"
+      (onUnitChange)="handleOnMaxUnitChange($event);"
+      (onValueChanged)="handleOnMaxValueChange($event);">
+    </mo-wb-components-input-number>
+
+  </div>
+
+</div>

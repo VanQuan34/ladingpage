@@ -1,0 +1,21 @@
+<div *ngIf="isOpen && containerComp">
+
+  <div class="mo-wb-comp-container-selected position-fixed mo-wb-z-index-1000 mo-wb-pointer-events-none"
+    [ngClass]="{'mo-wb-comp-container-selection' : isContainer}"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    [style.width]="width + 'px'"
+    [style.height]="height + 'px'">
+  </div>
+
+</div>
+
+<div *ngIf="isShowAttach"
+  class="mo-wb-attach-comp"
+  [style.top]="(top + 20) +'px'"
+  [style.left]="left + (width - 100) /2  +'px'"
+  [style.width]="100 + 'px'"
+  [style.height]="28 + 'px'">
+  <div class="mo-wb-attach-comp-bg"></div>
+  <div class="mo-wb-font-head-4 mo-wb-z-index-1000">Gắn vào</div>
+</div>

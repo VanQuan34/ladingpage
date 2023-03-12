@@ -1,0 +1,62 @@
+.mo-wb-menu-toggle {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: var(--blue-3);
+  }
+}
+
+.mo-wb-menu-container {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.mo-wb-menu-toggle.selected {
+  background-color: var(--blue-5);
+}
+
+.mo-wb-menu-item {
+  cursor: pointer;
+  .menu-wb-item-icon {
+    font-size: 12px;
+  }
+
+  &:hover {
+    .menu-wb-item-icon::before {
+      color: var(--blue);
+    }
+    .menu-wb-item-name {
+      color: var(--blue);
+    }
+    background-color: var(--gray1);
+  }
+}
+
+.mo-wb-menu-item.remove {
+  .menu-wb-item-icon::before {
+    color: var(--red);
+  }
+  .menu-wb-item-name {
+    color: var(--red);
+  }
+  &:hover {
+    .menu-wb-item-icon::before {
+      color: var(--blue);
+    }
+    .menu-wb-item-name {
+      color: var(--blue);
+    }
+  }
+}
+
+.mo-wb-menu-overlay {
+  position: fixed;
+  z-index: 500000;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

@@ -1,0 +1,11 @@
+.selected-item {
+  cursor: default;
+  .item-name {
+    color: #009cdb;
+  }
+  .selected-icon {
+    &::before {
+      color: #009cdb;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="mo-wb-border-top-general mo-wb-mt-20px">
+  <div class="d-flex justify-content-between mo-wb-mt-20px">
+    <div class="mo-wb-calc-w-80px">
+      <span class="mo-wb-font-head-4s mo-wb-top-5px position-relative">{{'Khoảng cách' | translate}}</span>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <mo-wb-components-input-number
+        #gapTB_IP
+        [step]="1"
+        [value]="gapTB"
+        [max]="100"
+        [min]="0"
+        [unit]="'px'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnChangeDistanceVertical($event)">
+      </mo-wb-components-input-number>
+    <svg class="mo-wb-mt-5px" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 12 12"><path fill-rule="evenodd" d="m5.499 0-2.5 3H5v6H2.999l2.5 3 2.5-3H6V3h1.999z"></path></svg>
+    </div>
+  </div> 
+</div>

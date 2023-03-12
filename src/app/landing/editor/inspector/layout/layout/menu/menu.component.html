@@ -1,0 +1,22 @@
+
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0"
+[style.zIndex]="zIndex"
+[style.display]="isShow ? 'block' : 'none'"
+(click)="handleOnOverlayClick($event);">
+  <div class="{{classInclude}} mo-wb-device-menu-content mo-wb-z-index-100 mo-wb-border-radius-4px
+    position-absolute mo-wb-border-general mo-wb-bg-color-white mo-wb-shadow mo-wb-overflow-y-hidden"
+    [style.width]="width+'px'"
+    [style.height]="height+'px'"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    (click)="handleOnMenuClick($event);">
+
+    <div *ngFor="let item of menuList; let i = index;" 
+      class="mo-wb-py-8px d-flex align-items-center justify-content-between 
+        mo-wb-px-12px mo-wb-bg-hover-ebf0f5 mo-wb-cursor-pointer"
+      (click)="handleOnMenuItemClick(item);">
+      <div class="mo-wb-font-head-4">{{ item.title }}</div>
+    </div>
+
+  </div>
+</div>

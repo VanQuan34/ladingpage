@@ -1,0 +1,45 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Nền'"
+  [isOpen]="isOpen">
+
+  <div>
+    <mo-wb-components-button
+      [type]="'text-blue'"
+      [classInclude]="'mo-wb-mt-0px'"
+      [classIconLeft]="'mo-icn-pvdemo_plus mo-wb-font-size-10px mo-wb-mr-8px'"
+      [label]="'Thêm lớp nền'"
+      (click)="handleOnAddLayerButtonClick($event);">
+    </mo-wb-components-button>
+  </div>
+  
+  <div *ngIf="bgType === 'color' || bgType === 'gradient'">
+
+    <div #parentEl 
+      *ngFor="let layer of bgLayers; let i= index;" 
+      class="d-flex align-items-center justify-content-between mo-wb-py-12px"
+      [ngClass]="{'mo-wb-border-bottom-general' : (i !== bgLayers.length - 1)}">
+      <mo-wb-components-color-rgba 
+        [classInclude]="'mo-wb-w-220px'"
+        [title]="''"
+        [type]="layer.type"
+        [color]="layer.color"
+        [gradient]="layer.gradient"
+        (onSelectColor)="handleOnSelectBackgroundColor($event, layer);"
+        (onColorChanged)="handleOnBackgroundColorChanged($event, layer);"
+        (onGradientColorChanged)="handleOnGradientColorChanged($event, layer);"
+        (onSetColorClosed)="handleOnSetColorClosed();"
+        (onSelectGradientColor)="handleOnSelectGradientColor($event, layer);">
+      </mo-wb-components-color-rgba>
+      
+      <mo-wb-components-menu
+        [parentEl]="parentEl"
+        [width]="150"
+        [items]="menuItems"
+        (onSelectItem)="handleOnSelectMenuItem($event, layer, i);">
+      </mo-wb-components-menu>
+
+    </div>  
+    
+  </div>
+  
+</mo-wb-components-toggle_panel-section>

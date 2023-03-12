@@ -1,0 +1,12 @@
+<div *ngIf="containerComps.length" class="mo-wb-inspector-navi d-flex mo-wb-h-40px align-items-center w-100 mo-wb-pl-20px">
+    <div *ngFor="let comp of containerComps; let i = index;"  
+      class="mo-wb-text-color-blue-hover mo-wb-cursor-pointer"
+      (click)="handleOnBreadCrumbClick($event, i);">
+      <span>{{comp.label}}</span>
+      <span class="mo-wb-ml-4px mo-wb-mr-8px"></span>
+    </div>
+</div>
+
+<div class="mo-wb-inspector-navi-title mo-wb-h-40px d-flex align-items-center w-100 mo-wb-font-head-2s mo-wb-pl-20px">
+  {{compName}}
+</div>

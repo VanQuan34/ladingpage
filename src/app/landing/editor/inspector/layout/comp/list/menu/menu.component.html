@@ -1,0 +1,48 @@
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-2500"
+(click)="handleOnOverlayClickOutSide($event)"></div>
+  <div
+   class="position-absolute mo-wb-z-index-3500 mo-wb-bg-ffffff mo-wb-shadow mo-wb-border-radius-4px mo-wb-max-width-310px" 
+  [style.top]="topList+'px'" [style.right]="'5px'">
+    <ul cdkDropList
+        [cdkDropListData]="listId"
+        class="position-relative mo-wb-z-index-3500 mo-wb-pl-0 mo-wb-mb-10px mo-wb-w-310px"
+        (cdkDropListDropped)="handleDropItemRepeater($event)">
+      <li class="mo-item-drag mo-wb-z-index-3500 mo-wb-bg-ffffff d-flex align-items-center mo-wb-cursor-pointer 
+        justify-content-between mo-wb-pt-2px mo-wb-pb-2px mo-wb-pr-20px mo-wb-bg-hover-ebf0f5"
+        *ngFor="let id of listId ; index as idx" [class.mo-wb-bg-color-gray1]="onActive === idx" cdkDrag>
+          <span class="item-title d-flex align-items-center mo-wb-w-280px mo-wb-line-height-36px mo-wb-pl-20px"
+           (click)="handleOnClickIdSelected(id, idx)">
+           <span class="symbol mo-wb-mr-10px"><svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><path d="M3 7v2H1V7h2Zm6 0v2H7V7h2ZM3 1v2H1V1h2Zm6 0v2H7V1h2Z"></path></svg></span>
+           <span>{{ itemTitle | translate}}</span>
+          </span>
+          <mo-wb-components-button
+          #submenu
+            [type]="'icon-only'"
+            [classIconLeft]="'mo-icn-dots menu-icon mo-wb-rotate-90deg'"
+            [classInclude]="toggle && index === idx ? 'mo-wb-bg-5dc7f2' : ''"
+            (click)="handleOnClickShowSubMenu(id, idx)">
+          </mo-wb-components-button>
+      </li>
+      <mo-wb-landing-editor-inspector-layout-sub-menu-of-list
+            classInclude="{{!toggle ? 'd-none' : ''}}"
+            [idSelected]="idSelected"
+            [top]="top"
+            [left]="left"
+            (newName)="handleChangeNameTitle($event)"
+            (hiddenSub)="handleHiddenSubMenu()"
+            (eventSubmenu)="handleUpdateTotalItemRepeater($event)">
+      </mo-wb-landing-editor-inspector-layout-sub-menu-of-list>
+      <div *ngIf="toggle" class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0 mo-wb-z-index-2500"
+        (click)="handleOnOverlayClick($event)">
+      </div>
+    </ul>
+    <mo-wb-components-button *ngIf="totalItem !== 0"
+      [type]="'text-blue'"
+      [classInclude]="'d-flex justify-content-center w-100 mo-wb-border-top-general mo-wb-pt-10px mo-wb-pb-10px mo-wb-bg-hover-ebf0f5'"
+      [classLabel] = "'mo-wb-font-head-3'"
+      [label]="actionTitle"
+      (click)="handleOnClickAddItemRepeater($event)">
+    </mo-wb-components-button>
+  </div>
+
+

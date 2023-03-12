@@ -1,0 +1,75 @@
+<mo-wb-components-modal #modal [title]="label | translate" [maxWidth]="maxWidth + 'px'" [width]="width + 'px'"
+  [height]="height + 'px'" [zIndex]="zIndex" [ignoreButtonClose]="false">
+  <div class="large-container d-flex flex-column mo-icon-setting-container h-100">
+    <div class="mo-wb-pr-40px mo-wb-pb-12px mo-wb-pl-40px h-100 d-flex flex-column">
+      <div class="d-flex justify-content-between mo-wb-pt-12px mo-wb-pb-12px">
+        <div class="d-flex">
+          <mo-wb-components-button [type]="'blue-border'" label="{{'i18n_new_font' | translate}}"
+            [classIconLeft]="'mo-icn-pvdemo_plus mo-wb-mr-8px'" (onClick)="handlerAddNewFont($event)">
+          </mo-wb-components-button>
+          <mo-wb-components-button *ngIf="selectedId.length!==0" [classInclude]="'mo-wb-ml-12px h-100'"
+            [classIconLeft]="'mo-icn-menu-xoa'" [type]="'red-border'" (onClick)="handlerDeleteFont($event)">
+          </mo-wb-components-button>
+        </div>
+        <div>
+          <!-- <mo-wb-components-input-search [placeholder]="'i18n_search_by_name_font' | translate" [width]="'350px'" [action]="'enter'"
+            [action]="'enter'" (onSearch)="handleOnSearchFont($event)">
+          </mo-wb-components-input-search> -->
+        </div>
+      </div>
+      <div class="w-100 h-100 listFont overflow-hidden">
+        <div class="d-flex mo-wb-h-34px item headerFont align-items-center">
+          <div class="mo-wb-w-356px"><b>{{'i18n_name_font' | translate}}</b></div>
+          <div class=""><b>{{'i18n_type'| translate}}</b></div>
+          <div class="checkbox-item">
+            <mo-wb-components-checkbox [checked]="selectAll" [key]="'checkAll'"
+              (onChangeChecked)="onChangeChecked($event)"></mo-wb-components-checkbox>
+          </div>
+        </div>
+        <div *ngIf="responseFont.length!==0" class="w-100 mo-wb-calc-h-34px">
+          <virtual-scroller
+          #myScroll
+          *ngIf="responseFont && responseFont.length>0" [items]="responseFont"
+            (vsEnd)="fetchMoreData($event)" class="h-100 w-100">
+            <div *ngFor="let item of myScroll.viewPortItems; let last = last; let i = index;" class="item mo-wb-h-34px d-flex align-items-center mo-wb-border-bottom-general">
+              <div class="mo-wb-w-356px titleFont">{{item.title}}</div>
+              <div class="position-relative">
+                <div class="">{{(item.font_type && item.font_type==='google_font' ? 'i18n_google_font' : 'i18n_my_font')| translate}}
+                </div>
+                <div class="button-delete">
+                  <mo-wb-components-button [type]="'red-border'" label="{{'i18n_delete'| translate}}"
+                    (onClick)="handleOnDeleteItemFont($event, item.id, item.title)" [classInclude]="''">
+                  </mo-wb-components-button>
+                </div>
+              </div>
+              <div class="checkbox-item">
+                <mo-wb-components-checkbox [checked]="selectedId.includes(item.id) ? true : false" [key]="item.id"
+                  (onChangeChecked)="onChangeChecked($event)">
+                </mo-wb-components-checkbox>
+              </div>
+            </div>
+          </virtual-scroller>
+        </div>
+        <div *ngIf="isLoaded && !responseFont.length && searchValue"
+          class="w-100 mo-wb-calc-h-34px d-flex justify-content-center align-items-center">
+          <span class="mo-wb-font-4s mo-wb-color-999999">{{ 'i18n_no_result_found' | translate}}</span>
+        </div>
+        <div *ngIf="isLoaded && !responseFont.length && !searchValue"
+          class="w-100 mo-wb-calc-h-34px d-flex justify-content-center align-items-center">
+          <span class="mo-wb-font-4s mo-wb-color-999999">{{ 'i18n_no_data' | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <mo-wb-components-spinner *ngIf="loading"></mo-wb-components-spinner>
+  </div>
+
+  <div class="footer-container position-relative">
+    <div *ngIf="selectedId.length!==0" class="mo-wb-font-head-4 position-absolute mo-wb-left-40px">
+      {{'i18n_selecting'| translate}} {{selectedId && selectedId.length}} {{'i18n_font' | translate}}.
+      <span class="mo-wb-font-head-4s mo-wb-color-009cdb mo-wb-cursor-pointer" (click)="selectAllFont()">
+        {{(selectAll ? 'i18n_unchoose_all' : 'i18n_choose_all')| translate}} {{responseFont && responseFont.length}} {{'i18n_font' | translate}}</span>
+    </div>
+    <mo-wb-components-button [type]="'blue'" label="{{'i18n_closed'|translate}}" (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

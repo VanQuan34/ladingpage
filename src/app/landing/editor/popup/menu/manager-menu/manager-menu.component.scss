@@ -1,0 +1,18 @@
+.menus-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.isHover:hover{
+  background-color: #ebf0f5;
+}
+
+.isSelectedMenuBg{
+  background-color: #e8f1ff !important;
+}
+
+
+
+

@@ -1,0 +1,105 @@
+<div class="">
+  <div class="mo-wb-pt-20px d-flex align-items-center justify-content-between mo-wb-px-20px">
+    <div class="mo-wb-font-head-3s">Mầu chủ đề</div>
+    <mo-wb-components-button
+      [type]="'text-blue'"
+      [label]="'Chỉnh sửa'">
+    </mo-wb-components-button>
+  </div>
+
+  <div class="mo-wb-px-20px mo-wb-py-10px">
+    <div *ngFor="let item of colors; let i = index;"
+      class="mo-wb-py-5px">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; "
+        class="mo-wb-border-general mo-wb-border-radius-4px mo-wb-overfolow-hidden">
+        <div #cthemeEl
+          *ngFor="let colorItem of item.colors; let j = index;" 
+          class="mo-wb-h-25px w-100 mo-wb-cursor-pointer position-relative"
+          [style.background-color]="colorItem.hex"
+          (mouseover)="handleOnColorThemeMouseover($event, colorItem, cthemeEl);"
+          (mouseout)="handleOnColorThemeMouseout($event, colorItem, cthemeEl);"
+          (click)="handleOnColorThemeClick($event, colorItem);">
+          
+          <div *ngIf="selectedColor && selectedColor.color === colorItem.hex && selectedColor.cssVar"
+            class="mo-wb-selected-color position-fixed mo-wb-z-index-20000 mo-wb-pointer-events-none mo-wb-shadow"
+            [style.background-color]="colorItem.hex"
+            [style.top]="cthemeEl.getBoundingClientRect().top - 5 + 'px'"
+            [style.left]="cthemeEl.getBoundingClientRect().left - 5 + 'px'"
+            [style.width]="cthemeEl.getBoundingClientRect().width+ 10 + 'px'"
+            [style.height]="cthemeEl.getBoundingClientRect().height+ 10 + 'px'">
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-100 d-flex align-items-center mo-wb-px-20px">
+    <input 
+      #slider
+      type="range" 
+      min="0" 
+      max="100" 
+      value="{{alphaVal}}" 
+      class="slider mo-wb-calc-w-80px"
+      [style.background]="alphaBgGradientValue" />
+    <mo-wb-components-input-number
+      [title]="''"
+      [value]="alphaVal"
+      [min]="0"
+      [max]="100"
+      [step]="1"
+      [unit]="'%'"
+      [hasPlusButton]="true"
+      [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+      (onValueChanged)="handleOnAlphaChanged($event);">  
+    </mo-wb-components-input-number>
+  </div>
+  
+  <div #myColorEl
+    class="mo-wb-pt-20px mo-wb-pt-10px d-flex align-items-center justify-content-between mo-wb-px-20px">
+    <div class="mo-wb-font-head-3s">Mầu của tôi</div>
+    <mo-wb-components-button
+      [type]="'text-blue'"
+      [label]="'+ Thêm'"
+      (click)="handleOnAddColorClick($event, myColorEl);">
+    </mo-wb-components-button>
+  </div>
+
+  <div class="mo-wb-py-10px d-flex flex-wrap mo-wb-px-15px">
+
+    <div #cEl *ngFor="let color of myColors; let i = index;"
+      class="mo-wb-h-28px mo-wb-w-28px mo-wb-border-general mo-wb-cursor-pointer 
+        mo-wb-border-radius-4px mo-wb-mx-5px mo-wb-my-5px mo-wb-my-color position-relative"
+      [style.background-color]="color"
+      (mouseover)="handleOnMyColorMouseover($event, color, cEl);"
+      (mouseout)="handleOnMyColorThemeMouseout($event, color, cEl);"
+      (click)="handleOnMyColorClick($event, color);">
+
+      <div *ngIf="selectedColor && selectedColor.color === color && !selectedColor.cssVar"
+        class="mo-wb-selected-color position-fixed mo-wb-border-radius-4px mo-wb-z-index-20000 mo-wb-pointer-events-none mo-wb-shadow"
+        [style.background-color]="color"
+        [style.top]="cEl.getBoundingClientRect().top - 5 + 'px'"
+        [style.left]="cEl.getBoundingClientRect().left - 5 + 'px'"
+        [style.width]="cEl.getBoundingClientRect().width+ 10 + 'px'"
+        [style.height]="cEl.getBoundingClientRect().height+ 10 + 'px'">
+      </div>
+
+      <div class="mo-wb-my-color-item-remove"
+        (click)="handleOnRemoveColorItem($event, color, i);">
+        <i class="mo-icn-close-popup"></i>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="mo-wb-font-head-4 d-flex mo-wb-pt-5px mo-wb-h-30px mo-wb-px-20px align-items-center justify-content-end">
+      {{hColor || (selectedColor && selectedColor.color)}}</div>
+
+</div>
+
+<div #hoverColor
+  class="position-fixed mo-wb-z-index-10000 mo-wb-pointer-events-none mo-wb-shadow mo-wb-border-general">
+</div>

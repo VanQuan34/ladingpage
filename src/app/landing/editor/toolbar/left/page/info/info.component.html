@@ -1,0 +1,27 @@
+<div class="{{classInclude}}">
+  <div class="mo-wb-px-20px mo-wb-py-20px mo-wb-border-bottom-general">
+    <mo-wb-components-input
+      [title]="'Tên trang là gì'"
+      [value]="page.name"
+      (onValueChanged)="handleOnPageNameChanged($event)">
+
+    </mo-wb-components-input>
+  </div>
+  
+  <div *ngIf="page.isHome" 
+    class="d-flex align-items-center mo-wb-py-20px mo-wb-px-20px mo-wb-border-bottom-general">
+    <i class="mo-icn-Home mo-wb-mr-8px mo-wb-font-size-12px"></i>
+    <div class="mo-wb-font-head-4">{{'Đây là trang của của bạn'}}</div>
+  </div>
+
+  <div *ngIf="!page.isHome"
+    class="d-flex align-items-center justify-content-between mo-wb-py-20px mo-wb-px-20px mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-4">{{'Đặt trang này làm trang chủ'}}</div>
+    <mo-wb-components-button 
+      [label]="'Đặt'"
+      [classIconLeft]="'mo-icn-Home mo-wb-mr-8px mo-wb-font-size-12px'"
+      (onClick)="handleOnHomeButtonClick($event)">
+    </mo-wb-components-button>
+  </div>
+
+</div>

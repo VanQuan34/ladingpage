@@ -1,0 +1,69 @@
+<div *ngIf="isOpen">
+
+  <!-- selected comp -->
+  <div class="mo-wb-comp-selected position-fixed mo-wb-z-index-1000 mo-wb-pointer-events-none"
+    [ngClass]="{'mo-wb-comp-container-selection' : isContainer}"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    [style.width]="width + 'px'"
+    [style.height]="height + 'px'">
+  </div>
+  
+
+  <div *ngIf="isSection || isFooter" 
+    class="mo-wb-add-section-button"
+    [style.top]="(top - 10) +'px'"
+    [style.left]="(left + width /2 - 10) + 'px'"
+    (click)="handleOnAddTopClick($event);">
+    <i class="mo-icn-pvdemo_plus mo-wb-font-size-10px mo-wb-color-ffffff"></i>
+  </div>
+
+  <div *ngIf="isSection || isHeader" 
+    class="mo-wb-add-section-button"
+    [style.top]="(top + height - 10) +'px'"
+    [style.left]="(left + width /2 - 10) + 'px'"
+    (click)="handleOnAddBottomClick($event);">
+    <i class="mo-icn-pvdemo_plus mo-wb-font-size-10px mo-wb-color-ffffff"></i>
+  </div>
+
+  <div *ngIf="isEmptySection" 
+    class="d-flex justify-content-center align-items-center mo-wb-section-empty position-fixed"
+    [style.top]="top + (height - 40) / 2 + 'px'"
+    [style.left]="left + (width - 300) / 2 + 'px'">
+    <div class="mo-wb-font-head-4 mo-wb-mb-8px"> {{ 'Đây là phần trống, thêm vào đây.'}} </div>
+    <div class="mo-wb-cursor-pointer mo-wb-color-009cdb"
+      (click)="handleOnAddElementClick($event);">Thêm phần tử</div>
+  </div>
+
+</div>
+
+<!-- moving comp -->
+<div *ngIf="isMoving">
+  <div class="mo-wb-comp-selected-moving position-fixed mo-wb-z-index-1000 mo-wb-pointer-events-none"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    [style.width]="width + 'px'"
+    [style.height]="height + 'px'">
+  </div>
+</div>
+
+<ng-container *ngIf="compHover">
+  <div *ngIf="isHoverTop" 
+    class="mo-wb-add-section-button"
+    [style.top]="(hoverTop - 10) +'px'"
+    [style.left]="(hoverLeft + hoverWidth /2 - 10) + 'px'"
+    (click)="handleOnHoverAddTopClick($event);">
+    <i class="mo-icn-pvdemo_plus mo-wb-font-size-10px mo-wb-color-ffffff"></i>
+  </div>
+
+  <div *ngIf="isHoverBottom" 
+    class="mo-wb-add-section-button"
+    [style.top]="(hoverTop + hoverHeight - 10) +'px'"
+    [style.left]="(hoverLeft + hoverWidth /2 - 10) + 'px'"
+    (click)="handleOnHoverAddBottomClick($event);">
+    <i class="mo-icn-pvdemo_plus mo-wb-font-size-10px mo-wb-color-ffffff"></i>
+  </div>
+</ng-container>
+
+
+

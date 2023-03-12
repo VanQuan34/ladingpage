@@ -1,0 +1,14 @@
+.mo-wb-comp-breadcrumb {
+  border-radius: 4px;
+  background-color: var(--blue);
+  height: 18px;
+  position: fixed;
+  transition: width 2s;
+}
+
+.mo-wb-comp-breadcrumb-item {
+  opacity: 0.75;
+  &:hover {
+    opacity: 1 !important;
+  }
+}

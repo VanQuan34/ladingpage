@@ -1,0 +1,40 @@
+<div [class]="'mo-wb-checkbox ' + classInclude"
+  [class.mo-wb-cursor-pointer]="!clickExactly"
+  (click)="handleOnClick($event,true)">
+
+  <div [ngClass]="{
+      'mo-icn-box':!checked , 
+      'mo-icn-checkbox':checked,
+      'mo-wb-disable mo-wb-pointer-events-none':disable,
+      'mo-wb-color-ff5454': showBorderRed
+      }"
+    (click)="handleOnClick($event,false)">
+  </div>
+  <img *ngIf="avatar"
+    [src]="avatar"
+    [class]="'mo-wb-checkout-avatar ' + ( classAvatarInclude ? classAvatarInclude : '')"
+    [class.mo-wb-cursor-pointer]="!disable"
+    (error)="handlerAvatarError()"
+    (click)="handleOnClick($event,false)" />
+  <span *ngIf="bullet"
+    class="mo-wb-list-bullet mo-wb-mr-4px mo-wb-ml-8px"
+    [style.background-color]="bullet.backgroundColor"
+    (click)="handleOnClick($event,false)">
+  </span>
+  <mo-wb-components-tooltip *ngIf="label"
+    [type]="'text'"
+    [hasTooltip]="hasTooltip"
+    [classInclude]="'mo-wb-label ' + classLabelInclude + (readonly ? ' mo-wb-readonly ' : ' ') +  (disable ? ' ' : ' mo-wb-cursor-pointer ')"
+    (click)="handleOnClick($event,false)">
+    {{ label | translate }}
+  </mo-wb-components-tooltip>
+
+  <mo-wb-components-tooltip *ngIf="tooltip"
+    [content]="tooltip.content"
+    [width]="tooltip.width"
+    [maxWidth]="tooltip.maxWidth"
+    [classInclude]="'mo-wb-ml-8px'"
+    [iconClass]="tooltip.iconClass"
+    [direction]="tooltip.direction">
+  </mo-wb-components-tooltip>
+</div>

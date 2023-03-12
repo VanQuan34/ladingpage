@@ -1,0 +1,40 @@
+<mo-wb-components-popup #popup
+  [title]="'i18n_setting_link' | translate"
+  [height]="'100'"
+  [width]="600"
+  [isShow]="isShow"
+  [error]="error"
+  (onClose)="handleOnClosePopup($event);"
+  (onOk)="handlerOnAgreePopup($event);">
+  <div class="mo-wb-link-comp mo-wb-mx-20px d-flex">
+    <div class="list-radio mo-wb-w-211px mo-wb-py-20px mo-wb-border-right-general">
+      <div *ngFor="let item of listRadioLink; let last = last"
+        class="mo-wb-pb-14px">
+          <mo-wb-components-radio [classIncludeRadio]="'mo-wb-color-009cdb'"
+            [label]="item.title | translate"
+            [classLabelInclude]="'mo-wb-font-head-3s'"
+            [active]="type === item.key"
+            [key]="item && item.key"
+            (onActiveChanged)="handlerSelectOption($event)">
+          </mo-wb-components-radio>
+      </div>
+    </div>
+
+    <div class="mo-wb-list-radio-link flex-grow-1 mo-wb-overflow-auto mo-wb-px-24px mo-wb-py-20px">
+      <mo-wb-landing-editor-comp-popup-link-page #content *ngIf="type === 'PAGE'">
+      </mo-wb-landing-editor-comp-popup-link-page>
+      <mo-wb-landing-editor-comp-popup-link-jump-top-bot #content *ngIf="type === 'TOP/BOT'">
+      </mo-wb-landing-editor-comp-popup-link-jump-top-bot>
+      <mo-wb-landing-editor-comp-popup-link-web #content *ngIf="type === 'WEB'">
+      </mo-wb-landing-editor-comp-popup-link-web>
+      <mo-wb-landing-editor-comp-popup-link-email #content *ngIf="type === 'EMAIL'">
+      </mo-wb-landing-editor-comp-popup-link-email>
+      <mo-wb-landing-editor-comp-popup-link-phone #content *ngIf="type === 'PHONE'">
+      </mo-wb-landing-editor-comp-popup-link-phone>
+      <mo-wb-landing-editor-comp-popup-link-file #content *ngIf="type === 'FILE'">
+      </mo-wb-landing-editor-comp-popup-link-file>
+      <mo-wb-landing-editor-comp-popup-link-none #content *ngIf="type === 'NONE'">
+      </mo-wb-landing-editor-comp-popup-link-none>
+    </div>
+  </div>
+</mo-wb-components-popup>

@@ -1,0 +1,35 @@
+<mo-wb-components-modal #modal
+  [title]="'i18n_select_file_from_media' | translate"
+  [width]="'1200px'"
+  [maxWidth]="'1200px'"
+  [zIndex]="zIndex"
+  (onClose)="handleOnCloseModal()"
+  (onClosed)="handlerClickButtonClose()">
+  <div class="large-container media-store-modal-container">
+    <div class="left-container">
+      <mo-wb-media_store_folder #folder
+        [zIndex]="zIndex"
+        (onSelect)="handleOnFolderSelect($event);">
+      </mo-wb-media_store_folder>
+    </div>
+    <div class="right-container">
+      <mo-wb-media_store_file #fileStore
+        [maxSelected]="maxSelected"
+        [zIndex]="zIndex"
+        [multiple]="multiple"
+        [mode]="mode"
+        [selectedFileUrls]="selectedFileUrls"
+        (onSelectedFiles)="handleOnSelectedFiles($event);">
+      </mo-wb-media_store_file>
+    </div>
+  </div>
+  <div class="footer-container">
+    <mo-wb-components-button [label]="'i18n_agree'"
+      (onClick)="handleOnSelectFilesClick($event)">
+    </mo-wb-components-button>
+    <mo-wb-components-button [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancel()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

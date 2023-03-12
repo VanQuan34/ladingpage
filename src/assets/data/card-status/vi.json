@@ -1,0 +1,32 @@
+[
+  {
+    "type": -1,
+    "key": "cancel",
+    "label": "Đã hủy"
+  },
+  {
+    "type": 0,
+    "key": "block",
+    "label": "Đã khóa"
+  },
+  {
+    "type": 1,
+    "key": "success",
+    "label": "Đang hoạt động"
+  },
+  {
+    "type": 2,
+    "key": "wait",
+    "label": "Chưa kích hoạt"
+  },
+  {
+    "type": 3,
+    "key": "expires",
+    "label": "Hết hạn"
+  },
+  {
+    "type": 5,
+    "key": "blank",
+    "label": "Thẻ trắng"
+  }
+]

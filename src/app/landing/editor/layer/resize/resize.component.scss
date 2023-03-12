@@ -1,0 +1,77 @@
+.mo-resize-size-moving {
+  position: fixed;
+  z-index: 2000;
+  padding: 3px 5px;
+  color: #fff !important;
+  
+  .mo-resize-size-moving-bg {
+    z-index: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: var(--blue-7);
+    border-radius: 4px;
+  }
+}
+
+
+
+.mo-resize-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  border: solid 1px var(--blue);
+  background-color: #fff;
+  position: fixed;
+  z-index: 1100;
+  pointer-events: all;
+}
+
+.mo-resize-top-left {
+  cursor: nw-resize;
+}
+
+.mo-resize-center-left {
+  cursor: w-resize;
+}
+
+.mo-resize-bottom-left {
+  cursor: sw-resize;
+}
+
+.mo-resize-center-top {
+  cursor: n-resize;
+}
+
+.mo-resize-center-bottom {
+  cursor: s-resize;
+}
+
+.mo-resize-top-right {
+  cursor: ne-resize;
+}
+
+.mo-resize-center-right {
+  cursor: e-resize;
+}
+
+.mo-resize-bottom-right {
+  cursor: se-resize;
+}
+
+.mo-resize-line-bottom {
+  background-color: transparent;
+  position: fixed;
+  z-index: 1300;
+  height: 10px;
+  cursor: ns-resize;
+  &:hover {
+    background-color: var(--blue-5);
+  }
+}
+
+.mo-resize-ns {
+  cursor: ns-resize;
+}

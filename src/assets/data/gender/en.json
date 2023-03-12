@@ -1,0 +1,17 @@
+[
+  {
+    "id": 2,
+    "name": "Male",
+    "display_in_form": true
+  },
+  {
+    "id": 3,
+    "name": "Female",
+    "display_in_form": true
+  },
+  {
+    "id": 1,
+    "name": "N/A",
+    "display_in_form": true
+  }
+]

@@ -1,0 +1,20 @@
+<div #ElementRef
+  class="mo-wb-components-mentions-list"
+  [class.d-none]="hidden">
+  <div *ngFor="let item of items;let index = index"
+    class="mo-wb-components-mentions-list-item"
+    [class.mo-wb-components-mentions-list-active]="index === activeIndex"
+    (mousedown)="handlerClick($event,index)"
+    (mouseenter)="handleActiveItem($event, index)">
+    <div class="mo-wb-px-12px mo-wb-py-6px d-flex align-items-center">
+      <img class="mo-wb-mr-8px mo-wb-w-24px mo-wb-h-24px mo-wb-border-radius-12px"
+        [src]="item.avatar || defaultAvatar">
+      <mo-wb-components-tooltip [classInclude]="''"
+        [type]="'text'"
+        [width]="250"
+        [content]="item.name + ' (' + item.username + ')'">
+        {{item.name + ' (' + item.username + ')'}}
+      </mo-wb-components-tooltip>
+    </div>
+  </div>
+</div>

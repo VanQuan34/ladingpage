@@ -1,0 +1,32 @@
+<mo-wb-components-modal
+    #modal
+    [title]="label | translate"
+    [width]="width + 'px'"
+    [height]="height + 'px'"
+    [zIndex]="zIndex"
+    [ignoreButtonClose]="false">
+
+    <div class="large-container d-flex flex-column mo-icon-setting-container h-100">
+        <div class="mo-wb-pl-40px mo-wb-pr-40px">
+            <div *ngIf="!deleteDetailItem" class="mo-wb-mt-12px mo-wb-mb-4px mo-wb-font-head-4s">{{'i18n_selecting' | translate}} {{selectedId.length}} {{'i18n_font'|translate}}</div>
+            <div *ngIf="deleteDetailItem" class="mo-wb-mt-12px mo-wb-mb-4px mo-wb-font-head-4">{{'i18n_delete_font_message' | translate}}</div>
+            <div *ngIf="!deleteDetailItem" class="mo-wb-font-head-4">{{'i18n_delete_fonts_message' | translate}}</div>
+            <div *ngIf="deleteDetailItem" class="mo-wb-font-head-4s">{{'i18n_font' | translate}}: {{nameFont}}</div>
+            <div class="mo-wb-font-head-4 mo-wb-color-ff5454 mo-wb-mt-4px">{{'i18n_after_delete_font_message' | translate}}</div>
+        </div>
+    </div>
+    <div class="footer-container">
+        <mo-wb-components-button
+            label="{{'i18n_delete' | translate}}"
+            [type]="'red'"
+            (onClick)="HandlerOnDeleteFont()"
+            >
+        </mo-wb-components-button>
+        <mo-wb-components-button
+        [disable]="loading"
+        [type]="'dark'"
+        label="i18n_cancel"
+        (onClick)="handleOnCancelModal()">
+        </mo-wb-components-button>
+    </div>
+</mo-wb-components-modal>

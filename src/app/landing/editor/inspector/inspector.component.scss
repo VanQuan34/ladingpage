@@ -1,0 +1,45 @@
+@import "../../../../styles/variables";
+
+.mo-wb-inspector {
+	transition: right 0.2s;
+	z-index: 2000;
+}
+
+.mo-wb-inspector-navi-link {
+	cursor: pointer;
+	&:hover {
+		color: $blue1;
+	}
+}
+
+.mo-wb-inspector-header-sticky {
+	position: sticky;
+	top: 0px;
+	z-index: 2000;
+}
+
+.mo-wb-inspector-tab-item {
+	width: 50%;
+
+	.tab-icon {
+		font-size: 20px;
+		&::before {
+			color: $text;
+		}
+	}
+
+	.mo-wb-inspector-tab-item-divider {
+		border-bottom: 1px solid $blue;
+	}
+}
+
+.mo-wb-inspector-tab-item.tabed {
+	.mo-wb-inspector-tab-item-divider {
+		border-bottom: 3px solid $blue;
+	}
+	.tab-icon {
+		&::before {
+			color: $blue;
+		}
+	}
+}

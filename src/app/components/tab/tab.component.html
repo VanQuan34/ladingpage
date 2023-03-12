@@ -1,0 +1,31 @@
+<div #tabHeader
+  class="mo-wb-tab-header mo-wb-h-43px mo-wb-border-bottom-general
+  d-flex w-100 position-relative justify-content-between {{classInclude}}">
+
+  <div class="d-flex">
+    <div *ngFor="let item of tabList; let i = index;"
+      #tab
+      class="h-100 mo-wb-cursor-pointer tab-item mo-wb-pl-12px mo-wb-pr-12px d-flex align-items-center mo-wb-mr-36px"
+      (click)="handleOnTabClick($event, item);">
+      <span class="mo-wb-font-head-3s {{ item.key === selectedTabKey ? selectedColorClass : normalColorClass }}">{{
+        item.name |translate}}</span>
+    </div>
+
+    <div class="tab-divider position-absolute mo-wb-bottom-0 mo-wb-bg-009cdb"
+      [style.width]="dividerWidth"
+      [style.left]="dividerLeft"></div>
+  </div>
+
+  <div class="d-flex align-items-center mo-wb-pr-40px"
+    *ngIf="showRightAction">
+    <ng-container>
+      <mo-wb-components-button 
+        [classInclude]="'mo-wb-h-28px'"
+        [classIconLeft]="'mo-icn-menu-xoa mo-wb-font-size-14px'"
+        [disable]="disableDeleteButton"
+        [type]="'red-border'"
+        (onClick)="handleShowDeleteModal();">
+      </mo-wb-components-button>
+    </ng-container>
+  </div>
+</div>

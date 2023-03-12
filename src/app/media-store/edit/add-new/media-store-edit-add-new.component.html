@@ -1,0 +1,60 @@
+<mo-wb-components-modal #modal 
+  [title]="'i18n_save_to_new_file' | translate" 
+  [width]="'598px'"
+  [maxWidth]="'1200px'"
+  [height]="modalHeight"
+  [zIndex]="zIndex"
+  (onClosed)="handlerClickButtonClose()"
+  >
+  <div  class="large-container media-store-edit-add-modal-container">
+    <div #container>
+      <mo-wb-components-dropdown 
+        #folder
+        [label]="'i18n_folder_lowercase' | translate"
+        [searchHolder]="'i18n_find_name_folder' | translate"
+        [hasSearch]="true"
+        [selectedId]="'id'"
+        [key]="'name'"
+        [keyName]="'name'"
+        [enable]="true"
+        [items]="folderListItems"
+        [defaultTitle]="'i18n_select_folder' | translate"
+        (onSelectedItem)="handleOnSelectFolder($event)">
+      </mo-wb-components-dropdown>
+
+      <!-- <div class="mo-lib-font-head-4s mo-lib-mb-4px mo-lib-mt-12px file-name">
+        <span class="mo-lib-font-head-4s">Tên file</span>
+        <span class="mo-lib-font-family-regular mo-lib-color-999999 mo-lib-font-size-10px">{{20 - remainNumber}}/20 ký tự</span>
+      </div>
+      <mo-lib-components-input-valid
+        #name
+        [placeholder]="'Nhập nội dung'"
+        [fieldNameBind]="'name'"
+        [item]="data"
+        [validRequired]="{
+          isRequired: true
+        }"
+        [validMaxLength]="{
+          length: 20,
+          message: ''
+        }"
+        (onKeyup)="handleOnNameChanged();">
+      </mo-lib-components-input-valid> -->
+    </div>
+  </div>
+  <div class="footer-container">
+
+    <mo-wb-components-button
+      [label]="'i18n_save'"
+      (onClick)="handleOnSaveClick($event);"
+      [disable]="loading">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button
+      [disable]="loading"
+      [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal($event)">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

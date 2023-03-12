@@ -1,0 +1,88 @@
+<div class="mo-wb-input-container {{ classInclude }}"
+  (click)="handleOnClick($event);">
+  <div class="d-flex align-items-center ">
+    <div *ngIf="title || showAsterisk || toolTip || (!isRequired && !hideTextRequire) || maxLength"
+      class="d-flex justify-content-between align-items-center w-100 mo-wb-mb-4px">
+      <div class="d-flex align-items-center">
+        <div *ngIf="title"
+          class="mo-wb-font-head-4s {{classTitle}}"> {{ title | translate}} </div>
+        <span *ngIf="showAsterisk"
+          class="mo-wb-color-ff5454 mo-wb-ml-2px">*</span>
+        <mo-wb-components-tooltip *ngIf="toolTip"
+          [maxWidth]="tooltipWidth"
+          [maxHeight]="100"
+          [content]="toolTip"
+          [noContentPadding]="false"
+          [allowHover]="true"
+          type="other">
+          <i class="mo-icn-help mo-wb-font-size-12px mo-wb-ml-8px"></i>
+        </mo-wb-components-tooltip>
+        <!-- require  -->
+        <span *ngIf="!isRequired && !hideTextRequire"
+          class="mo-wb-color-999999 mo-wb-font-size-10px"
+          [innerHTML]="('i18n_optional_label' | translate) | safeHtml"></span>
+      </div>
+      <div *ngIf="maxLength"
+        class="mo-wb-font-size-10px mo-wb-color-999999">
+        {{ value ? value.length : 0 }}/{{ maxLength }} {{'i18n_character' | translate}}
+      </div>
+    </div>
+
+    <div *ngIf="requireNote"
+      class="dot-require"></div>
+    <div *ngIf="requireNote"
+      class="require-note">
+      {{ requireNote | translate }}
+    </div>
+  </div>
+
+
+  <div *ngIf="note ? true : false"
+    class="mo-wb-font-size-10px mo-wb-mb-4px mo-wb-color-999999">
+    {{ note | translate}}
+  </div>
+  <div class="d-flex align-items-center {{ !isMultiple ? 'mo-wb-input' : 'mo-wb-border-general mo-wb-border-radius-4px' }}
+    {{ readOnly ? 'mo-input-readOnly' : '' }}
+    {{ !enable ? 'mo-disable' : '' }}"
+    [ngClass]="{
+      'mo-wb-input-focus': isFocus,
+      'mo-wb-input-error': error}"
+    [style.width]="width">
+    <div *ngIf="label"
+      class="input-label mo-wb-pl-8px mo-wb-pr-8px d-flex align-items-center h-100">
+      <div class="mo-wb-font-head-4s">{{ label | translate }}</div>
+    </div>
+
+    <ng-container *ngIf="!readOnly">
+      <div *ngIf="showIconSearch"
+        class="input-icon">
+        <i class="mo-icn-search mo-wb-color-999999"></i>
+      </div>
+      <input *ngIf="!isMultiple"
+        class="flex-grow-1 h-100"
+        [attr.maxlength]="(maxLength !== null) ? maxLength : ''"
+        #input
+        value="{{ value }}"
+        placeholder="{{ placeholder  | translate}}"
+        type="{{ inputType }}" />
+      <textarea *ngIf="isMultiple"
+        #input
+        [style.width]="inputWidth"
+        value="{{ value }}"
+        placeholder="{{ placeholder  | translate}}"
+        [style.height]="inputHeight+'px'"></textarea>
+    </ng-container>
+
+    <ng-container *ngIf="readOnly">
+      <div class="mo-wb-font-head-4 value-text mo-wb-pl-8px">{{ value | translate}}</div>
+    </ng-container>
+  </div>
+  <div *ngIf="emptyError"
+    class="msg-error mo-wb-font-head-4 mo-wb-font-size-10px mo-wb-color-ff5454">
+    {{ otherErrorMsg ? otherErrorMsg : (emptyErrorMsg | translate) }}
+  </div>
+  <div *ngIf="invalidError"
+    class=" mo-wb-font-head-4 mo-wb-font-size-10px mo-wb-color-ff5454">
+    {{ invalidMsg | translate }}
+  </div>
+</div>

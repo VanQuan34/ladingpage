@@ -1,0 +1,17 @@
+.mo-wb-tags-item{
+  padding: 1px 8px;
+  position: relative;
+  background-color: #29c7cc;
+  border-radius: 11px;
+  color: #fff;
+  margin: 2px 4px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+  .mo-wb-tags-remove{
+    cursor: pointer;
+    font-size: 9px;
+    margin-left: 8px;
+  }
+}

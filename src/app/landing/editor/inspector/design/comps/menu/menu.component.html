@@ -1,0 +1,38 @@
+
+  <div class="mo-wb-border-bottom-general mo-wb-py-12px mo-wb-px-20px">
+    <mo-wb-components-dropdown
+      [label]="'Chọn thiết kế'"
+      [isOnlyText]="true"
+      [defaultTitle]="''"
+      [tooltip]="''"
+      [items]="menuTypes"
+      [selectedId]="menuType"
+      [key]="'id'"
+      [keyName]="'name'"
+      [classInclude]="'w-100'"
+      (onSelectedItem)="handleOnSelectMenuType($event);">
+    </mo-wb-components-dropdown>
+  </div>
+
+  <ng-container *ngIf="menuType === 'container'">
+    <mo-wb-landing-editor-inspector-design-elements-background [state]="state">
+    </mo-wb-landing-editor-inspector-design-elements-background>
+  
+    <mo-wb-landing-editor-inspector-design-elements-border [state]="state" [isOpen]="false">
+    </mo-wb-landing-editor-inspector-design-elements-border>
+  
+    <mo-wb-landing-editor-inspector-design-elements-border_radius [state]="state" [isOpen]="false">
+    </mo-wb-landing-editor-inspector-design-elements-border_radius>
+  
+    <mo-wb-landing-editor-inspector-design-elements-shadow [state]="state" [isOpen]="false">
+    </mo-wb-landing-editor-inspector-design-elements-shadow>
+  
+    <mo-wb-landing-editor-inspector-design-elements-padding-full
+      [state]="state" [isOpen]="false">
+    </mo-wb-landing-editor-inspector-design-elements-padding-full>
+  </ng-container>
+
+  <mo-wb-landing-editor-inspector-design-comps-menu-item *ngIf="menuType === 'menuItem'">
+
+  </mo-wb-landing-editor-inspector-design-comps-menu-item>
+

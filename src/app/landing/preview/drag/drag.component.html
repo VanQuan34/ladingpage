@@ -1,0 +1,10 @@
+<div #contentEl
+  class="position-absolute h-100 mo-wb-drag"
+  [style.zIndex]="zIndex">
+
+  <div class="drag-left selection-none"
+    (mousedown)="handleOnMousedown($event, 'left');"></div>
+  <div class="drag-right selection-none"
+    (mousedown)="handleOnMousedown($event, 'right');"></div>
+
+</div>

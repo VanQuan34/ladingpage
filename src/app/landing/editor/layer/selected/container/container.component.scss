@@ -1,0 +1,32 @@
+.mo-wb-comp-container-selected {
+  border: 1px solid var(--blue2);
+}
+
+.mo-wb-comp-container-selection {
+  outline: 3px solid var(--blue-5);
+  border-radius: 2px;
+}
+
+.mo-wb-attach-comp {
+  border-radius: 4px;
+  text-align: center;
+  pointer-events: none;
+  position: fixed;
+  color: #fff;
+  font-size: 14px;
+  width: 100px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  overflow: hidden;
+  .mo-wb-attach-comp-bg {
+    background-color: rgba(0, 156, 219, 0.75);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+}

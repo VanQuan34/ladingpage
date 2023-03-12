@@ -1,0 +1,74 @@
+<div
+  class="{{classInclude}}">
+
+  <div *ngIf="title"
+    class="mo-wb-font-head-4s mo-wb-mb-4px">
+    {{ title | translate}}
+  </div>
+
+  <ng-container *ngIf="unit === 'minmax'">
+    <div class="d-flex align-items-center">
+      <div
+        #minmaxEl 
+        class="d-flex align-items-center mo-wb-py-8px mo-wb-cursor-pointer"
+        (click)="handleOnMinmaxClick($event);">
+        <div class="mo-wb-font-head-4 mo-wb-color-009cdb">{{'min/max'}}</div>
+        <div class="mo-wb-font-head-4 mo-wb-ml-8px">{{ convertUnitValue(value.min.value, value.min.unit) + value.min.unit + '/' + convertUnitValue(value.max.value, value.max.unit)+ value.max.unit }}</div>
+      </div>
+
+      <i class="mo-icn-quick-edit mo-wb-font-size-12px 
+        mo-wb-hover-009cdb mo-wb-ml-12px mo-wb-cursor-pointer"
+        (click)="handleOnEditMinMaxIconClick($event);"></i>
+
+    </div>
+    
+  </ng-container>
+
+  <ng-container *ngIf="unit !== 'minmax'"> 
+    <div #inputWrapp
+      class="mo-wb-input-number mo-wb-h-28px d-flex mo-wb-border-radius-4px position-relative"
+      [ngClass]="{'mo-wb-input-focus' : isFocus, 'mo-wb-input-error' : error, 'mo-wb-disabled': !enable, 'mo-wb-cursor-pointer': enable && isInputEnable}">
+      
+      <div *ngIf="label"
+        class="d-flex align-items-center input-label
+          mo-wb-border-top-general mo-wb-border-bottom-general mo-wb-border-left-general
+          mo-wb-font-head-4s {{classIncludeLabel}}">{{label | translate}}
+        <span *ngIf="unit !== 'none'">{{'('+unit+')'}}</span>
+      </div>
+      
+      <div *ngIf="labelIcon"
+        class="d-flex align-items-center input-label
+          mo-wb-border-top-general mo-wb-border-bottom-general mo-wb-border-left-general"><i class="{{ labelIcon }}"></i>
+      </div>
+      
+      <input #input
+        class=" w-100 mo-wb-cursor-pointer {{ !isInputEnable ? 'mo-disabled' : '' }} {{ !enable ? 'mo-wb-disabled' : '' }}"
+        [ngClass]="{'mo-wb-cursor-text' : isFocus, ' mo-wb-border-radius-bottom-left-4px mo-wb-border-radius-top-left-4px ' : unitItem, ' mo-wb-border-radius-4px ': !unitItem}"
+        spellcheck="false"
+        value="{{value}}" />
+
+      <div *ngIf="unitItem" 
+        class="mo-input-unit mo-wb-pl-4px mo-wb-pr-4px align-items-center 
+          justify-content-center d-flex mo-wb-cursor-pointer  mo-wb-text-color-blue1 white-space-no-wrap 
+          mo-wb-border-radius-bottom-right-4px mo-wb-border-radius-top-right-4px mo-wb-bg-ffffff" 
+        [ngClass]="{'mo-wb-text-color-2 mo-wb-cursor-default ': units && units.length <= 1 , 
+          ' mo-wb-bg-color-blue-1-hover ': (units && units.length > 1) && enable, 'mo-wb-text-color-2 mo-wb-disabled': !enable}"
+        (click)="handleOnUnitSelect($event);">
+        {{ unitItem.label }}
+      </div>
+
+      <div *ngIf="hasPlusButton" class="button-container mo-wb-border-radius-right-4px">
+        <div class="button-increase"
+          (click)="handleOnIncreaseButton($event);">
+          <i class="mo-icn-expanded1"></i>
+        </div>
+        <div class="button-decrease"
+          (click)="handleOnDecreaseButton($event);">
+          <i class="mo-icn-collapsed1"></i>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+
+</div>

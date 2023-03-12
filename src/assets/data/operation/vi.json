@@ -1,0 +1,77 @@
+[
+    {
+        "id": 1,
+        "name": "An ninh quốc phòng",
+        "display_in_form": true
+    },
+    {
+        "id": 2,
+        "name": "Công Thương",
+        "display_in_form": true
+    },
+    {
+        "id": 3,
+        "name": "Giáo dục và Đào tạo",
+        "display_in_form": true
+    },
+    {
+        "id": 4,
+        "name": "Giao thông vận tải",
+        "display_in_form": true
+    },
+    {
+        "id": 5,
+        "name": "Khoa học và Công nghệ",
+        "display_in_form": true
+    },
+    {
+        "id": 6,
+        "name": "Lao động, Thương Binh và Xã hội",
+        "display_in_form": true
+    },
+    {
+        "id": 7,
+        "name": "Ngân hàng",
+        "display_in_form": true
+    },
+    {
+        "id": 8,
+        "name": "Nông nghiệp và Phát triển nông thôn",
+        "display_in_form": true
+    },
+    {
+        "id": 9,
+        "name": "Tài chính",
+        "display_in_form": true
+    },
+    {
+        "id": 10,
+        "name": "Tài nguyên và Môi trường",
+        "display_in_form": true
+    },
+    {
+        "id": 11,
+        "name": "Thông tin và Truyền thông",
+        "display_in_form": true
+    },
+    {
+        "id": 12,
+        "name": "Tư pháp",
+        "display_in_form": true
+    },
+    {
+        "id": 13,
+        "name": "Văn hóa, Thể thao và Du lịch",
+        "display_in_form": true
+    },
+    {
+        "id": 14,
+        "name": "Xây dựng",
+        "display_in_form": true
+    },
+    {
+        "id": 15,
+        "name": "Y tế",
+        "display_in_form": true
+    }
+]

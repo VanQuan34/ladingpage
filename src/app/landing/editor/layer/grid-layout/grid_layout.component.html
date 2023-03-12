@@ -1,0 +1,43 @@
+
+<div *ngIf="grids.length"
+  [style.display]="isOpen ? 'block':'none'">
+
+  <div *ngFor="let gridItem of grids; let i = index;"
+    class="mo-wb-gridlayout mo-wb-gridlayout-item-{{ gridItem.id }}">
+    <!-- grid rows -->
+    <ng-container *ngFor="let rowItem of gridItem.rows; let j = index;">
+      <div *ngIf="j > 0" 
+        class="mo-wb-grid-line mo-wb-grid-line-hor"
+        [style.top]="rowItem.pos.top + gridItem.rect.top + canvasRect.top + 'px'"
+        [style.left]="rowItem.pos.left + gridItem.rect.left + canvasRect.left + 'px'"
+        [style.width]="gridItem.actualW + 'px'">
+      </div>
+      <div  *ngIf="j < gridItem.rows.length - 1" 
+        class="mo-wb-grid-line mo-wb-grid-line-hor"
+        [style.top]="rowItem.pos.height + rowItem.pos.top + gridItem.rect.top + canvasRect.top + 'px'"
+        [style.left]="rowItem.pos.left + gridItem.rect.left + canvasRect.left + 'px'"
+        [style.width]="gridItem.actualW + 'px'">
+      </div>
+    </ng-container>
+    
+    <!-- grid columns -->
+    <ng-container *ngFor="let colItem of gridItem.cols; let k = index;">
+      <div *ngIf="k > 0" 
+        class="mo-wb-grid-line mo-wb-grid-line-ver"
+        [style.top]="colItem.pos.top + gridItem.rect.top + canvasRect.top + 'px'"
+        [style.left]="colItem.pos.left + gridItem.rect.left + canvasRect.left + 'px'"
+        [style.height]="gridItem.actualH + 'px'">
+      </div>
+
+      <div *ngIf="k < gridItem.cols.length - 1" 
+        class="mo-wb-grid-line mo-wb-grid-line-ver"
+        [style.top]="colItem.pos.top + gridItem.rect.top + canvasRect.top + 'px'"
+        [style.left]="colItem.pos.width + colItem.pos.left + gridItem.rect.left + canvasRect.left + 'px'"
+        [style.height]="gridItem.actualH + 'px'">
+      </div>
+    </ng-container>
+    
+
+  </div>
+
+</div>

@@ -1,0 +1,34 @@
+<div #pageEl 
+  *ngIf="currentPage" 
+  class="d-flex align-items-center justify-content-between mo-wb-px-15px 
+    mo-wb-h-43px mo-wb-border-general mo-wb-cursor-pointer mo-wb-border-radius-4px"
+    (click)="handleOnMenuClick($event, pageEl);">
+  <div class="mo-wb-font-head-3">
+    {{ currentPage.name }}
+  </div>
+
+  <div class="mo-wb-font-size-10px mo-icn-down-arrow"></div>
+</div>
+
+<div *ngIf="isShowList" 
+  class="page-list-overlay" 
+  (click)="handleOnOverlayClick($event);">
+
+  <div class="mo-wb-page-list mo-wb-shadow"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    (click)="handleOnPageListClick($event);">
+    <div *ngFor="let menu of menus"
+      class="mo-wb-page-list-item mo-wb-px-15px mo-wb-h-40px mo-wb-font-head-4 d-flex align-items-center mo-wb-cursor-pointer"
+        [ngClass]="{'mo-wb-page-selected' : menu.id === currentPage.id}"
+        (click)="handleOnPageItemClick($event, menu);">
+      {{ menu.name }}
+    </div>  
+    <div class="mo-wb-font-head-3 mo-wb-color-009cdb mo-wb-border-top-general
+      d-flex mo- align-items-center justify-content-center mo-wb-h-45px mo-wb-cursor-pointer"
+      (click)="handlerShowManagerMenu();">
+      {{'Quản lý trang'}}
+    </div>
+  </div>
+
+</div>

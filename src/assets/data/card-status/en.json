@@ -1,0 +1,33 @@
+[
+  {
+    "type": -1,
+    "key": "cancel",
+    "label": "Cancelled"
+  },
+  {
+    "type": 0,
+    "key": "block",
+    "label": "Blocked"
+  },
+  {
+    "type": 1,
+    "key": "success",
+    "label": "Active"
+  },
+  {
+    "type": 2,
+    "key": "wait",
+    "label": "Inactive"
+  },
+  {
+    "type": 3,
+    "key": "expires",
+    "label": "Invalid"
+  },
+  {
+    "type": 5,
+    "key": "blank",
+    "label": "Blank"
+  }
+]
+

@@ -1,0 +1,34 @@
+<mo-wb-components-modal #modal 
+  [title]="'i18n_push_notification_popup_message' | translate" 
+  [width]="'598px'"
+  [maxWidth]="'1200px'"
+  [height]="'191px'"
+  [zIndex]="zIndex"
+  (onClose)="handleOnCloseModal()"
+  (onClosed)="handlerClickButtonClose()">
+  <div class="large-container media-store-delete-noti-modal-container">
+    <ng-container>
+      <div class="mo-wb-font-family-regular">{{'i18n_delete_folder_message' | translate}}</div>
+      <div class="mo-wb-font-head-4s mo-wb-mt-4px">{{'i18n_folder_lowercase' | translate}}: {{name}}</div>
+    </ng-container>
+    
+    <div class="mo-wb-font-family-regular mo-wb-mt-4px">
+      <span class="mo-wb-color-ff5454">{{'i18n_note' | translate}}: </span>{{'i18n_delete_file_message' | translate}}
+    </div>
+  </div>
+  <div class="footer-container">
+  
+    <mo-wb-components-button
+      [disable]="loading"
+      [label]="'i18n_agree'"
+      (onClick)="handleOnOkClick();">
+    </mo-wb-components-button>
+
+    <mo-wb-components-button
+      [disable]="loading"
+      [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

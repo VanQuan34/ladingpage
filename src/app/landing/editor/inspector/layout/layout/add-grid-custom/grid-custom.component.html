@@ -1,0 +1,38 @@
+<mo-wb-components-popup #popup
+  [title]=""
+  [height]="'130'"
+  [width]="210"
+  [isShow]="isShow"
+  [position]="'followTarget'"
+  [targetEl]="targetEl"
+  (onClose)="handleOnClosePopup($event);"
+  (onOk)="handlerOnAgreePopup($event);">
+  <div class="mo-wb-m-15px">
+    <div class="d-flex align-items-center justify-content-between mo-wb-mb-10px">
+      <div class="mo-wb-font-head-4 mo-wb-mr-30px">{{'Cột'}}</div>
+      <mo-wb-components-input-number
+          [value]="0"
+          [min]="0"
+          [max]="10"
+          [unit]="''"
+          [actionKey]="'KEY-UP'"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnColChange($event);">  
+        </mo-wb-components-input-number>
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="mo-wb-font-head-4 mo-wb-mr-30px">{{'Hàng'}}</div>
+      <mo-wb-components-input-number
+          [value]="0"
+          [min]="0"
+          [max]="10"
+          [unit]="''"
+          [actionKey]="'KEY-UP'"
+          [classInclude]="'w-100'"
+          (onValueChanged)="handleOnRowChange($event);">  
+        </mo-wb-components-input-number>
+    </div>
+
+  
+  </div>
+</mo-wb-components-popup>

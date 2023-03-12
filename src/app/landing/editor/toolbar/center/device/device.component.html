@@ -1,0 +1,42 @@
+<div class="d-flex flex-grow-1 align-items-center mo-wb-h-43px justify-content-center">
+  
+  <div class="mo-wb-divider-vertical mo-wb-mr-10px"></div>
+  <!-- media breakPoint list -->
+  <ng-container *ngFor="let item of mediaBreakPoints; let i = index;">
+    <mo-wb-components-tooltip
+      [maxWidth]="220"
+      [maxHeight]="140"
+      [content]="getTooltip(item)"
+      [allowHover]="true"
+      [direction]="'bottom'"
+      type="other">
+        <mo-wb-components-button
+          [type]="'icon-only'"
+          [classInclude]="(item.id === selectedId) ? (' mo-wb-text-color-blue mo-wb-ml-2px mo-wb-mr-2px' + item.id) : ' mo-wb-ml-2px'"
+          [classIconLeft]="item.deviceIcon"
+          (click)="handleOnDeviceButtonClick(item);">
+        </mo-wb-components-button>
+      </mo-wb-components-tooltip>
+  </ng-container>
+
+  <div #menuIcon
+    class="mo-icn-dots menu-icon mo-wb-rotate-90deg
+      mo-wb-font-size-18px mo-wb-ml-8px mo-wb-cursor-pointer mo-wb-hover-009cdb"
+    (click)="handleOnMenuIconClick($event);"></div>
+
+  <div class="mo-wb-divider-vertical mo-wb-ml-12px mo-wb-mr-4px"></div>
+
+  <div class="d-flex align-items-center mo-wb-ml-8px mo-wb-mr-8px">
+    <div class="mo-wb-mr-12px">W</div>
+    <mo-wb-components-input-number
+      [value]="iframeWidth"
+      [min]="320"
+      [classInclude]="'mo-wb-w-80px'"
+      [actionKey]="'ENTER'"
+      (onValueChanged)="handleInputDeviceWidthChanged($event);">
+    </mo-wb-components-input-number>
+  </div>
+
+  <div class="mo-wb-divider-vertical mo-wb-ml-4px"></div>
+
+</div>

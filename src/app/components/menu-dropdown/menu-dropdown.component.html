@@ -1,0 +1,99 @@
+<div #menu
+  *ngIf="type === 'DROPDOWN'"
+  class="mo-wb-font-head-4s mo-wb-cursor-pointer position-relative {{
+    classInclude
+  }}"
+  (click)="handleOnToggleShowMenu($event)"
+  [style.width]="width ? width : 'auto'">
+  <span class="{{ classLabelInclude }}">{{
+    ((selectedItem && selectedItem.name || placeholder) | translate)
+    }}</span>
+  <i class="mo-icn-Sort-descend mo-wb-ml-4px {{ classIconInclude }}"></i>
+
+  <div class="mo-wb-menu-dropdown"
+    [style.display]="isMenuOpen ? 'block' : 'none'"
+    [style.width]="width ? width : 'auto'"
+    [style.height]="height ? height : 'auto'">
+    <div class="mo-wb-menu-dropdown-content">
+      <div class="mo-wb-menu-dropdown-item mo-wb-font-family-regular"
+        *ngFor="let item of listItem; let i = index"
+        [ngClass]="{
+          'mo-wb-menu-dropdown-item-selected':
+            item.id === selectedItemId,
+          'none-border': i === listItem.length - 1
+        }"
+        (click)="handleOnSelectItem($event, item)">
+        <span>{{ item.name | translate }}</span>
+        <i class="mo-icn-complete-step icon-selected"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div #menu
+  *ngIf="type === 'BUTTON'"
+  class="{{
+    !customIcon
+      ? 'mo-wb-menu-button mo-wb-border-general mo-wb-border-radius-4px d-flex align-items-center justify-content-center mo-wb-cursor-pointer position-relative'
+      : 'mo-wb-menu-button mo-wb-border-radius-8px d-flex align-items-center justify-content-center mo-wb-cursor-pointer position-relative mo-wb-w-16px mo-wb-h-16px mo-wb-bg-e6e8ed'
+  }}"
+  (click)="handleOnToggleShowMenu($event)">
+  <i class=" {{ !customIcon ? 'mo-icn-dots btn-icon' : customIcon }}"></i>
+
+  <div class="mo-wb-menu-dropdown"
+    [style.display]="isMenuOpen ? 'block' : 'none'"
+    [style.width]="width ? width : 'auto'"
+    [style.height]="height ? height : 'auto'">
+    <div class="mo-wb-menu-dropdown-content">
+      <div class="mo-wb-menu-dropdown-item d-lex align-items-center justify-content-start"
+        *ngFor="let item of listItem; let i = index"
+        [ngClass]="{ 'none-border': i === listItem.length - 1 }"
+        (click)="handleOnSelectItem($event, item)">
+        <i class="mo-wb-ml-12px {{ item.iconLeft }} {{
+            item.color ? item.color : ''
+          }}"></i>
+        <span class="mo-wb-ml-8px mo-wb-font-head-4s {{
+            item.color ? item.color : ''
+          }}">{{ item.title | translate}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div #menu
+  *ngIf="type === 'BUTTON-LANDING-PAGE'"
+  class="{{
+    customIcon
+      ? 'mo-wb-menu-button mo-wb-border-general mo-wb-border-radius-4px d-flex align-items-center justify-content-center mo-wb-cursor-pointer position-relative'
+      : 'mo-wb-menu-button mo-wb-border-radius-14px d-flex align-items-center justify-content-center mo-wb-cursor-pointer position-relative mo-wb-w-28px mo-wb-h-28px mo-wb-bg-e6e8ed'
+  }}"
+  (click)="handleOnToggleShowMenu($event)">
+  <i class=" {{ !customIcon ? 'mo-icn-dots btn-icon mo-wb-rotate-90deg' : customIcon }}"></i>
+
+  <div class="mo-wb-menu-dropdown"
+    [style.display]="isMenuOpen ? 'block' : 'none'"
+    [style.width]="width ? width : 'auto'"
+    [style.height]="height ? height : 'auto'">
+    <div class="mo-wb-menu-dropdown-content">
+      <div class="mo-wb-menu-dropdown-item d-lex align-items-center justify-content-start"
+        *ngFor="let item of listItem; let i = index"
+        [ngClass]="{ 'none-border': i === listItem.length - 1 }"
+        (click)="handleOnSelectItem($event, item)">
+        <i class="mo-wb-ml-12px {{ item.iconLeft }} {{
+            item.color ? item.color : ''
+          }}"></i>
+        <span class="mo-wb-ml-8px mo-wb-font-head-4s {{
+            item.color ? item.color : ''
+          }}">{{ item.title | translate}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div #menu
+  *ngIf="type === 'MENU-PAGE'"
+  class="d-flex justify-content-between align-items-center"
+  (click)="handleOnShowMenu($event)">
+  <i class=" {{ !customIcon ? 'mo-icn-dots btn-icon mo-wb-rotate-90deg' : customIcon }}"></i>
+
+</div>

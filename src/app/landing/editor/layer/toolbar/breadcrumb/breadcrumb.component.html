@@ -1,0 +1,27 @@
+
+  <!-- breadcrumb -->
+  <div class="mo-wb-comp-breadcrumb d-flex align-items-center mo-wb-z-index-1000"
+    #breadcrumbEl
+    [style.top]="(posTop + 44) + 'px'"
+    [style.left]="posLeft +'px'"
+    (mouseover)="handleOnBreadcrumbOver($event);"
+    (mouseout)="handleOnBreadcrumbOut($event);">
+
+    <div *ngFor="let item of containerComps; let i = index;" 
+      class="mo-wb-comp-breadcrumb-item align-items-center mo-wb-px-4px mo-wb-cursor-pointer"
+      [style.display]="breadcrumbOver || i === containerComps.length - 1 ? 'flex' : 'none'"
+      [style.opacity]="!breadcrumbOver ? 1 : 0.75"
+      (click)="handleOnCompClick($event, item);">
+
+      <div *ngIf="i === containerComps.length - 1 && !breadcrumbOver && containerComps.length > 1" 
+        class="mo-wb-mr-4px mo-wb-font-head-5"
+        [style.color]="'#ffffff'"><</div>
+
+      <div class="mo-wb-font-head-5"
+        [style.color]="'#ffffff'">{{ item.label | translate }}
+      </div>
+
+      <div *ngIf="i !== containerComps.length - 1" class="mo-wb-ml-4px mo-wb-font-head-5"
+        [style.color]="'#ffffff'">></div>
+    </div>
+  </div>

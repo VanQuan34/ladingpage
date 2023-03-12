@@ -1,0 +1,13 @@
+<div class="d-flex align-items-center mo-wb-pl-20px mo-wb-pr-20px mo-wb-mb-13px mo-wb-mt-13px justify-content-between">
+  <span class="mo-wb-font-head-4s">{{totalItem}} {{ 'mục' | translate }}</span>
+  <div class="mo-wb-z-index-10000">
+    <mo-wb-components-button
+    #list
+    [type]="'text-blue'"
+    [classInclude]="''"
+    [classLabel] = "'mo-wb-font-head-4s'"
+    [label]="'Quản lý mục'"
+    (click)="handleOnClickListController()">
+    </mo-wb-components-button>
+  </div>
+</div>

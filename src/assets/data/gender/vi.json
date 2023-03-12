@@ -1,0 +1,17 @@
+[
+  {
+    "id": 2,
+    "name": "Nam",
+    "display_in_form": true
+  },
+  {
+    "id": 3,
+    "name": "Nữ",
+    "display_in_form": true
+  },
+  {
+    "id": 1,
+    "name": "Không xác định",
+    "display_in_form": true
+  }
+]

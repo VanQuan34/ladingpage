@@ -1,0 +1,103 @@
+
+<div class="position-fixed vw-100 vh-100 mo-wb-top-0 mo-wb-left-0"
+  [style.zIndex]="zIndex"
+  [style.display]="isShow ? 'block' : 'none'"
+  (click)="handleOnOverlayClick($event);">
+
+  <div class="{{classInclude}} mo-wb-z-index-100 mo-wb-border-radius-8px align-items-center 
+    position-absolute mo-wb-border-general mo-wb-bg-color-white mo-wb-shadow"
+    [style.top]="top+'px'"
+    [style.left]="left+'px'"
+    [style.height]="height+'px'"
+    [style.width]="width+'px'"
+    (click)="handleOnMenuClick($event);">
+
+    <div class="mo-wb-h-52px d-flex align-items-center justify-content-between mo-wb-px-20px 
+        mo-wb-border-bottom-general">
+      <div class="mo-wb-font-head-2s">{{ ('Chỉnh sửa ' + fontItem.name) | translate }}</div>
+      <i class="mo-icn-close-popup mo-wb-cursor-pointer mo-wb-hover-009cdb"
+        (click)="handleOnCloseClick($event);">
+      </i>
+    </div>
+
+    <div class="mo-wb-calc-h-104px mo-wb-overflow-y-auto">
+      <div class="mo-wb-h-40px d-flex align-items-center mo-wb-px-20px">
+        <mo-wb-components-dropdown
+          [label]="''"
+          [defaultTitle]="'Không xác định'"
+          [tooltip]="''"
+          [hasSearch]="true"
+          [items]="fontList"
+          [selectedId]="fontItem.fontFamily"
+          [key]="'title'"
+          [keyName]="'title'"
+          [classInclude]="'mo-wb-mr-12px mo-wb-w-180px'"
+          (onSelectedItem)="handleOnSelectedFontFamily($event);">
+        </mo-wb-components-dropdown>
+
+        <mo-wb-components-dropdown
+          [label]="''"
+          [defaultTitle]="''"
+          [items]="fontStyleList"
+          [selectedId]="fontItem.fontWeight"
+          [key]="'id'"
+          [keyName]="'name'"
+          [classInclude]="'mo-wb-w-120px'"
+          (onSelectedItem)="handleOnSelectedFontWeight($event);">
+        </mo-wb-components-dropdown>
+
+        <mo-wb-components-input-number
+          [title]="''"
+          [value]="fontItem.fontSizeNumber"
+          [min]="0"
+          [max]="100"
+          [unit]="''"
+          [hasPlusButton]="true"
+          [classInclude]="'mo-wb-w-80px mo-wb-ml-12px'"
+          (onValueChanged)="handleOnFontSizeChange($event);">  
+        </mo-wb-components-input-number>
+
+        <div class="mo-wb-h-28px mo-wb-w-28px mo-wb-ml-12px d-flex 
+          align-items-center justify-content-center mo-wb-cursor-pointer mo-wb-bg-hover-ebf0f5 mo-wb-border-radius-4px"
+          (click)="handleOnFontStyleClick($event);">
+          <i class="mo-icn-italic mo-wb-font-size-20px"
+            [ngClass]="{'mo-wb-color-009cdb': fontItem.fontStyle === 'italic'}"></i>
+        </div>
+
+        <div #fontColorEl class="mo-wb-h-28px mo-wb-w-28px mo-wb-ml-12px mo-wb-border-general mo-wb-border-radius-4px mo-wb-cursor-pointer"
+          [style.background-color]="fontItem.color"
+          (click)="handleOnClickFontColor($event, fontColorEl);">
+        </div>
+      </div>
+      <div class="mo-wb-text-edit-content mo-wb-calc-h-40px mo-wb-p-10px mo-wb-overflow-y-auto" contenteditable="true"
+        [style.color]="fontItem.color"
+        [style.font-family]="fontItem.font"
+        [style.font-size]="fontItem.fontSize"
+        [style.font-style]="fontItem.fontStyle"
+        [style.font-weight]="fontItem.fontWeight">
+        <div>{{fontItem.desc || fontItem.name }}</div>
+      </div>
+
+    </div>
+
+    <div class="mo-wb-h-52px justify-content-end d-flex mo-wb-border-top-general align-items-center mo-wb-px-20px">
+      
+      <mo-wb-components-button
+        [classInclude]="'mo-wb-mr-12px'"
+        [label]="'Áp dụng'"
+        [disable]="false"
+        (click)="handleOnApplyClick($event);">
+      </mo-wb-components-button>
+
+      <mo-wb-components-button
+        [type]="'dark'"
+        [classInclude]="''"
+        [label]="'Huỷ bỏ'"
+        [disable]="false"
+        (click)="handleOnCancelClick($event);">
+      </mo-wb-components-button>
+
+    </div>
+  </div>
+
+</div>

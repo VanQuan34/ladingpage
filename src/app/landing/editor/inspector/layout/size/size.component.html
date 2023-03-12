@@ -1,0 +1,73 @@
+<mo-wb-components-section
+  [title]="'Kích thước'">
+  <div style="display: grid; 
+      grid-template-rows: max-content max-content max-content; 
+      grid-template-columns: 1fr 1fr; column-gap: 20px; row-gap: 12px;">
+    <mo-wb-components-input-number
+      #inputNumber
+      [title]="'Rộng'"
+      [enable]="wSize && wSize.isEnable"
+      [units]="wSize && wSize.units"
+      [unit]="wSize && wSize.unit"
+      [value]="wSize && wSize.value"
+      [classInclude]="'w-100'"
+      (onUnitChange)="handleOnUnitChange($event, 'width');"
+      (onValueChanged)="handleOnValueChanged($event, 'width');">
+    </mo-wb-components-input-number>
+    <mo-wb-components-input-number
+      #inputNumber
+      [title]="'Cao'"
+      [enable]="hSize && hSize.isEnable"
+      [units]="hSize && hSize.units"
+      [unit]="hSize && hSize.unit"
+      [value]="hSize && hSize.value"
+      [classInclude]="'w-100'"
+      (onUnitChange)="handleOnUnitChange($event, 'height');"
+      (onValueChanged)="handleOnValueChanged($event, 'height');">
+    </mo-wb-components-input-number>
+    <mo-wb-components-input-number
+      #inputNumber
+      [title]="'Rộng Min'"
+      [enable]="minWSize && minWSize.isEnable"
+      [units]="minWSize && minWSize.units"
+      [unit]="minWSize && minWSize.unit"
+      [value]="minWSize && minWSize.value"
+      [classInclude]="'w-100'"
+      (onUnitChange)="handleOnUnitChange($event, 'min-width');"
+      (onValueChanged)="handleOnValueChanged($event, 'min-width');">
+    </mo-wb-components-input-number>
+    <mo-wb-components-input-number
+      #inputNumber
+      [title]="'Cao Min'"
+      [enable]="minHSize && minHSize.isEnable"
+      [units]="minHSize && minHSize.units"
+      [unit]="minHSize && minHSize.unit"
+      [value]="minHSize && minHSize.value"
+      [classInclude]="'w-100'"
+      (onUnitChange)="handleOnUnitChange($event, 'min-height');"
+      (onValueChanged)="handleOnValueChanged($event, 'min-height');">
+    </mo-wb-components-input-number>
+    <mo-wb-components-input-number
+      #inputNumber
+      [title]="'Rộng Max'"
+      [enable]="maxWSize && maxWSize.isEnable"
+      [units]="maxWSize && maxWSize.units"
+      [unit]="maxWSize && maxWSize.unit"
+      [value]="maxWSize && maxWSize.value"
+      [classInclude]="'w-100'"
+      (onUnitChange)="handleOnUnitChange($event, 'max-width');"
+      (onValueChanged)="handleOnValueChanged($event, 'max-width');">
+    </mo-wb-components-input-number>
+    <mo-wb-components-input-number
+      #inputNumber
+      [title]="'Cao Max'"
+      [enable]="maxHSize && maxHSize.isEnable"
+      [units]="maxHSize && maxHSize.units"
+      [unit]="maxHSize && maxHSize.unit"
+      [value]="maxHSize && maxHSize.value"
+      [classInclude]="'w-100'"
+      (onUnitChange)="handleOnUnitChange($event, 'max-height');"
+      (onValueChanged)="handleOnValueChanged($event, 'max-height');">
+    </mo-wb-components-input-number>
+  </div>
+</mo-wb-components-section>

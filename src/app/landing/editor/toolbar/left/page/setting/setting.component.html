@@ -1,0 +1,47 @@
+<div class="mo-wb-w-450px h-100 mo-wb-border-right-general"
+  [style.display]="isOpen ? 'block' : 'none'">
+  <!-- header -->
+  <div class="d-flex justify-content-between mo-wb-px-20px align-items-center mo-wb-h-52px mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-3s">{{'Thiết lập trang(' + page.name+ ')' | translate }}</div>
+
+    <div class="mo-icn-back-filter mo-wb-font-size-12px mo-wb-text-color-blue-hover mo-wb-cursor-pointer"
+      (click)="handleOnCloseClick($event);">
+    </div>
+  </div>
+  <!-- setting tab -->
+  <div class="d-flex align-items-center mo-wb-h-40px justify-content-between mo-wb-border-bottom-general">
+    <div class="flex-grow-1 h-100 justify-content-center d-flex align-items-center position-relative mo-wb-cursor-pointer"
+      [ngClass]="{'tab-selected' : tabSelected === 'setting'}"
+      (click)="handleOnTabClick($event, 'setting');">
+      <div class="mo-wb-font-head-4s title">{{'Thông tin trang' | translate}}</div>
+      <div class="tab-divider"></div>
+    </div>
+    <div class="flex-grow-1 h-100 justify-content-center d-flex align-items-center position-relative mo-wb-cursor-pointer"
+      [ngClass]="{'tab-selected' : tabSelected === 'basic-seo'}"
+      (click)="handleOnTabClick($event, 'basic-seo');">
+      <div class="mo-wb-font-head-4s title">{{'SEO cơ bản' | translate}}</div>
+      <div class="tab-divider"></div>
+    </div>
+    <div class="flex-grow-1 h-100 justify-content-center d-flex align-items-center position-relative mo-wb-cursor-pointer"
+      [ngClass]="{'tab-selected' : tabSelected === 'advance-seo'}"
+      (click)="handleOnTabClick($event, 'advance-seo');">
+      <div class="mo-wb-font-head-4s title">{{'SEO nâng cao' | translate}}</div>
+      <div class="tab-divider"></div>
+    </div>
+  </div>
+  <!-- content -->
+  <div class="mo-wb-calc-h-90px w-100">
+    
+    <mo-wb-landing-editor-toolbar-page-info
+      *ngIf="tabSelected === 'setting'"
+      [page]="page"
+      (onPageChanged)="handleOnPageChanged($event)">
+    </mo-wb-landing-editor-toolbar-page-info>
+
+    <mo-wb-landing-editor-toolbar-page-seo
+      *ngIf="tabSelected === 'basic-seo'"
+      [page]="page"
+      (onPageChanged)="handleOnPageChanged($event)">
+    </mo-wb-landing-editor-toolbar-page-seo>
+  </div>
+</div>

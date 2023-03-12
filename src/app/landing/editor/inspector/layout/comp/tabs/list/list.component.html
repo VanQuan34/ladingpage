@@ -1,0 +1,54 @@
+<div class="mo-wb-z-index-3500 mo-wb-bg-ffffff mo-wb-border-radius-4px">
+    <ul cdkDropList
+        [cdkDropListData]="listId"
+        class="position-relative mo-wb-bg-ffffff mo-wb-pl-0 mo-wb-mb-20px mo-wb-pl-15px mo-wb-pr-15px"
+        (cdkDropListDropped)="handleDropItemTabs($event)">
+      <li class="mo-item-drag mo-wb-pl-5px mo-wb-pr-5px mo-wb-bg-eeeeee d-flex align-items-center mo-wb-cursor-pointer 
+        justify-content-between mo-wb-pt-2px mo-wb-pb-2px mo-wb-mb-7px mo-wb-border-radius-3px"
+        *ngFor="let id of listId ; index as idx" [class]="onActive === idx ? 'mo-wb-bg-009cdb mo-wb-color-ffffff': ''" cdkDrag>
+          <span class="d-flex align-items-center mo-wb-line-height-36px"
+           (click)="handleOnClickIdSelected(id, idx)">
+           <span class="item-title mo-wb-w-160px mo-wb-font-size-13px">{{ '['+ (idx + 1) + ']' + ' - '+ listTitle[idx]}}</span>
+          </span>
+          <div class="d-flex align-items-center justify-content-between">
+            <mo-wb-components-button
+              #submenu
+              [type]="'icon-only'"
+              [attr.tooltip]="'Chỉnh sửa'"
+              [classIconLeft]="'menu-icon mo-icn-quick-edit'"
+              [classInclude]="'mo-wb-mr-5px'"
+              (click)="handleOnClickEditTabs(id, idx)">
+            </mo-wb-components-button>
+            <mo-wb-components-button
+              #submenu
+              [type]="'icon-only'"
+              [attr.tooltip]="'Nhân đôi'"
+              [classIconLeft]="'menu-icon mo-icn-popup-com'"
+              [classInclude]="'mo-wb-mr-5px'"
+              (click)="handleOnClickDuplicateTabs(id)">
+            </mo-wb-components-button>
+            <mo-wb-components-button
+              #submenu
+              [type]="'icon-only'"
+              [attr.tooltip]="'Xóa tab'"
+              [classIconLeft]="'mo-icn-menu-xoa menu-icon'"
+              [classInclude]="'mo-wb-mr-5px'"
+              (click)="handleOnClickRemoveTabs(id, idx)">
+            </mo-wb-components-button>
+          </div>
+      </li>
+    </ul>
+    <div *ngIf="notify" class="notify mo-wb-mb-10px text-center">{{'Số Tab tối đa là 10' | translate}}</div>
+    <div *ngIf="!notify" class="mo-wb-pl-20px mo-wb-pr-20px mo-wb-border-top-general mo-wb-pt-15px mo-wb-mb-20px">
+      <mo-wb-components-button
+        [type]="'text-blue'"
+        [classInclude]="'d-flex justify-content-center w-100 mo-wb-border-general mo-wb-pt-10px mo-wb-pb-10px mo-wb-bg-hover-ebf0f5'"
+        [classLabel] = "'mo-wb-font-head-3'"
+        [label]="'Thêm mới'"
+        [disable]="notify"
+        (click)="handleOnClickDuplicateTabs($event)">
+      </mo-wb-components-button>
+    </div>
+</div>
+
+

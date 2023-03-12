@@ -1,0 +1,40 @@
+<div class="d-flex h-100 align-items-center">
+  <mo-wb-components-button 
+    [type]="'text-selected'"
+    [label]="'Cài đặt'"
+    [classInclude]="''"
+    [classIconLeft]="''"
+    (click)="handleOnSettingFormClick($event);">
+  </mo-wb-components-button>
+
+  <div class="mo-wb-border-right-general h-100 mo-wb-mx-8px"></div>
+
+  <mo-wb-components-button 
+    [type]="'icon'"
+    [tooltipContent]="'Giao diện'"
+    [classInclude]="'mo-wb-mr-4px'"
+    [classIconLeft]="'mo-icn-popup_form_template'"
+    (click)="handleOnLayoutButtonClick($event);">
+  </mo-wb-components-button>
+
+  <mo-wb-components-button 
+    [type]="'icon'"
+    [tooltipContent]="'Hiệu ứng động'"
+    [classInclude]="'mo-wb-mr-4px'"
+    [classIconLeft]="'mo-icn-animation-icon'"
+    (click)="handleOnAnimationButtonClick($event);">
+  </mo-wb-components-button>
+
+  <div class="mo-wb-border-right-general h-100 mo-wb-mx-8px"></div>
+
+  <div #actionEl>
+    <mo-wb-components-button
+      [type]="'icon'"
+      [tooltipContent]="'Thao tác khác'"
+      [classInclude]="''"
+      [classIconLeft]="'mo-icn-dots mo-wb-rotate-90deg'"
+      (click)="handleOnMoreActionButtonClick($event, actionEl);">
+    </mo-wb-components-button>
+  </div>
+  
+</div>

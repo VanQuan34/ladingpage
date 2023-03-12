@@ -1,0 +1,44 @@
+<div class="position-relative mo-wb-bg-ffffff mo-wb-border-radius-4px">
+  <div class="mo-wb-font-size-11px mo-wb-mb-10px mo-wb-color-777">{{'Danh sách ảnh (click đúp để đổi ảnh)' | translate }}</div>
+  <div class="item-container" cdkDropListGroup>
+    <div
+      cdkDropList
+      (cdkDropListDropped)="dropListDropped($event)"
+      (cdkDropListEntered)="cdkDropListEntered($event)"></div>
+      <ng-container *ngFor="let src of listSrc; index as idx">
+        <div
+        cdkDropList
+        (cdkDropListDropped)="dropListDropped($event)"
+        class="item-gallery-layout"
+        (cdkDropListEntered)="cdkDropListEntered($event)">
+        <div cdkDrag 
+        (dblclick)="handleOnAddImageButtonClick(idx)"
+        class="item-gallery mo-wb-h-60px d-flex justify-content-center text-center align-items-center position-relative" style="background-image: url({{src}})"></div>
+        <div class="remove-item">
+          <mo-wb-components-button
+            [type]="'icon-only'"
+            [classInclude]="'remove-item position-absolute mo-wb-w-15px mo-wb-h-15px mo-wb-p-0 mo-wb-z-index-100 mo-wb-border-radius-15px mo-wb-top-0 mo-wb-right-0'"
+            [classIconLeft]="'mo-icn-remove-card mo-wb-font-size-15px'"
+            (click)="handleOnClickRemoveItemGallery(src, idx)">
+          </mo-wb-components-button>
+        </div>
+        <div class="add-video">
+          <mo-wb-components-button
+            [type]="'icon-only'"
+            [classInclude]="'remove-item position-absolute mo-wb-w-15px mo-wb-h-15px mo-wb-p-0 mo-wb-z-index-100 mo-wb-border-radius-15px mo-wb-top-0 mo-wb-left-0'"
+            [classIconLeft]="'mo-icn-play-audio mo-wb-font-size-15px'"
+            (click)="handleOnClickAddVideoItemGallery(idx)">
+          </mo-wb-components-button>
+        </div>
+        </div>
+      </ng-container>
+  </div>
+  <mo-wb-components-button
+  [type]="'blue-border'"
+  [classInclude]="'mo-wb-mt-20px mo-wb-pt-7px mo-wb-pb-7px w-100 justify-content-center'"
+  [classIconLeft]="''"
+  [label]="'Thêm mới'"
+  [classLabel]="'mo-wb-font-size-13px'"
+  (click)="handleOnAddImageButtonClick($event)">
+  </mo-wb-components-button>
+</div>

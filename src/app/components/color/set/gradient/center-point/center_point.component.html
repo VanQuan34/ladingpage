@@ -1,0 +1,5 @@
+<div [style.display]="isShowCenter ? 'block' : 'none'"
+  [style.top]="top +'px'"
+  [style.left]="left +'px'"
+  class="mo-wb-center-point mo-wb-shadow mo-wb-cursor-pointer position-fixed"
+  (mousedown)="handleOnCenterPointMousedown($event);"></div>

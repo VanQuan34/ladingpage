@@ -1,0 +1,26 @@
+<div class="none-selection mo-wb-w-440px h-100 mo-wb-bg-ffffff">
+  <div class="d-flex justify-content-between mo-wb-h-52px 
+    mo-wb-px-20px align-items-center mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-2s">Thêm nhanh</div>
+    <div class="mo-icn-close-popup mo-wb-font-size-18px mo-wb-text-color-blue-hover mo-wb-cursor-pointer"
+      (click)="handleOnCloseIconClick($event);"></div>
+  </div>
+  <div class="mo-wb-calc-h-52px w-100 mo-wb-overflow-y-auto">
+    <div class="w-100 mo-wb-py-20px mo-wb-px-20px"
+      style="display: grid; grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 120px 120px 120px 120px 120px 120px; column-gap: 10px; row-gap: 10px;">
+      <div 
+        #blocks
+        *ngFor="let item of blocks; let i = index;"
+        class="none-selection mo-wb-landipage-block-item mo-wb-border-radius-4px mo-wb-border-general w-100 h-100 d-flex 
+        align-items-center justify-content-center flex-column mo-wb-cursor-pointer 
+        {{ selectedId === item.id ? 'selected' : ''}}"
+        (click)="handleOnBlockItemClick($event, item);"
+        (mousedown)="handleOnBlockItemMousedown($event, item, i);">
+          <div class="{{item.icon}} mo-wb-landipage-block-item-icon mo-wb-font-size-40px mo-wb-color-999999"></div>
+          <div class="mo-wb-landipage-block-item-text mo-wb-font-head-4s mo-wb-mt-12px mo-wb-color-999999">{{item.title}}</div>
+      </div>
+    </div>
+  </div>
+  
+</div> 

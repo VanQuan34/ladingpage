@@ -1,0 +1,42 @@
+
+<div
+#inputName
+class="position-fixed mo-wb-z-index-3500 mo-wb-w-120px mo-wb-shadow 
+  mo-wb-border-radius-4px mo-wb-bg-ffffff mo-wb-pt-5px mo-wb-pb-5px"
+  [class]="classInclude" 
+  [style.top]="top+'px'"
+  [style.left]="left+'px'">
+    <div class="d-flex align-items-center justify-content-center mo-wb-font-size-13px mo-wb-hover-29c7cc">
+      <i class="menu-wb-item-icon mo-icn-popup-com mo-wb-mr-8px"></i>
+      <mo-wb-components-button
+      [type]="'text-dark'"
+      [classInclude]="'mo-wb-m-auto'"
+      [classLabel] = "'mo-wb-pt-5px mo-wb-pb-5px'"
+      [label]="'Nhân đôi'"
+      (click)="handleOnClickAddItemRepeater()">
+      </mo-wb-components-button>
+    </div>
+    
+    <div class="d-flex align-items-center justify-content-center mo-wb-font-size-13px mo-wb-hover-29c7cc">
+      <i class="menu-wb-item-icon mo-icn-quick-edit mo-wb-mr-8px"></i>
+      <mo-wb-components-button
+      [type]="'text-dark'"
+      [classInclude]="'mo-wb-m-auto'"
+      [classLabel] = "'mo-wb-pt-5px mo-wb-pb-5px'"
+      [label]="'Đổi tên'"
+      (click)="handleOnClickChangeName()">
+      </mo-wb-components-button>
+    </div>
+
+    <div class="remove d-flex align-items-center justify-content-center mo-wb-font-size-13px mo-wb-hover-29c7cc">
+      <i class="menu-wb-item-icon mo-wb-color-ff5454 mo-icn-menu-xoa mo-wb-mr-8px"></i>
+      <mo-wb-components-button
+      [type]="'text-dark'"
+      [classInclude]="'mo-wb-m-auto'"
+      [classLabel] = "'mo-wb-pt-5px mo-wb-pb-5px mo-wb-color-ff5454 mo-wb-hover-29c7cc'"
+      [label]="'Xóa item'"
+      (click)="handleOnClickRemoveItem()">
+      </mo-wb-components-button>
+    </div>
+
+</div>

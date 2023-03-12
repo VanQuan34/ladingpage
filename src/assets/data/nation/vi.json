@@ -1,0 +1,272 @@
+[
+    {
+        "id": 1,
+        "name": "Kinh",
+        "display_in_form": true
+    },
+    {
+        "id": 2,
+        "name": "Chứt",
+        "display_in_form": true
+    },
+    {
+        "id": 3,
+        "name": "Mường",
+        "display_in_form": true
+    },
+    {
+        "id": 4,
+        "name": "Thổ",
+        "display_in_form": true
+    },
+    {
+        "id": 5,
+        "name": "Bố Y",
+        "display_in_form": true
+    },
+    {
+        "id": 6,
+        "name": "Giáy",
+        "display_in_form": true
+    },
+    {
+        "id": 7,
+        "name": "Lào",
+        "display_in_form": true
+    },
+    {
+        "id": 8,
+        "name": "Lự",
+        "display_in_form": true
+    },
+    {
+        "id": 9,
+        "name": "Nùng",
+        "display_in_form": true
+    },
+    {
+        "id": 10,
+        "name": "Sán Chay",
+        "display_in_form": true
+    },
+    {
+        "id": 11,
+        "name": "Tày",
+        "display_in_form": true
+    },
+    {
+        "id": 12,
+        "name": "Thái",
+        "display_in_form": true
+    },
+    {
+        "id": 13,
+        "name": "Cờ Lao",
+        "display_in_form": true
+    },
+    {
+        "id": 14,
+        "name": "La Chí",
+        "display_in_form": true
+    },
+    {
+        "id": 15,
+        "name": "La Ha",
+        "display_in_form": true
+    },
+    {
+        "id": 16,
+        "name": "Pu Péo",
+        "display_in_form": true
+    },
+    {
+        "id": 17,
+        "name": "Ba Na",
+        "display_in_form": true
+    },
+    {
+        "id": 18,
+        "name": "Brâu",
+        "display_in_form": true
+    },
+    {
+        "id": 19,
+        "name": "Bru - Vân Kiều",
+        "display_in_form": true
+    },
+    {
+        "id": 20,
+        "name": "Chơ Ro",
+        "display_in_form": true
+    },
+    {
+        "id": 21,
+        "name": "Co",
+        "display_in_form": true
+    },
+    {
+        "id": 22,
+        "name": "Cơ Ho",
+        "display_in_form": true
+    },
+    {
+        "id": 23,
+        "name": "Cơ Tu",
+        "display_in_form": true
+    },
+    {
+        "id": 24,
+        "name": "Giẻ Triêng",
+        "display_in_form": true
+    },
+    {
+        "id": 25,
+        "name": "Hrê",
+        "display_in_form": true
+    },
+    {
+        "id": 26,
+        "name": "Kháng",
+        "display_in_form": true
+    },
+    {
+        "id": 27,
+        "name": "Khơ Me",
+        "display_in_form": true
+    },
+    {
+        "id": 28,
+        "name": "Khơ Mú",
+        "display_in_form": true
+    },
+    {
+        "id": 29,
+        "name": "Mạ",
+        "display_in_form": true
+    },
+    {
+        "id": 30,
+        "name": "Mảng",
+        "display_in_form": true
+    },
+    {
+        "id": 31,
+        "name": "M’Nông",
+        "display_in_form": true
+    },
+    {
+        "id": 32,
+        "name": "Ơ Đu",
+        "display_in_form": true
+    },
+    {
+        "id": 33,
+        "name": "Rơ Măm",
+        "display_in_form": true
+    },
+    {
+        "id": 34,
+        "name": "Tà Ôi",
+        "display_in_form": true
+    },
+    {
+        "id": 35,
+        "name": "Xinh Mun",
+        "display_in_form": true
+    },
+    {
+        "id": 36,
+        "name": "Xơ Đăng",
+        "display_in_form": true
+    },
+    {
+        "id": 37,
+        "name": "X’Tiêng",
+        "display_in_form": true
+    },
+    {
+        "id": 38,
+        "name": "Dao",
+        "display_in_form": true
+    },
+    {
+        "id": 39,
+        "name": "H’Mông",
+        "display_in_form": true
+    },
+    {
+        "id": 40,
+        "name": "Pà Thẻn",
+        "display_in_form": true
+    },
+    {
+        "id": 41,
+        "name": "Chăm",
+        "display_in_form": true
+    },
+    {
+        "id": 42,
+        "name": "Chu Ru",
+        "display_in_form": true
+    },
+    {
+        "id": 43,
+        "name": "Ê Đê",
+        "display_in_form": true
+    },
+    {
+        "id": 44,
+        "name": "Gia Rai",
+        "display_in_form": true
+    },
+    {
+        "id": 45,
+        "name": "Ra Glai",
+        "display_in_form": true
+    },
+    {
+        "id": 46,
+        "name": "Hoa",
+        "display_in_form": true
+    },
+    {
+        "id": 47,
+        "name": "Ngái",
+        "display_in_form": true
+    },
+    {
+        "id": 48,
+        "name": "Sán Dìu",
+        "display_in_form": true
+    },
+    {
+        "id": 49,
+        "name": "Cống",
+        "display_in_form": true
+    },
+    {
+        "id": 50,
+        "name": "Hà Nhì",
+        "display_in_form": true
+    },
+    {
+        "id": 51,
+        "name": "La Hủ",
+        "display_in_form": true
+    },
+    {
+        "id": 52,
+        "name": "Lô Lô",
+        "display_in_form": true
+    },
+    {
+        "id": 53,
+        "name": "Phù Lá",
+        "display_in_form": true
+    },
+    {
+        "id": 54,
+        "name": "Si La",
+        "display_in_form": true
+    }
+]

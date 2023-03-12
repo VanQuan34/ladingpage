@@ -1,0 +1,76 @@
+<div class="{{classInclude}} mo-wb-overflow-y-auto h-100 w-100">
+  <!-- preview google -->
+  <div class="mo-wb-px-20px mo-wb-py-20px mo-wb-border-bottom-general">
+    <div class="d-flex align-items-center mo-wb-mb-8px">
+      <div class="mo-wb-font-head-4">{{'Xem trước trên Google'}}</div>
+      <mo-wb-components-tooltip
+        [maxWidth]="255"
+        [maxHeight]="100"
+        [content]="'Cần có thời gian để những thay đổi tiêu đề và mô tả của trang được hiên thị trên Google'"
+        [noContentPadding]="false"
+        [allowHover]="true"
+        type="other">
+        <div class="mo-wb-font-head-4 mo-wb-color-009cdb mo-wb-ml-8px mo-wb-cursor-default">{{'Khi nào hiển thị trên Google ?'}}</div>
+      </mo-wb-components-tooltip>
+    </div>
+
+    <div class="mo-wb-border-general mo-wb-p-12px">
+      <div class="mo-wb-font-head-2s mo-wb-mb-4px mo-wb-color-009cdb">{{page.title || '--'}}</div>
+      <div class="mo-wb-font-head-4 mo-wb-mb-4px mo-wb-text-color-blue3 mo-wb-cursor-pointer">{{(page.url || '--') + (page.slug ? '/'+page.slug : '')}}</div>
+      <div class="mo-wb-font-head-4">{{page.desc || '--'}}</div>
+    </div>
+  </div>
+
+  <!-- home url -->
+  <div *ngIf="page.isHome"
+    class="mo-wb-py-12px mo-wb-px-20px mo-wb-border-bottom-general">
+    <div class="mo-wb-mb-4px d-flex align-items-center"><i class="mo-icn-Home mo-wb-font-size-12px"></i><div class="mo-wb-ml-8px mo-wb-font-head-4s">{{'URL trang chủ'}}</div></div>
+    <div class="mo-wb-font-head-4">{{'Đây là trang chủ. Url của trang chủ là tên miền của bạn. Bạn không thể thay đổi thông tin này ở đây'}}</div>
+  </div>
+
+  <!-- slug -->
+  <div *ngIf="!page.isHome" 
+    class="mo-wb-py-12px mo-wb-px-20px mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-4 mo-wb-mb-4px">{{'URL slug (đuôi URL của trang)'}}</div>
+    <div class="d-flex align-items-center">
+      <div class="mo-wb-font-head-4 mo-wb-mr-8px mo-wb-ml-8px">/</div>
+      <div class="w-100">
+        <mo-wb-components-input
+          [value]="page.slug"`
+          (onValueChanged)="handleOnSlugValueChanged($event);">
+        </mo-wb-components-input>
+      </div>
+    </div>
+  </div>
+
+  <!-- title -->
+  <div class="mo-wb-py-12px mo-wb-px-20px mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-4 mo-wb-mb-4px">{{'Thẻ tiêu đề (Tiêu đề trong kết quả tìm kiếm)'}}</div>
+    <mo-wb-components-input
+      [value]="page.title"
+      [actionKey]="'KEY-UP'"
+      (onValueChanged)="handleOnTitleValueChanged($event);">
+    </mo-wb-components-input>
+  </div>
+
+  <!-- description -->
+  <div class="mo-wb-py-12px mo-wb-px-20px mo-wb-border-bottom-general">
+    <div class="mo-wb-font-head-4 mo-wb-mb-4px">{{'Mô tả (Phần mô tả trong kết quả tìm kiếm)'}}</div>
+    <mo-wb-components-input
+      [value]="page.desc"
+      [isMultiple]="true"
+      [inputHeight]="100"
+      [actionKey]="'KEY-UP'"
+      (onValueChanged)="handleOnDescValueChanged($event);">
+    </mo-wb-components-input>
+  </div>
+  <!-- page index -->
+  <div class="mo-wb-py-12px mo-wb-px-20px d-flex align-items-center justify-content-between">
+    <div class="mo-wb-font-head-4">{{'Cho phép các công cụ tìm kiếm lập chỉ mục trang này'}}</div>
+    <mo-wb-components-button-toggle_button
+      [active]="page.allowIndex"
+      (onChangeToggle)="handleOnActiveGoogleIndexChanged($event)">
+  </mo-wb-components-button-toggle_button>
+  </div>
+
+</div>

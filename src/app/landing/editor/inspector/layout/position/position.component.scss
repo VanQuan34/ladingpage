@@ -1,0 +1,91 @@
+
+@import "../../../../../../styles/variables";
+
+.mo-wb-inspector-constraits-inner {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mo-wb-constraits-ver {
+  width: 10px;
+  height: 29px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  cursor: pointer;
+
+  .mo-wb-constraits-ver-line {
+    width: 3px;
+    height: 20px;
+    background-color: $text2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    background-color: $blue-3;
+  }
+}
+
+.mo-wb-constraits-ver.selected,
+.mo-wb-constraits-hor.selected{
+  .mo-wb-constraits-ver-line {
+    background-color: $blue;
+  }
+  .mo-wb-constraits-hor-line {
+    background-color: $blue;
+  }
+}
+
+.mo-wb-constraits-ver.center {
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mo-wb-constraits-ver.bottom
+{
+  top: auto;
+  bottom: 0px;
+}
+
+.mo-wb-constraits-hor {
+  height: 10px;
+  width: 29px;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  transform: translate(0%, -50%);
+  cursor: pointer;
+
+  .mo-wb-constraits-hor-line {
+    width: 20px;
+    height: 3px;
+    background-color: $text2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    background-color: $blue-3;
+  }
+}
+
+.mo-wb-constraits-hor.right {
+  right: 0px;
+  left: auto;
+}
+
+.mo-wb-constraits-hor.center {
+  width: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,95 @@
+<div class="mo-wb-comps-tab w-100 mo-wb-h-50px align-items-center d-flex mo-wb-border-bottom-general">
+          
+  <div class="mo-wb-comps-tab-item d-flex h-100 align-items-center justify-content-center position-relative mo-wb-cursor-pointer"
+    [ngClass]="{'tabed': state === 'REGULAR'}"
+    (click)="handleOnTabClick('REGULAR');">
+    <div class="mo-wb-font-head-3s title">{{'Bình thường' | translate}}</div>
+    <div *ngIf="state === 'REGULAR'" class="mo-wb-comps-tab-item-divider position-absolute mo-wb-bottom-0 w-50"></div>
+  </div>
+
+  <div class="mo-wb-comps-tab-item h-100  d-flex align-items-center justify-content-center position-relative mo-wb-cursor-pointer"
+    [ngClass]="{'tabed': state === 'ACTIVE'}"
+    (click)="handleOnTabClick('ACTIVE');">
+    <div class="mo-wb-font-head-3s title">{{'Active' | translate}}</div>
+    <div *ngIf="state === 'ACTIVE'" class="mo-wb-comps-tab-item-divider position-absolute mo-wb-bottom-0 w-50"></div>
+  </div>
+
+</div>
+<div [style.display]="state !== 'REGULAR' ? 'none' : 'block'">
+  <mo-wb-landing-editor-inspector-design-elements-background
+    [state]="state">
+  </mo-wb-landing-editor-inspector-design-elements-background>
+   
+  <div class="mo-wb-mt-20px">
+    <mo-wb-components-color-rgba 
+    [classInclude]="'w-100 mo-wb-pl-20px mo-wb-pr-20px mo-wb-mb-20px'"
+    [title]="'Màu nền Title'"
+    [isOnlyColor]="true"
+    [type]="'color'"
+    [color]="fontColor"
+    (onColorChanged)="handleOnFontColorChanged($event, 'regular');"
+    (onSelectColor)="handleOnFontColorSelect($event, 'regular');"
+    (onSetColorClosed)="handleOnFontColorClosed();">
+  </mo-wb-components-color-rgba>
+  </div>
+
+  <mo-wb-landing-editor-inspector-design-elements-text
+    [state]="state"
+    [isOpen]="false"
+    [textClass]="'head-title'"
+    [selectorAdd]="' .mo-accordion-container .accordion-title .head-title'">
+  </mo-wb-landing-editor-inspector-design-elements-text>
+
+  <mo-wb-landing-editor-inspector-design-elements-border
+    [selectorAdd]="' .label-title'"
+    [state]="state">
+  </mo-wb-landing-editor-inspector-design-elements-border>
+
+  <mo-wb-landing-editor-inspector-design-elements-border_radius
+    [state]="state"
+    [selectorAdd]="' .label-title'"
+    [isOpen]="false">
+  </mo-wb-landing-editor-inspector-design-elements-border_radius>
+
+  <mo-wb-landing-editor-inspector-design-elements-shadow
+    [state]="state"
+    [isOpen]="false">
+  </mo-wb-landing-editor-inspector-design-elements-shadow>
+
+  <mo-wb-landing-editor-inspector-design-elements-padding
+    [state]="state"
+    [isOpen]="false">
+  </mo-wb-landing-editor-inspector-design-elements-padding>
+
+  <mo-wb-landing-editor-inspector-design-elements-margin
+    [state]="state"
+    [isAll]="false"
+    [disabledR]="dsType === 'vertical' ? true : false"
+    [isOpen]="false">
+  </mo-wb-landing-editor-inspector-design-elements-margin>
+
+</div>
+
+<div [style.display]="state !== 'ACTIVE' ? 'none' : 'block'">
+  <div class="mo-wb-mt-20px">
+    <mo-wb-components-color-rgba 
+    [classInclude]="'w-100 mo-wb-pl-20px mo-wb-pr-20px mo-wb-mb-20px'"
+    [title]="'Màu nền Title'"
+    [isOnlyColor]="true"
+    [type]="'color'"
+    [color]="fontColorHover"
+    (onColorChanged)="handleOnFontColorChanged($event, 'active');"
+    (onSelectColor)="handleOnFontColorSelect($event, 'active');"
+    (onSetColorClosed)="handleOnFontColorClosed();">
+  </mo-wb-components-color-rgba>
+  </div>
+
+  <mo-wb-landing-editor-inspector-design-elements-text
+    [state]="state"
+    [textClass]="'head-title'"
+    [selectorAddRegular]="' .head-title'"
+    [selectorAdd]="selectorAddTextHover">
+  </mo-wb-landing-editor-inspector-design-elements-text>
+</div>  
+
+

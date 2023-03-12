@@ -1,0 +1,138 @@
+
+<div class="mo-wb-border-bottom-general mo-wb-py-12px mo-wb-px-20px">
+  <mo-wb-components-dropdown
+    [label]="'Trạng thái mục Menu'"
+    [isOnlyText]="true"
+    [defaultTitle]="''"
+    [tooltip]="''"
+    [items]="stateList"
+    [selectedId]="state"
+    [key]="'id'"
+    [keyName]="'name'"
+    [classInclude]="'w-100'"
+    (onSelectedItem)="handleOnSelectState($event);">
+  </mo-wb-components-dropdown>
+</div>
+
+<!-- Hover regular -->
+<div *ngIf="state === 'REGULAR'">
+  <mo-wb-landing-editor-inspector-design-elements-background 
+    [state]="state"
+    [selectorAdd]="selectorAdd"
+    [bgVar]="'--bg-it'">
+  </mo-wb-landing-editor-inspector-design-elements-background>
+
+  <mo-wb-landing-editor-inspector-design-elements-text
+    [state]="state"
+    [textClass]="'menuItem-label'"
+    [selectorAdd]="selectorAddText">
+  </mo-wb-landing-editor-inspector-design-elements-text>
+
+  <mo-wb-landing-editor-inspector-design-elements-border    
+    [state]="state"
+    [isOpen]="false"
+    [selectorAdd]="selectorAdd"
+    [brwVar]="'--brw-it'"
+    [brcVar]="'--brc-it'"
+    [brsVar]="'--brs-it'">
+  </mo-wb-landing-editor-inspector-design-elements-border>
+
+  <mo-wb-landing-editor-inspector-design-elements-border_radius 
+    [state]="state"
+    [isOpen]="false"
+    [selectorAdd]="selectorAdd"
+    [rdVar]="'--rad-it'">
+  </mo-wb-landing-editor-inspector-design-elements-border_radius>
+
+  <mo-wb-landing-editor-inspector-design-elements-shadow 
+    [state]="state"
+    [isOpen]="false"
+    [selectorAdd]="selectorAdd"
+    [shdVar]="'--shd-it'">
+  </mo-wb-landing-editor-inspector-design-elements-shadow>
+
+  <mo-wb-landing-editor-inspector-design-elements-padding-full
+    [state]="state"
+    [isOpen]="false"
+    [paVar]="'--pad-it'"
+    [selectorAdd]="selectorAdd">
+  </mo-wb-landing-editor-inspector-design-elements-padding-full>
+
+  <mo-wb-landing-editor-inspector-design-elements-padding-full
+    [state]="state"
+    [isOpen]="false"
+    [title]="'Khoảng đệm ngoài'"
+    [paVar]="'--pad-itw'"
+    [selectorAdd]="' > .menuItem-wrapper'">
+  </mo-wb-landing-editor-inspector-design-elements-padding-full>
+</div>
+
+<!-- Hover state -->
+<div *ngIf="state === 'HOVER'">
+  <mo-wb-landing-editor-inspector-design-elements-background 
+    [state]="state"
+    [selectorAddRegular]="selectorAdd"
+    [selectorAdd]="selectorAddHover"
+    [bgVar]="'--bg-ith'">
+  </mo-wb-landing-editor-inspector-design-elements-background>
+  
+  <mo-wb-landing-editor-inspector-design-elements-text
+    [state]="state"
+    [textClass]="'menuItem-label'"
+    [selectorAddRegular]="selectorAddText"
+    [selectorAdd]="selectorAddTextHover">
+  </mo-wb-landing-editor-inspector-design-elements-text>
+
+  <mo-wb-landing-editor-inspector-design-elements-border 
+    [state]="state"
+    [isOpen]="false"
+    [selectorAddRegular]="selectorAdd"
+    [selectorAdd]="selectorAddHover"
+    [brwVar]="'--brw-ith'"
+    [brcVar]="'--brc-ith'"
+    [brsVar]="'--brs-ith'">
+  </mo-wb-landing-editor-inspector-design-elements-border>
+
+  <mo-wb-landing-editor-inspector-design-elements-shadow
+    [state]="state"
+    [isOpen]="false"
+    [selectorAddRegular]="selectorAdd"
+    [selectorAdd]="selectorAddHover"
+    [shdVar]="'--shd-ith'">
+  </mo-wb-landing-editor-inspector-design-elements-shadow>
+</div>
+
+<!-- Clicked state -->
+<div *ngIf="state === 'CLICKED'">
+  <mo-wb-landing-editor-inspector-design-elements-background 
+    [state]="state"
+    [selectorAddRegular]="selectorAdd"
+    [selectorAdd]="selectorAddClicked"
+    [bgVar]="'--bg-itc'">
+  </mo-wb-landing-editor-inspector-design-elements-background>
+  
+  <mo-wb-landing-editor-inspector-design-elements-text
+    [state]="state"
+    [textClass]="'menuItem-label'"
+    [selectorAddRegular]="selectorAddText"
+    [selectorAdd]="selectorAddTextClicked">
+  </mo-wb-landing-editor-inspector-design-elements-text>
+
+  <mo-wb-landing-editor-inspector-design-elements-border 
+    [state]="state"
+    [isOpen]="false"
+    [selectorAddRegular]="selectorAdd"
+    [selectorAdd]="selectorAddClicked"
+    [brwVar]="'--brw-itc'"
+    [brcVar]="'--brc-itc'"
+    [brsVar]="'--brs-itc'">
+  </mo-wb-landing-editor-inspector-design-elements-border>
+
+  <mo-wb-landing-editor-inspector-design-elements-shadow
+    [state]="state"
+    [isOpen]="false"
+    [selectorAddRegular]="selectorAdd"
+    [selectorAdd]="selectorAddClicked"
+    [shdVar]="'--shd-itc'">
+  </mo-wb-landing-editor-inspector-design-elements-shadow>
+</div>

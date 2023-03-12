@@ -1,0 +1,32 @@
+<mo-wb-components-toggle_panel-section
+  [title]="'Hiển thị'">
+  <div>
+    <mo-wb-components-dropdown
+        [label]="'Kiểu hiển thị'"
+        [defaultTitle]="''"
+        [tooltip]="''"
+        [items]="dsTypes"
+        [selectedId]="dsType"
+        [key]="'id'"
+        [keyName]="'name'"
+        [classInclude]="'w-100'"
+        (onSelectedItem)="handleOnSelectDisplayType($event);">
+    </mo-wb-components-dropdown>
+
+      <mo-wb-landing-editor-inspector-comps-element-card-repeater
+        *ngIf="dsType === 'card'">
+      </mo-wb-landing-editor-inspector-comps-element-card-repeater>
+
+      <mo-wb-landing-editor-inspector-comps-element-list-repeater
+        *ngIf="dsType === 'list'">
+      </mo-wb-landing-editor-inspector-comps-element-list-repeater>
+
+      <mo-wb-landing-editor-inspector-comps-element-slide-repeater
+        *ngIf="dsType === 'slide'">
+      </mo-wb-landing-editor-inspector-comps-element-slide-repeater>
+
+      <mo-wb-landing-editor-inspector-comps-element-cell-repeater
+        *ngIf="dsType === 'cell'">
+      </mo-wb-landing-editor-inspector-comps-element-cell-repeater>  
+  </div>
+ </mo-wb-components-toggle_panel-section>

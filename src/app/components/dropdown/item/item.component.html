@@ -1,0 +1,16 @@
+
+<div *ngIf="!item.header" 
+  class="w-100 mo-wb-h-28px d-flex  mo-wb-pr-12px 
+  justify-content-between align-items-center mo-wb-cursor-pointer mo-wb-bg-hover-ebf0f5
+  {{ item[key] === selectedId || item._id === selectedId ? 'mo-wb-cursor-default mo-wb-color-009cdb' : '' }}
+  {{ level > 1 ? ' mo-wb-pl-20px ' : ' mo-wb-pl-12px '}}"
+  (click)="handleOnItemClick($event,item)">
+  <span *ngIf="!item.html">{{ item[keyName] |translate}}</span>
+  <div *ngIf="item.html" class="w-100" [innerHTML]="item.html | safeHtml"></div>
+  <i *ngIf="item[key] === selectedId || item._id === selectedId" class="mo-wb-color-009cdb mo-icn-complete-step selected-icon"></i>
+</div>
+
+<div *ngIf="item.header"
+  class="w-100 mo-wb-font-head-4s mo-wb-h-28px d-flex mo-wb-pl-12px mo-wb-pr-12px  align-items-center mo-wb-cursor-default">
+  {{ (item[keyName] | translate).toUpperCase()}}
+</div>

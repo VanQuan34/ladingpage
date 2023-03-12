@@ -1,0 +1,53 @@
+<div class="mo-wb-border-top-general mo-wb-mt-20px">
+  <mo-wb-components-dropdown
+    [label]="'Hướng'"
+    [defaultTitle]="''"
+    [tooltip]="''"
+    [items]="listDirections"
+    [selectedId]="direction"
+    [key]="'id'"
+    [keyName]="'name'"
+    [classInclude]="'w-100 mo-wb-mt-15px'"
+    (onSelectedItem)="handleOnSelectDirectionType($event);">
+  </mo-wb-components-dropdown>
+  <div class="d-flex justify-content-between mo-wb-mt-20px">
+    <div class="mo-wb-calc-w-80px">
+      <span class="mo-wb-font-head-4s mo-wb-top-5px position-relative">{{'Khoảng cách' | translate}}</span>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <mo-wb-components-input-number
+        #gapLR_IP
+        [step]="1"
+        [value]="gapLR"
+        [max]="100"
+        [min]="0"
+        [unit]="'px'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnChangeDistanceHorizontal($event)">
+      </mo-wb-components-input-number>
+      <svg class="mo-wb-mt-5px" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 12 12"><path fill-rule="evenodd" d="M9 6H3V4.001l-3 2.5 3 2.501V7h6v2.002l3-2.501-3-2.5z"></path></svg>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <mo-wb-components-input-number
+        #gapTB_IP
+        [step]="1"
+        [value]="gapTB"
+        [max]="100"
+        [min]="0"
+        [unit]="'px'"
+        [hasPlusButton]="true"
+        [classInclude]="'mo-wb-w-70px mo-wb-ml-10px'"
+        (onValueChanged)="handleOnChangeDistanceVertical($event)">
+      </mo-wb-components-input-number>
+    <svg class="mo-wb-mt-5px" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 12 12"><path fill-rule="evenodd" d="m5.499 0-2.5 3H5v6H2.999l2.5 3 2.5-3H6V3h1.999z"></path></svg>
+    </div>
+    </div>
+    <div class="d-flex justify-content-between mo-wb-mt-20px">
+      <span class="mo-wb-font-head-4s">{{'Hiển thị thanh cuộn' |  translate}}</span>
+      <mo-wb-components-button-toggle_button
+        [active]="onScroll"
+        (onChangeToggle)="handleOnScrollChange($event)">
+      </mo-wb-components-button-toggle_button>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<mo-wb-components-modal #modal 
+  [title]=" (folderId ? 'i18n_edit_folder' : 'i18n_add_new_folder') | translate" 
+  [width]="'598px'"
+  [maxWidth]="'1200px'"
+  [height]="modalHeight"
+  [zIndex]="zIndex"
+  (onClose)="handleOnCloseModal()"
+  (onClosed)="handleOnCancelModal()">
+  <div class="large-container media-store-add-edit-container">
+    <mo-wb-components-input
+      #input
+      [isRequired]="false"
+      [title]="'i18n_folder_lowercase' | translate"
+      [maxLength]="20"
+      [classInclude]="'mo-wb-pl-0px'"
+      [placeholder]="'i18n_import_content' | translate"
+      [hideTextRequire]="true"
+      (onEventInput)="handleOnEventChange($event);"
+      (onValueChanged)="handleOnNameChanged($event);">
+    </mo-wb-components-input>
+  </div>
+  <div class="footer-container">
+    <mo-wb-components-button
+      [disable]="loading"
+      [label]="'i18n_save'"
+      [disable]="loading"
+      (onClick)="handleOnSaveClick()"
+      [disable]="">
+    </mo-wb-components-button>
+    <mo-wb-components-button
+      [disable]="loading"
+      [type]="'dark'"
+      label="i18n_cancel"
+      (onClick)="handleOnCancelModal()">
+    </mo-wb-components-button>
+  </div>
+</mo-wb-components-modal>

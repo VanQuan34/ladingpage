@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Postgraduate",
+        "display_in_form": true
+    },
+    {
+        "id": 2,
+        "name": "Graduate",
+        "display_in_form": true
+    },
+    {
+        "id": 3,
+        "name": "College",
+        "display_in_form": true
+    },
+    {
+        "id": 4,
+        "name": "Intermediate",
+        "display_in_form": true
+    },
+    {
+        "id": 5,
+        "name": "High school",
+        "display_in_form": true
+    }
+]

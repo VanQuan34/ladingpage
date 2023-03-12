@@ -1,0 +1,34 @@
+.mo-wb-comp-selected {
+  border: 1px solid var(--blue);
+}
+
+.mo-wb-comp-container-selection {
+  outline: 4px solid var(--blue-5);
+  border-radius: 2px;
+}
+
+.mo-wb-comp-selected-moving {
+  border: 1px solid var(--text2);
+}
+
+.mo-wb-add-section-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  background-color: var(--blue);
+  position: fixed;
+  z-index: 1400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.mo-wb-section-empty {
+  z-index: 1200;
+  flex-direction: column;
+  width: 300px;
+}

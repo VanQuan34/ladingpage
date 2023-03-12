@@ -1,0 +1,31 @@
+:host {
+  .mo-wb-radio {
+    display: flex;
+    align-items: center;
+
+    .mo-wb-radio-type-medium::before {
+      font-size: 20px !important;
+    }
+
+    .mo-icn-radio,
+    .mo-icn-radio-check {
+      font-size: 12px;
+      cursor: pointer;
+
+      &::before {
+        font-size: 12px;
+      }
+    }
+
+    .mo-wb-label {
+      padding-left: 8px;
+      line-height: 18px;
+      cursor: default;
+    }
+
+    .mo-icn-radio-check::before {
+      color: #009cdb;
+    }
+  }
+
+}

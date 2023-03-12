@@ -1,0 +1,23 @@
+.page-list-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 5000000000;
+  cursor: pointer;
+}
+
+.mo-wb-page-list {
+  position: absolute;
+  width: 180px;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mo-wb-page-list-item {
+  &:hover {
+    background-color: var(--gray1);
+  }
+}

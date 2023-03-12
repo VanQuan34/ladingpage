@@ -1,0 +1,37 @@
+mo-wb-components-button:before {
+  content: attr(tooltip);
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%) translateY(-100%);
+  background: #333;
+  text-align: center;
+  color: var(--main-white);
+  font-size: 11px;
+  border-radius: 5px;
+  pointer-events: none;
+  padding: 7px;
+  z-index: 1000000000;
+  opacity: 0;
+  white-space: nowrap;
+  text-transform: none;
+  color: #fff;
+}
+mo-wb-components-button:after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 6px 0 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  z-index: 1000000000;
+  opacity: 0;
+}
+mo-wb-components-button:hover:before, mo-wb-components-button:hover:after {
+  opacity: 1;
+}
+mo-wb-components-button{
+  position: relative;
+}

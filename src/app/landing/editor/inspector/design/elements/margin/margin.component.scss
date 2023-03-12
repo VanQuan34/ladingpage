@@ -1,0 +1,27 @@
+.border-radius-top-left {
+  top: 20px;
+  left: 50%;
+  transform: translate(-50px, 0);
+}
+
+.border-radius-top-right {
+  top: 20px;
+  right: 50%;
+  transform: translate(50px, 0);
+}
+
+
+.border-radius-bottom-right {
+  bottom: 20px;
+  right: 50%;
+  transform: translate(50px, 0);
+}
+
+.border-radius-bottom-left {
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50px, 0);
+}
+path{
+  fill: #333;
+}
