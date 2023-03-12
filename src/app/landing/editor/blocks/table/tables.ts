@@ -114,21 +114,21 @@ class MoTableBlock {
         <table class="wp-block-table has-fixed-layout">
         <thead class="thead">
         <tr>
-            <th><div class="mo-comp" resizable="false" draggable="false" removable="false" moveable mo-type="text"><p class="font-8 mo-text" data-mo-type="text" data-highlightable="1">Column1</p></div></th>
-            <th><div class="mo-comp" resizable="false" draggable="false" removable="false" mo-type="text"><p class="font-8 mo-text" data-mo-type="text" data-highlightable="1">Column2</p></div></th>
-            <th><div class="mo-comp" resizable="false" draggable="false" removable="false" mo-type="text"><p class="font-8 mo-text" data-mo-type="text" data-highlightable="1">Column3</p></div></th>
+            <th><div class="mo-comp" data-columns="1" resizable="false" draggable="false" removable="false" moveable mo-type="text"><p class="font-8 mo-text" data-mo-type="text" data-highlightable="1">Column1</p></div></th>
+            <th><div class="mo-comp" data-columns="2" resizable="false" draggable="false" removable="false" mo-type="text"><p class="font-8 mo-text" data-mo-type="text" data-highlightable="1">Column2</p></div></th>
+            <th><div class="mo-comp" data-columns="3" resizable="false" draggable="false" removable="false" mo-type="text"><p class="font-8 mo-text" data-mo-type="text" data-highlightable="1">Column3</p></div></th>
         </tr>
         </thead>
         <tbody class="tbody">
         <tr>
-            <td role="textbox" aria-multiline="true" aria-label="Body cell text" class="block-editor-rich-text__editable wp-block-table__cell-content rich-text" contenteditable="true" style="white-space: pre-wrap; min-width: 1px;">ÁDSDS</td>
-            <td role="textbox" aria-multiline="true" aria-label="Body cell text" class="block-editor-rich-text__editable wp-block-table__cell-content rich-text" contenteditable="true" style="white-space: pre-wrap; min-width: 1px;">﻿</td>
-            <td role="textbox" aria-multiline="true" aria-label="Body cell text" class="block-editor-rich-text__editable wp-block-table__cell-content rich-text" contenteditable="true" style="white-space: pre-wrap; min-width: 1px;">SADSAD</td>
+            <td data-columns="1" data-rows="1" style="white-space: pre-wrap; min-width: 1px;">ÁDSDS</td>
+            <td data-columns="2" data-rows="1" style="white-space: pre-wrap; min-width: 1px;">﻿</td>
+            <td data-columns="3" data-rows="1" style="white-space: pre-wrap; min-width: 1px;">﻿</td>
         </tr>
         <tr>
-            <td role="textbox" aria-multiline="true" aria-label="Body cell text" class="block-editor-rich-text__editable wp-block-table__cell-content rich-text" contenteditable="true" style="white-space: pre-wrap; min-width: 1px;">dsadassad</td>
-            <td role="textbox" aria-multiline="true" aria-label="Body cell text" class="block-editor-rich-text__editable wp-block-table__cell-content rich-text" contenteditable="true" style="white-space: pre-wrap; min-width: 1px;">﻿</td>
-            <td role="textbox" aria-multiline="true" aria-label="Body cell text" class="block-editor-rich-text__editable wp-block-table__cell-content rich-text" contenteditable="true" style="white-space: pre-wrap; min-width: 1px;">﻿</td>
+            <td data-columns="1" data-rows="2" style="white-space: pre-wrap; min-width: 1px;">dsadassad</td>
+            <td data-columns="2" data-rows="2" role="textbox" style="white-space: pre-wrap; min-width: 1px;">﻿</td>
+            <td data-columns="3" data-rows="2" role="textbox" style="white-space: pre-wrap; min-width: 1px;">﻿</td>
         </tr>
         </tbody>
         </table>
